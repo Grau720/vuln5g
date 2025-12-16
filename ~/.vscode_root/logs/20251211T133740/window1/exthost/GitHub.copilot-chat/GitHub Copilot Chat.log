@@ -1,0 +1,51 @@
+2025-12-11 13:39:12.568 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-11 13:39:12.568 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-11 13:39:12.568 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-11 13:39:12.568 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-11 13:39:12.710 [info] Logged in as Grau720
+2025-12-11 13:39:12.726 [info] Using the Electron fetcher.
+2025-12-11 13:39:13.002 [error] Copilot extension not found
+2025-12-11 13:39:13.472 [info] Got Copilot token for Grau720
+2025-12-11 13:39:13.473 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-11 13:39:13.521 [info] activationBlocker from 'languageModelAccess' took for 675ms
+2025-12-11 13:39:13.616 [info] Creating node-pty shim: source=/usr/share/code/resources/app/node_modules/node-pty/build/Release, dest=/root/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/prebuilds/linux-x64
+2025-12-11 13:39:13.617 [info] Creating ripgrep shim: source=/usr/share/code/resources/app/node_modules/@vscode/ripgrep/bin, dest=/root/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64
+2025-12-11 13:39:13.829 [info] Found 1 entries to copy: pty.node
+2025-12-11 13:39:13.835 [info] Found 1 entries to copy: rg
+2025-12-11 13:39:17.819 [info] Fetched model metadata in 4865ms 6b5c6a16-5c4d-45fc-9dc7-ba4ce7a649b7
+2025-12-11 13:39:18.043 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-11 13:39:18.044 [info] ccreq:dad542fa.copilotmd | markdown
+2025-12-11 13:39:20.754 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-11 13:39:20.754 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-11 13:39:21.119 [info] Registering default platform agent...
+2025-12-11 13:39:21.130 [info] [code-referencing] Public code references are enabled.
+2025-12-11 13:39:21.132 [info] activationBlocker from 'conversationFeature' took for 8341ms
+2025-12-11 13:39:21.791 [info] Fetched model metadata in 1043ms 1d75173b-376c-48b0-9d74-ad7b0637f6ca
+2025-12-11 13:39:21.796 [info] BYOK: Copilot Chat known models list fetched successfully.
+2025-12-11 13:39:21.804 [info] GithubAvailableEmbeddingTypesManager: Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+2025-12-11 13:39:21.821 [info] WorkspaceChunkSearchService: using embedding type metis-1024-I16-Binary
+2025-12-11 13:39:21.858 [info] ccreq:97784c81.copilotmd | markdown
+2025-12-11 13:39:27.550 [info] Refetch model metadata: Succeeded in 744ms 375f25d8-3aa8-46d4-9f37-f8139b07631d (CA71:F7528:167F7D9:19B990A:693ABB81) using node-fetch with status 200.
+2025-12-11 13:39:28.522 [info] Refetch model metadata: Succeeded in 841ms 385428a5-e620-4f45-8819-70c9c18c7e68 (CA72:14E851:169BF30:19D5CED:693ABB82) using electron-fetch with status 200.
+2025-12-11 13:39:29.615 [info] Refetch model metadata: Succeeded in 1092ms 3707fc4c-be6a-4677-8871-0800b6e011fd (CA73:14E851:169C444:19D62EE:693ABB83) using node-http with status 200.
+2025-12-11 14:34:24.573 [info] Logged in as Grau720
+2025-12-11 14:34:25.203 [info] Got Copilot token for Grau720
+2025-12-11 14:34:25.205 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-11 14:34:26.702 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-11 14:34:26.712 [info] [code-referencing] Public code references are enabled.
+2025-12-11 14:34:26.930 [info] Fetched model metadata in 300ms 8a54b055-b0ec-4887-948d-c24e9dbab346
+2025-12-11 14:34:27.197 [info] ccreq:6493e2f5.copilotmd | markdown
+2025-12-11 15:29:31.905 [info] Logged in as Grau720
+2025-12-11 15:29:32.503 [info] Got Copilot token for Grau720
+2025-12-11 15:29:32.503 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-11 15:29:32.644 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-11 15:29:32.645 [info] [code-referencing] Public code references are enabled.
+2025-12-11 15:29:32.866 [info] Fetched model metadata in 227ms 15a57866-aef4-49b6-b11f-b86bcdad1fa5
+2025-12-11 15:29:33.031 [info] ccreq:bdff7796.copilotmd | markdown
+2025-12-11 16:24:42.972 [info] Logged in as Grau720
+2025-12-11 16:24:43.586 [info] Got Copilot token for Grau720
+2025-12-11 16:24:43.586 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-11 16:24:43.888 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-11 16:24:43.888 [info] [code-referencing] Public code references are enabled.
+2025-12-11 16:24:44.032 [info] Fetched model metadata in 150ms fe1ff848-fc88-43dd-9fb6-21283804ceae
+2025-12-11 16:24:44.154 [info] ccreq:d879f1e1.copilotmd | markdown

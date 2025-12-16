@@ -1,0 +1,14 @@
+{
+  "environment": {
+    "executable": "/root/.pyenv/versions/3.11.8/bin/python",
+    "prefix": "/root/.pyenv/versions/3.11.8",
+    "version": "3.11.8.final.0",
+    "is64Bit": true,
+    "symlinks": [
+      "/root/.pyenv/versions/3.11.8/bin/python",
+      "/root/.pyenv/versions/3.11.8/bin/python3",
+      "/root/.pyenv/versions/3.11.8/bin/python3.11"
+    ]
+  },
+  "symlinks": []
+}

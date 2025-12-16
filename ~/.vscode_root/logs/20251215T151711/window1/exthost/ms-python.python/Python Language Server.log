@@ -1,0 +1,48 @@
+2025-12-15 15:18:06.256 [info] Client: Pylance client (2025.10.4) started with python extension (2025.20.0)
+2025-12-15 15:18:07.918 [info] (4700): Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-15 15:18:07.923 [info] (4700): Pylance language server 2025.10.4 (pyright version 1.1.407, commit 906e40aa) starting
+2025-12-15 15:18:07.933 [info] (4700): Starting service instance "vulndb-5g" for workspace "/home/pablo/code/vulndb-5g"
+2025-12-15 15:18:10.817 [info] (4700): Loading background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js into file:///home/pablo/code/vulndb-5g...
+2025-12-15 15:18:11.111 [info] (4700): Starting Mcp server id:5791 ...
+2025-12-15 15:18:11.290 [info] (4700): FG(vulndb-5g): Setting environmentName for service "vulndb-5g": "3.13.7 (.venv venv)"
+2025-12-15 15:18:11.291 [info] (4700): FG(vulndb-5g): Setting pythonPath for service "vulndb-5g": "/home/pablo/code/vulndb-5g/.venv/bin/python"
+2025-12-15 15:18:11.305 [info] (4700): FG(vulndb-5g): No include entries specified; assuming /home/pablo/code/vulndb-5g
+2025-12-15 15:18:11.306 [info] (4700): FG(vulndb-5g): Auto-excluding **/node_modules
+2025-12-15 15:18:11.306 [info] (4700): FG(vulndb-5g): Auto-excluding **/__pycache__
+2025-12-15 15:18:11.307 [info] (4700): FG(vulndb-5g): Auto-excluding **/.*
+2025-12-15 15:18:11.471 [info] (4700): FG(vulndb-5g): Assuming Python version 3.13.7.final.0
+2025-12-15 15:18:14.529 [info] (4700): FG(vulndb-5g): Found 101 source files
+2025-12-15 15:18:14.645 [info] (4700): Settings have not changed. Skipping update.
+2025-12-15 15:18:17.482 [info] (4700): PQ(vulndb-5g): Priority queue background worker(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-15 15:18:17.500 [info] (4700): PQ(vulndb-5g): Priority queue background worker(2) started
+2025-12-15 15:18:21.033 [info] (4700): IDX(vulndb-5g): Indexer background runner(3) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist (index)
+2025-12-15 15:18:21.054 [info] (4700): IDX(vulndb-5g): Indexing(3) started
+2025-12-15 15:18:21.145 [info] (4700): BG(vulndb-5g): Loaded external background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js. 
+2025-12-15 15:18:26.382 [info] (4700): BG(vulndb-5g): Long operation: SemanticTokens range 161:0 - 234:24 at file:///home/pablo/code/vulndb-5g/services/ingest/fetch.py (4729ms)
+2025-12-15 15:18:28.588 [info] (4700): IDX(vulndb-5g): Long operation: scan packages file:///home/pablo/code/vulndb-5g (6806ms)
+2025-12-15 15:18:28.595 [info] (4700): IDX(vulndb-5g): scanned(3) 55 files over 1 exec env
+2025-12-15 15:18:32.837 [info] (4700): IDX(vulndb-5g): Long operation: index execution environment file:///home/pablo/code/vulndb-5g (3255ms)
+2025-12-15 15:18:32.872 [info] (4700): IDX(vulndb-5g): Long operation: index packages file:///home/pablo/code/vulndb-5g (3424ms)
+2025-12-15 15:18:32.874 [info] (4700): IDX(vulndb-5g): indexed(3) 55 files over 1 exec env
+2025-12-15 15:18:32.901 [info] (4700): IDX(vulndb-5g): Indexing finished(3).
+2025-12-15 15:31:19.212 [info] (4700): Starting service instance "<default>" for workspace ""
+2025-12-15 15:31:19.233 [info] (4700): Loading background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js into ...
+2025-12-15 15:31:19.770 [info] (4700): FG(<default>): Setting environmentName for service "<default>": "3.13.7 (.venv venv)"
+2025-12-15 15:31:19.773 [info] (4700): FG(<default>): Setting pythonPath for service "<default>": "/home/pablo/code/vulndb-5g/.venv/bin/python"
+2025-12-15 15:31:19.774 [info] (4700): FG(<default>): No include entries specified; assuming /<default workspace root>
+2025-12-15 15:31:19.776 [info] (4700): FG(<default>): Auto-excluding **/node_modules
+2025-12-15 15:31:19.777 [info] (4700): FG(<default>): Auto-excluding **/__pycache__
+2025-12-15 15:31:19.778 [info] (4700): FG(<default>): Auto-excluding **/.*
+2025-12-15 15:31:20.009 [info] (4700): FG(<default>): Assuming Python version 3.13.7.final.0
+2025-12-15 15:31:22.524 [error] (4700): FG(<default>): File or directory "/<default workspace root>" does not exist.
+2025-12-15 15:31:22.525 [info] (4700): FG(<default>): No source files found.
+2025-12-15 15:31:24.909 [info] (4700): PQ(<default>): Priority queue background worker(5) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-15 15:31:24.915 [info] (4700): PQ(<default>): Priority queue background worker(5) started
+2025-12-15 15:31:27.207 [info] (4700): BG(<default>): Loaded external background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js. 
+2025-12-15 15:51:42.716 [info] (4700): FG(vulndb-5g): Found 101 source files
+2025-12-15 15:51:45.837 [info] (4700): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/scripts/ingest.py (2745ms)
+2025-12-15 15:51:45.838 [info] (4700): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/scripts/ingest.py (2750ms)
+2025-12-15 16:38:26.920 [info] (4700): FG(vulndb-5g): Found 102 source files
+2025-12-15 16:38:32.051 [info] (4700): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/services/ia/analyze_model.py (4026ms)
+2025-12-15 16:38:32.061 [info] (4700): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/services/ia/analyze_model.py (4217ms)
+2025-12-15 17:20:46.579 [info] (4700): BG(vulndb-5g): Long operation: SemanticTokens delta previousResultId:1765815641513 at file:///home/pablo/code/vulndb-5g/api/routes/ia_api.py (2189ms)

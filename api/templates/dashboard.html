@@ -1,0 +1,72 @@
+<!-- api/templates/dashboard.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📊 Dashboard 5G</title>
+
+  <!-- ✅ Aplicar tema lo antes posible para evitar flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
+        var cls = theme === 'dark' ? 'theme-cosmos' : 'theme-light';
+        var root = document.documentElement;
+        root.classList.add(cls);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/assets/app.css') }}">
+  <style>
+    /* Fallbacks suaves por si cargan antes que tu app.css */
+    :root.theme-light {
+      --app-bg: #f8fafc;
+      --fg: #0f172a;
+      --panel-bg: #ffffff;
+      --panel-border: #e2e8f0;
+      --panel-muted: #f1f5f9;
+    }
+    :root.theme-cosmos {
+      --app-bg: #0b1220;   /* fondo oscuro que usas en el dashboard */
+      --fg: #e2e8f0;
+      --panel-bg: #0f172a;
+      --panel-border: #1f2a44;
+      --panel-muted: #111827;
+    }
+    html, body {
+      height: 100%;
+      background: var(--app-bg);
+      color: var(--fg);
+    }
+    /* Barra superior (si usas el TopNav de App.tsx) */
+    .topnav {
+      position: sticky; top: 0; z-index: 40;
+      background: var(--panel-bg);
+      border-bottom: 1px solid var(--panel-border);
+      backdrop-filter: saturate(120%) blur(6px);
+    }
+    .topnav-inner {
+      max-width: 1600px; margin: 0 auto;
+      padding: .5rem .75rem;
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+    }
+    .topnav .links a {
+      display: inline-block; padding: .375rem .625rem;
+      border-radius: .5rem; color: var(--fg); text-decoration: none; opacity: .9;
+    }
+    .topnav .links a:hover { opacity: 1; }
+    .topnav .links a.active { background: var(--panel-muted); border: 1px solid var(--panel-border); }
+    .topnav { box-shadow: 0 2px 12px rgba(0,0,0,.18); }
+    .topnav-inner { max-width: 1280px; }
+    .btn.btn-ghost { border: 1px solid var(--panel-border); background: var(--panel-muted); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="{{ url_for('static', filename='dist/assets/app.js') }}"></script>
+</body>
+</html>

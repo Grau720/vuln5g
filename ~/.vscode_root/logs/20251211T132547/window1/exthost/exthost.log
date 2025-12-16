@@ -1,0 +1,98 @@
+2025-12-11 13:25:58.561 [info] Extension host with pid 3047 started
+2025-12-11 13:25:58.561 [info] Skipping acquiring lock for /home/pablo/Descargas/code/vulndb-5g/~/.vscode_root/User/workspaceStorage/e54bed8c0360b27f8f12c20a475e8a2d.
+2025-12-11 13:25:59.141 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-11 13:25:59.189 [info] ExtensionService#_doActivateExtension ms-python.python, startup: true, activationEvent: 'workspaceContains:requirements.txt'
+2025-12-11 13:26:00.263 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-11 13:26:00.906 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-11 13:26:01.718 [info] Eager extensions activated
+2025-12-11 13:26:01.743 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-11 13:26:01.751 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-11 13:26:02.890 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-11 13:26:05.256 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-11 13:26:07.611 [error] Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at R (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:105:19265)
+	at get testResults (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:173:32518)
+	at x.activate (/root/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:946549)
+	at /root/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2457
+	at Array.map (<anonymous>)
+	at v.activateWorkspace (/root/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2447)
+2025-12-11 13:27:10.124 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-11 13:27:10.152 [error] Canceled: Canceled
+	at new HR (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:111362)
+	at i4.U (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:115973)
+	at s.<computed>.n.charCodeAt.s.<computed> (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:113467)
+	at vw.g (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40983)
+	at vw.executeCommand (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40487)
+	at r.registerCommand.description (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:39817)
+	at vw.h (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:41503)
+	at vw.g (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40580)
+	at vw.executeCommand (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40487)
+	at Object.executeCommand (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:173:30346)
+	at Ah.onRepository [as value] (/usr/lib/code-oss/resources/app/extensions/git/out/main.js:121:50)
+	at D.B (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2375)
+	at D.C (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2445)
+	at D.fire (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2662)
+	at Object.dispose (/usr/lib/code-oss/resources/app/extensions/git/out/model.js:668:40)
+	at /usr/lib/code-oss/resources/app/extensions/git/out/model.js:918:41
+	at Array.forEach (<anonymous>)
+	at Model.dispose (/usr/lib/code-oss/resources/app/extensions/git/out/model.js:918:26)
+	at iv.<anonymous> (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:107:8922)
+	at iv.dispose (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:107:9018)
+	at iv.<anonymous> (/usr/lib/code-oss/resources/app/extensions/git/out/main.js:186:103)
+	at iv.dispose (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:107:9018)
+	at pi (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:701)
+	at file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:14994
+	at file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:1011
+	at Object.dispose (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:8:705)
+	at vV.eb (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:11921)
+	at file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:9876
+	at Array.map (<anonymous>)
+	at vV.$ (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:9864)
+	at vV.terminate (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:10107)
+	at oD.terminate (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:1434)
+	at es (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:197:5701)
+	at MessagePortMain.<anonymous> (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:197:2249)
+	at MessagePortMain.emit (node:events:518:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949) setContext undefined
+2025-12-11 13:27:10.152 [error] Canceled: Canceled
+	at new HR (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:111362)
+	at i4.U (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:115973)
+	at s.<computed>.n.charCodeAt.s.<computed> (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:113467)
+	at vw.g (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40983)
+	at vw.executeCommand (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40487)
+	at r.registerCommand.description (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:39817)
+	at vw.h (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:41503)
+	at vw.g (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40580)
+	at vw.executeCommand (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:40487)
+	at Object.executeCommand (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:173:30346)
+	at set hasGitHubRepositories (/usr/lib/code-oss/resources/app/extensions/github/out/shareProviders.js:46:25)
+	at /usr/lib/code-oss/resources/app/extensions/github/out/shareProviders.js:78:44
+	at Ah.value (/usr/lib/code-oss/resources/app/extensions/git/out/util.js:73:69)
+	at D.B (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2375)
+	at D.C (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2445)
+	at D.fire (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2662)
+	at Object.dispose (/usr/lib/code-oss/resources/app/extensions/git/out/model.js:668:40)
+	at /usr/lib/code-oss/resources/app/extensions/git/out/model.js:918:41
+	at Array.forEach (<anonymous>)
+	at Model.dispose (/usr/lib/code-oss/resources/app/extensions/git/out/model.js:918:26)
+	at iv.<anonymous> (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:107:8922)
+	at iv.dispose (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:107:9018)
+	at iv.<anonymous> (/usr/lib/code-oss/resources/app/extensions/git/out/main.js:186:103)
+	at iv.dispose (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:107:9018)
+	at pi (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:701)
+	at file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:14994
+	at file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:1011
+	at Object.dispose (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:8:705)
+	at vV.eb (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:11921)
+	at file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:9876
+	at Array.map (<anonymous>)
+	at vV.$ (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:9864)
+	at vV.terminate (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:115:10107)
+	at oD.terminate (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:1434)
+	at es (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:197:5701)
+	at MessagePortMain.<anonymous> (file:///usr/lib/code-oss/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:197:2249)
+	at MessagePortMain.emit (node:events:518:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949) setContext undefined
+2025-12-11 13:27:10.156 [info] Extension host with pid 3047 exiting with code 0

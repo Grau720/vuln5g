@@ -1,0 +1,290 @@
+2025-12-16 08:41:49.739 [info] Extension host with pid 3847 started
+2025-12-16 08:41:49.739 [info] Skipping acquiring lock for /home/pablo/code/vulndb-5g/~/.vscode_root/User/workspaceStorage/fe06d59c31d4c1f208fdfa32acf0afc8.
+2025-12-16 08:41:53.509 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-16 08:41:54.076 [info] ExtensionService#_doActivateExtension mechatroner.rainbow-csv, startup: false, activationEvent: 'onLanguage:plaintext'
+2025-12-16 08:41:54.108 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-16 08:41:54.163 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2025-12-16 08:41:57.657 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'
+2025-12-16 08:42:07.567 [info] ExtensionService#_doActivateExtension ms-python.vscode-python-envs, startup: false, activationEvent: 'onLanguage:python'
+2025-12-16 08:42:08.008 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onChatSession:copilotcli'
+2025-12-16 08:42:18.003 [info] Not activating extension 'ms-python.python': Timed out while searching for 'workspaceContains' pattern **/pylock.*.toml
+2025-12-16 08:42:18.083 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-16 08:42:19.719 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-16 08:42:19.748 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-16 08:42:20.923 [info] ExtensionService#_doActivateExtension ms-azuretools.vscode-containers, startup: false, activationEvent: 'onView:vscode-containers.views.containers'
+2025-12-16 08:42:22.999 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-16 08:43:01.465 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-16 08:43:01.499 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-12-16 08:43:15.180 [info] Eager extensions activated
+2025-12-16 08:43:15.573 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2025-12-16 08:43:17.343 [error] Error: chatParticipant must be declared in package.json: claude-code
+    at PXt.$registerAgent (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:517:9858)
+2025-12-16 08:43:18.751 [info] ExtensionService#_doActivateExtension vscode.terminal-suggest, startup: false, activationEvent: 'onTerminalShellIntegration:*'
+2025-12-16 08:43:23.541 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:43:23.543 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async tC._fetchModels (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:5764:4429)
+	at async tC.getAllChatModels (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:5764:2353)
+	at async uM.getAllChatEndpoints (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:5764:13748)
+2025-12-16 08:43:23.545 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:43:33.095 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-12-16 08:43:39.024 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-16 08:43:39.368 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-16 08:43:39.395 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-12-16 08:43:40.211 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-16 08:43:40.642 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-16 08:57:19.294 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:57:27.344 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:57:36.235 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:57:46.696 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:58:21.090 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:58:49.851 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:59:08.810 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:59:27.854 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 08:59:33.424 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2025-12-16 08:59:38.341 [info] ExtensionService#_doActivateExtension vscode.markdown-math, startup: false, activationEvent: 'api', root cause: vscode.markdown-language-features
+2025-12-16 09:00:05.091 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:01:30.473 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:08:02.116 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:18:40.303 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:19:39.961 [error] Error: illegal state - object is disposed
+	at TN.j (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112488)
+	at TN.delete (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112006)
+	at p.forgetDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1862240)
+	at y.cleanUpDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1872440)
+	at _d.value (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1871740)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at _d.e [as value] (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:685535)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at a4.$acceptTabOperation (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:125:25037)
+	at l5.S (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:125043)
+	at l5.Q (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:124823)
+	at l5.M (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123912)
+	at l5.L (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123017)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:121814)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:9330)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:7564)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-16 09:19:39.969 [error] Error: illegal state - object is disposed
+	at TN.j (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112488)
+	at TN.delete (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112006)
+	at p.forgetDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1862240)
+	at y.cleanUpDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1872440)
+	at _d.value (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1871740)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at _d.e [as value] (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:685535)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at a4.$acceptTabOperation (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:125:25037)
+	at l5.S (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:125043)
+	at l5.Q (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:124823)
+	at l5.M (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123912)
+	at l5.L (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123017)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:121814)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:9330)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:7564)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-16 09:20:02.913 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:20:13.647 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:20:20.919 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:32:15.448 [error] Error: illegal state - object is disposed
+	at TN.j (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112488)
+	at TN.delete (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112006)
+	at p.forgetDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1862240)
+	at y.cleanUpDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1872440)
+	at _d.value (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1871740)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at _d.e [as value] (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:685535)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at a4.$acceptTabOperation (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:125:25037)
+	at l5.S (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:125043)
+	at l5.Q (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:124823)
+	at l5.M (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123912)
+	at l5.L (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123017)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:121814)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:9330)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:7564)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-16 09:32:15.456 [error] Error: illegal state - object is disposed
+	at TN.j (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112488)
+	at TN.delete (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:112006)
+	at p.forgetDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1862240)
+	at y.cleanUpDocument (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1872440)
+	at _d.value (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:1871740)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at _d.e [as value] (/root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/vendor.bundle.js:2:685535)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.D (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2398)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2615)
+	at a4.$acceptTabOperation (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:125:25037)
+	at l5.S (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:125043)
+	at l5.Q (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:124823)
+	at l5.M (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123912)
+	at l5.L (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123017)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:121814)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:9330)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:7564)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-16 09:36:30.771 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:39:29.434 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:40:49.939 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:40:59.201 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:41:16.416 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:42:40.831 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:45:46.654 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:50:56.101 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2025-12-16 09:51:02.016 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:typescriptreact'
+2025-12-16 09:54:33.514 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 09:57:41.031 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-16 10:07:36.538 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)

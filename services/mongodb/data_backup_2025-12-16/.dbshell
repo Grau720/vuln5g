@@ -1,0 +1,133 @@
+use vulndb
+db.vulnerabilidades.deleteMany({})
+db.vulnerabilidades.findOne({}, {etiquetas: 1})
+use vulndb
+db.vulnerabilidades.findOne({}, {etiquetas: 1})
+use vulndb
+db.vulnerabilidades.findOne({   $or: [     { descripcion_tecnica: { $exists: true, $ne: "" } },     { referencias_mitre: { $exists: true, $not: { $size: 0 } } },     { fecha_registro_mitre: { $exists: true, $ne: null } }   ] })
+exxit
+use vulndb
+Object.keys(db.vulnerabilidades.findOne())
+db.vulnerabilidades.findOne()
+db.vulnerabilidades.findOne({ "referencias_mitre": { $exists: true } })
+db.vulnerabilidades.findOne({   $or: [     { descripcion_tecnica: { $exists: true, $ne: "" } },     { referencias_mitre: { $exists: true, $not: { $size: 0 } } },     { fecha_registro_mitre: { $exists: true, $ne: null } }   ] })
+db.vulnerabilidades.findOne({   $or: [     { descripcion_tecnica: { $exists: true, $ne: "" } },     { referencias_mitre: { $exists: true, $not: { $size: 0 } } },     { fecha_registro_mitre: { $exists: true, $ne: null } }   ] })
+EXIT
+use vulndb
+db.vulnerabilidades.find(   { cve_id: "CVE-2017-10381" },   { _id: 0, cve_id: 1, nombre: 1, fecha_publicacion: 1 } ).pretty()
+use vulndb
+db.vulnerabilidades.find({ cve_id: "CVE-2017-10381" }).pretty()
+Object.keys(db.vulnerabilidades.findOne())
+use vulndb
+Object.keys(db.vulnerabilidades.findOne())
+db.vulnerabilidades.find({ cve_id: "CVE-2017-10381" }).pretty()
+db.vulnerabilidades.findOne({ "referencias_mitre": { $exists: true } })
+db.getSiblingDB("vulndb").vulnerabilidades.deleteMany({})
+use vulndb
+db.vulnerabilidades.drop()
+use vulndb
+db.vulnerabilidades.drop()
+db.vulnerabilidades.drop()
+use vulndb
+db.vulnerabilidades.drop()
+use vulndb
+db.vulnerabilidades.createIndex({ cve_id: 1 }, { unique: true })
+db.vulnerabilidades.createIndex({ "cvssv3.score": -1 })
+db.vulnerabilidades.createIndex({ fecha_publicacion: -1 })
+db.vulnerabilidades.createIndex({ tipo: 1 })
+db.vulnerabilidades.createIndex({ etiquetas: 1 })
+db.vulnerabilidades.createIndex({ infraestructura_5g_afectada: 1 })
+db.vulnerabilidades.createIndex(   { nombre: "text", descripcion_general: "text", descripcion_tecnica: "text" },   { default_language: "spanish" } )
+// opcional compuesto muy útil:
+db.vulnerabilidades.createIndex({ "cvssv3.score": -1, fecha_publicacion: -1 })
+use vulndb
+db.vulnerabilidades.find(     { versiones_afectadas: { $exists: true, $ne: [] } },     { cve_id: 1, versiones_afectadas: 1 } ).pretty()
+use vulndb
+db.vulnerabilidades.find(     { versiones_afectadas: { $exists: true, $ne: [] } },     { cve_id: 1, versiones_afectadas: 1 } ).pretty()
+db.vulnerabilidades.countDocuments({ versiones_afectadas: { $exists: true, $ne: [] } })
+db.vulnerabilidades.find({ "versiones_afectadas.producto": "open5gs" })
+db.vulnerabilidades.find({ "versiones_afectadas.producto": "RAN" })
+db.vulnerabilidades.find({ "versiones_afectadas.producto": "open5gs" })
+db.vulnerabilidades.find(   { versiones_afectadas: { $exists: true, $ne: [] } },   { cve_id: 1, versiones_afectadas: 1 } ).limit(5).pretty()
+db.vulnerabilidades.find(   { versiones_afectadas: { $exists: true, $ne: [] } },   { cve_id: 1, versiones_afectadas: 1, fecha_actualizacion: 1 } ).sort({ fecha_actualizacion: -1 }).limit(5).pretty()
+use vulndb
+db.scan_jobs.getIndexes()
+db.scan_jobs.dropIndex("uniq_fp_status")
+db.scan_jobs.createIndex({ fingerprint: 1, status: 1 }, { name: "uniq_fp_status", unique: true })
+db.scan_jobs.dropIndex("uniq_fp_status")
+db.scan_jobs.createIndex(   { fingerprint: 1, status: 1, job_id: 1 },   { name: "uniq_fp_status", unique: true } )
+db.scan_jobs.dropIndex("uniq_fp_status")
+db.scan_jobs.createIndex(   { fingerprint: 1, status: 1 },   { name: "uniq_fp_status", unique: true, partialFilterExpression: { status: { $in: ["queued", "running"] } } } )
+db.scan_jobs.createIndex(   { fingerprint: 1, status: 1 },   { name: "uniq_fp_status_queued", unique: true, partialFilterExpression: { status: "queued" } } )
+db.scan_jobs.createIndex(   { fingerprint: 1, status: 1 },   { name: "uniq_fp_status_running", unique: true, partialFilterExpression: { status: "running" } } )
+> db.scan_jobs.createIndex(   { fingerprint: 1, status: 1 },   { name: "uniq_fp_status_queued", unique: true, partialFilterExpression: { status: "queued" } } )
+{ "createdCollectionAutomatically" : false, "numIndexesBefore" : 4, "numIndexesAfter" : 5, "ok" : 1 }
+> > db.scan_jobs.createIndex(   { fingerprint: 1, status: 1 },   { name: "uniq_fp_status_running", unique: true, partialFilterExpression: { status: "running" } } )
+;
+}
+db.scan_jobs.dropIndex("uniq_fp_status_queued")
+db.scan_jobs.createIndex(   { fingerprint: 1, status: 1 },   { name: "uniq_fp_status_queued", unique: true, partialFilterExpression: { status: "queued" } } )
+use vulndb
+.tables
+show collections()
+show collections
+use vulndb
+show collections
+select * from vulnerabilidades.vulnerabilidades
+db["vulnerabilidades.vulnerabilidades"].find().limit(20)
+db["vulnerabilidades.vulnerabilidades"].findOne()
+db["vulnerabilidades.vulnerabilidades"].countDocuments()
+db["vulnerabilidades.vulnerabilidades"].findOne()
+db["vulnerabilidades.vulnerabilidades"].countDocuments()
+db.getCollection("vulnerabilidades.vulnerabilidades").find().limit(1)
+db.getCollection("vulnerabilidades.vulnerabilidades").drop()
+db.vulnerabilidades.deleteMany({})
+db.vulnerabilidades.deleteMany({})
+use vulndb
+db.vulnerabilidades.deleteMany({})
+db.vulnerabilidades.deleteMany({})
+use vulndb
+db.vulnerabilidades.deleteMany({})
+exitç
+use vulndb
+show collections
+docker exec -it vulndb_mongodb mongosh
+use vulndb
+db.vulnerabilidades.countDocuments()
+db.vulnerabilidades.countDocuments({cvss_v3: {$exists: true}})
+use vulndb
+db.vulnerabilidades.countDocuments()
+scan_jobs_archive
+scan_schedules
+vulnerabilidades
+vulnerabilidades.vulnerabilidades
+vulnerabilidades_history
+> docker exec -it vulndb_mongodb mongosh
+uncaught exception: SyntaxError: unexpected token: identifier : @(shell):1:7
+> use vulndb
+switched to db vulndb
+> db.vulnerabilidades.countDocuments()
+uncaught exception: Error: command failed: { "ok" : 0, "errmsg" : "the match filter must be an expression in an object", "code" : 15959, "codeName" : "Location15959" } : aggregate failed : _getErrorWithCode@src/mongo/shell/utils.js:25:13
+doassert@src/mongo/shell/assert.js:18:14
+_assertCommandWorked@src/mongo/shell/assert.js:706:17
+assert.commandWorked@src/mongo/shell/assert.js:796:16
+DB.prototype._runAggregate@src/mongo/shell/db.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1058:12
+DBCollection.prototype.countDocuments@src/mongo/shell/collection.js:1450:17
+@(shell):1:1
+> db.vulnerabilidades.countDocuments({cvss_v3: {$exists: true}})
+0
+> db.vulnerabilidades.countDocuments({cvss_v3: {$exists: true}})
+0
+> use vulndb
+switched to db vulndb
+> db.vulnerabilidades.countDocuments()
+uncaught exception: Error: command failed: { "ok" : 0, "errmsg" : "the match filter must be an expression in an object", "code" : 15959, "codeName" : "Location15959" } : aggregate failed : _getErrorWithCode@src/mongo/shell/utils.js:25:13
+doassert@src/mongo/shell/assert.js:18:14
+_assertCommandWorked@src/mongo/shell/assert.js:706:17
+assert.commandWorked@src/mongo/shell/assert.js:796:16
+DB.prototype._runAggregate@src/mongo/shell/db.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1058:12
+DBCollection.prototype.countDocuments@src/mongo/shell/collection.js:1450:17
+@(shell):1:1
+clear

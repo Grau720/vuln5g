@@ -1,0 +1,969 @@
+2025-12-15 09:17:19.753 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-15 09:17:19.755 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-15 09:17:19.755 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-15 09:17:19.755 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-15 09:17:20.765 [error] Copilot extension not found
+2025-12-15 09:17:20.948 [info] Creating node-pty shim: source=/usr/share/code/resources/app/node_modules/node-pty/build/Release, dest=/root/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/prebuilds/linux-x64
+2025-12-15 09:17:20.949 [info] Creating ripgrep shim: source=/usr/share/code/resources/app/node_modules/@vscode/ripgrep/bin, dest=/root/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64
+2025-12-15 09:17:21.212 [info] Found 1 entries to copy: pty.node
+2025-12-15 09:17:21.931 [info] Found 1 entries to copy: rg
+2025-12-15 09:17:22.207 [warning] GitHub login failed
+2025-12-15 09:17:22.218 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async H1.waitForChatEnabled (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:5093)
+	at async H1.run (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:4977)
+	at async Q7.askToUpgradeAuthPermissions (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:4456): Failed to get copilot token
+2025-12-15 09:17:22.219 [error] You are not signed in to GitHub. Please sign in to use Copilot.
+2025-12-15 09:17:22.219 [info] Using the Electron fetcher.
+2025-12-15 09:17:22.219 [warning] [LanguageModelAccess] LanguageModel/Embeddings are not available without auth token
+2025-12-15 09:17:22.219 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async a$._getToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:5639)
+	at async r (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:5103)
+	at async a$._registerEmbeddings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:5600)
+	at async Promise.all (index 1)
+	at async Promise.allSettled (index 1)
+	at async q2.waitForActivationBlockers (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:936:3061)
+	at async /root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:936:3820
+	at async _kt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:936:3688)
+	at async Ky.n (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:13398)
+	at async Ky.m (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:13361)
+	at async Ky.l (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:12817)
+2025-12-15 09:17:22.219 [info] copilot token chat_enabled: undefined, sku: 
+2025-12-15 09:17:22.219 [info] activationBlocker from 'conversationFeature' took for 1960ms
+2025-12-15 09:17:22.219 [info] activationBlocker from 'languageModelAccess' took for 1891ms
+2025-12-15 09:17:22.665 [warning] GitHub login failed
+2025-12-15 09:17:22.670 [error] You are not signed in to GitHub. Please sign in to use Copilot.
+2025-12-15 09:17:22.671 [warning] [LanguageModelAccess] LanguageModel/Embeddings are not available without auth token
+2025-12-15 09:17:22.671 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async a$._getToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:5639)
+	at async r (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:5103)
+2025-12-15 09:17:22.671 [warning] [LanguageModelAccess] LanguageModel/Embeddings are not available without auth token
+2025-12-15 09:17:22.671 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async a$._getToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:5639)
+	at async a$._provideLanguageModelChatInfo (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1219:1423)
+	at async kA.$provideLanguageModelChatInfo (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:30901)
+2025-12-15 09:17:23.854 [error] [CopilotCLISession] Failed to fetch models: Error: Failed to get token for auth info
+2025-12-15 09:24:47.306 [warning] GitHub login failed
+2025-12-15 09:24:47.317 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:24:52.251 [warning] GitHub login failed
+2025-12-15 09:24:53.477 [warning] GitHub login failed
+2025-12-15 09:24:53.483 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:24:58.388 [warning] GitHub login failed
+2025-12-15 09:27:58.964 [warning] GitHub login failed
+2025-12-15 09:27:58.967 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:28:03.847 [warning] GitHub login failed
+2025-12-15 09:35:06.850 [warning] GitHub login failed
+2025-12-15 09:35:06.859 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:35:11.845 [warning] GitHub login failed
+2025-12-15 09:35:29.180 [warning] GitHub login failed
+2025-12-15 09:35:29.185 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:35:34.160 [warning] GitHub login failed
+2025-12-15 09:35:46.390 [warning] GitHub login failed
+2025-12-15 09:35:46.410 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:35:51.111 [warning] GitHub login failed
+2025-12-15 09:36:39.183 [warning] GitHub login failed
+2025-12-15 09:36:39.187 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:36:39.590 [warning] GitHub login failed
+2025-12-15 09:36:39.595 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:36:40.021 [warning] GitHub login failed
+2025-12-15 09:36:40.024 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:36:40.285 [warning] GitHub login failed
+2025-12-15 09:36:40.288 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:36:45.288 [warning] GitHub login failed
+2025-12-15 09:37:03.088 [warning] GitHub login failed
+2025-12-15 09:37:03.090 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:37:03.388 [warning] GitHub login failed
+2025-12-15 09:37:03.392 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:37:05.451 [warning] GitHub login failed
+2025-12-15 09:37:05.454 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:37:10.467 [warning] GitHub login failed
+2025-12-15 09:37:10.847 [warning] GitHub login failed
+2025-12-15 09:37:10.850 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:37:10.967 [warning] GitHub login failed
+2025-12-15 09:37:10.970 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:37:15.987 [warning] GitHub login failed
+2025-12-15 09:50:56.073 [warning] GitHub login failed
+2025-12-15 09:50:56.118 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:50:56.413 [warning] GitHub login failed
+2025-12-15 09:50:56.462 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:50:57.602 [warning] GitHub login failed
+2025-12-15 09:50:57.649 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:50:57.651 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:02.423 [warning] GitHub login failed
+2025-12-15 09:51:10.331 [warning] GitHub login failed
+2025-12-15 09:51:10.334 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:10.530 [warning] GitHub login failed
+2025-12-15 09:51:10.561 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:11.434 [warning] GitHub login failed
+2025-12-15 09:51:11.445 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:11.616 [warning] GitHub login failed
+2025-12-15 09:51:11.623 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:16.593 [warning] GitHub login failed
+2025-12-15 09:51:16.853 [warning] GitHub login failed
+2025-12-15 09:51:16.860 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:16.992 [warning] GitHub login failed
+2025-12-15 09:51:17.021 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:17.871 [warning] GitHub login failed
+2025-12-15 09:51:17.916 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:18.096 [warning] GitHub login failed
+2025-12-15 09:51:18.106 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:51:23.049 [warning] GitHub login failed
+2025-12-15 09:54:36.212 [warning] GitHub login failed
+2025-12-15 09:54:36.224 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:54:36.679 [warning] GitHub login failed
+2025-12-15 09:54:36.690 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 09:54:41.665 [warning] GitHub login failed
+2025-12-15 10:04:19.214 [warning] GitHub login failed
+2025-12-15 10:04:19.239 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:24.079 [warning] GitHub login failed
+2025-12-15 10:04:26.226 [warning] GitHub login failed
+2025-12-15 10:04:26.250 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:26.250 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:26.507 [warning] GitHub login failed
+2025-12-15 10:04:26.626 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:27.486 [warning] GitHub login failed
+2025-12-15 10:04:27.494 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:28.134 [warning] GitHub login failed
+2025-12-15 10:04:28.174 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:28.174 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:28.335 [warning] GitHub login failed
+2025-12-15 10:04:28.513 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:29.174 [warning] GitHub login failed
+2025-12-15 10:04:29.984 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:29.984 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:29.984 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:29.984 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:29.984 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:34.134 [warning] GitHub login failed
+2025-12-15 10:04:45.196 [warning] GitHub login failed
+2025-12-15 10:04:45.214 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:04:50.176 [warning] GitHub login failed
+2025-12-15 10:07:13.222 [warning] GitHub login failed
+2025-12-15 10:07:13.262 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:14.433 [warning] GitHub login failed
+2025-12-15 10:07:14.435 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:21.645 [warning] GitHub login failed
+2025-12-15 10:07:39.828 [warning] GitHub login failed
+2025-12-15 10:07:39.849 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:41.015 [warning] GitHub login failed
+2025-12-15 10:07:41.018 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:45.962 [warning] GitHub login failed
+2025-12-15 10:07:47.031 [warning] GitHub login failed
+2025-12-15 10:07:47.034 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:49.122 [warning] GitHub login failed
+2025-12-15 10:07:49.126 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:49.547 [warning] GitHub login failed
+2025-12-15 10:07:49.549 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:07:54.505 [warning] GitHub login failed
+2025-12-15 10:08:34.344 [warning] GitHub login failed
+2025-12-15 10:08:34.349 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:08:39.333 [warning] GitHub login failed
+2025-12-15 10:15:00.576 [warning] GitHub login failed
+2025-12-15 10:15:00.598 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:00.875 [warning] GitHub login failed
+2025-12-15 10:15:00.892 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:00.892 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:01.070 [warning] GitHub login failed
+2025-12-15 10:15:01.096 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:01.166 [warning] GitHub login failed
+2025-12-15 10:15:01.171 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:01.356 [warning] GitHub login failed
+2025-12-15 10:15:01.363 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:01.465 [warning] GitHub login failed
+2025-12-15 10:15:01.472 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:01.574 [warning] GitHub login failed
+2025-12-15 10:15:01.576 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:01.662 [warning] GitHub login failed
+2025-12-15 10:15:01.665 [error] [inlineCompletionItemProvider] provideInlineCompletionItems: [Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+	at async tO.updateExPValuesAndAssignments (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2111:3591)
+	at async aoi (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:9954)
+	at async Idt (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2348:6870)
+	at async Ali (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:1294)
+	at async iQe (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2355:2148)
+	at async oK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4382:3975)
+	at async dK._provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1572)
+	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
+	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
+2025-12-15 10:15:06.651 [warning] GitHub login failed

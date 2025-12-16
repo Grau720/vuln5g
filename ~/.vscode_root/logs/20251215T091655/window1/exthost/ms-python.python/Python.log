@@ -1,0 +1,322 @@
+2025-12-15 09:17:21.197 [info] Native locator: Refresh started
+2025-12-15 09:17:22.282 [info] > pyenv which python
+2025-12-15 09:17:22.282 [info] cwd: .
+2025-12-15 09:17:23.956 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-15 09:17:24.055 [info] Native locator: Refresh finished in 7187 ms
+2025-12-15 09:17:24.075 [info] Python interpreter path: ~/.pyenv/versions/3.11.8/bin/python
+2025-12-15 09:17:28.904 [info] Starting Pylance language server.
+2025-12-15 09:21:14.727 [info] Send text to terminal: pyenv shell 3.11.8
+2025-12-15 09:25:05.265 [error] Unable to find workspace for given file
+2025-12-15 09:25:11.935 [info] Send text to terminal: pyenv shell 3.11.8
+2025-12-15 09:27:39.589 [info] Send text to terminal: pyenv shell 3.11.8
+2025-12-15 09:34:49.040 [error] Unable to find workspace for given file
+2025-12-15 09:36:35.135 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:36:35.136 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 09:36:40.600 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:36:40.600 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 09:36:40.807 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:36:40.812 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 09:37:03.672 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:37:03.673 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 09:37:03.878 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:37:03.878 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 09:37:05.952 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:37:05.952 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 09:37:09.393 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements.txt
+2025-12-15 09:37:09.393 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements.txt
+2025-12-15 09:37:11.292 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements.txt
+2025-12-15 09:37:11.292 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements.txt
+2025-12-15 09:37:11.505 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements.txt
+2025-12-15 09:37:11.505 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements.txt
+2025-12-15 09:50:16.800 [info] Send text to terminal: pyenv shell 3.11.8
+2025-12-15 09:50:28.816 [info] Send text to terminal: pyenv shell 3.11.8
+2025-12-15 09:54:37.126 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 09:54:37.126 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 10:14:56.370 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements-ia.txt
+2025-12-15 10:14:56.372 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements-ia.txt
+2025-12-15 10:14:58.204 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements.txt
+2025-12-15 10:14:58.204 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements.txt
+2025-12-15 10:15:02.439 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements.txt
+2025-12-15 10:15:02.439 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements.txt
+2025-12-15 10:15:02.780 [info] Running installed packages checker:  {
+  id: '/root/.pyenv/versions/3.11.8/bin/python',
+  sysPrefix: '/root/.pyenv/versions/3.11.8',
+  envType: 'Pyenv',
+  envName: '3.11.8',
+  envPath: '/root/.pyenv/versions/3.11.8/bin/python',
+  path: '/root/.pyenv/versions/3.11.8/bin/python',
+  architecture: 3,
+  sysVersion: '',
+  version: {
+    raw: '3.11.8',
+    major: 3,
+    minor: 11,
+    patch: 8,
+    build: [],
+    prerelease: []
+  },
+  displayName: 'Python 3.11.8 (3.11.8)',
+  detailedDisplayName: 'Python 3.11.8 (3.11.8)',
+  type: 'Virtual'
+} /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py /home/pablo/code/vulndb-5g/requirements.txt
+2025-12-15 10:15:02.780 [info] > ~/.pyenv/versions/3.11.8/bin/python ~/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python_files/installed_check.py ./requirements.txt

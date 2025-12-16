@@ -1,0 +1,65 @@
+2025-12-15 15:17:58.824 [info] Starting Python Locator /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python-env-tools/bin/pet server
+2025-12-15 15:17:58.957 [info] Discovered manager: (Pyenv) /usr/bin/pyenv
+2025-12-15 15:17:58.959 [info] Discovered env: /root/.pyenv/versions/3.11.8/bin/python
+2025-12-15 15:17:59.242 [info] Discovered env: /root/.pyenv/versions/3.10.13/bin/python
+2025-12-15 15:17:59.282 [info] Discovered env: /root/.pyenv/versions/tf-env/bin/python
+2025-12-15 15:17:59.284 [info] Discovered env: /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:17:59.304 [info] Discovered env: /usr/bin/python
+2025-12-15 15:17:59.333 [info] Discovered env: /bin/python
+2025-12-15 15:17:59.334 [info] Discovered env: /usr/bin/python2
+2025-12-15 15:17:59.342 [info] Discovered env: /bin/python2
+2025-12-15 15:17:59.520 [info] Locator Conda took 1.904775808s
+2025-12-15 15:17:59.520 [info] Locator Homebrew took 124.266µs
+2025-12-15 15:17:59.521 [info] Locator LinuxGlobal took 2.32588158s
+2025-12-15 15:17:59.521 [info] Locator PipEnv took 37.101µs
+2025-12-15 15:17:59.521 [info] Locator Pixi took 27.989µs
+2025-12-15 15:17:59.521 [info] Locator Poetry took 113.391873ms
+2025-12-15 15:17:59.521 [info] Locator PyEnv took 514.58009ms
+2025-12-15 15:17:59.521 [info] Locator Uv took 40.279µs
+2025-12-15 15:17:59.521 [info] Locator Venv took 27.524µs
+2025-12-15 15:17:59.521 [info] Locator VirtualEnv took 28.948µs
+2025-12-15 15:17:59.521 [info] Locator VirtualEnvWrapper took 15.955µs
+2025-12-15 15:17:59.521 [info] Locator GlobalVirtualEnvs took 877.935µs
+2025-12-15 15:17:59.521 [info] Locator Locators took 2.420749602s
+2025-12-15 15:17:59.521 [info] Locator Path took 3.320889871s
+2025-12-15 15:17:59.523 [info] Locator Workspaces took 1.916886411s
+2025-12-15 15:17:59.652 [info] Refresh completed in 3341ms
+2025-12-15 15:18:04.394 [info] Resolved Python Environment /root/.pyenv/versions/3.11.8/bin/python
+2025-12-15 15:18:05.609 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:24:23.651 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:27:40.634 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:28:10.767 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:29:38.344 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:30:12.176 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:31:19.368 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:32:50.532 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:33:31.251 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:34:10.319 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:36:00.597 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:46:55.744 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:47:55.490 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:48:25.538 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:49:11.151 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:54:19.554 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:56:33.387 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:57:08.732 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:58:01.986 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 15:59:30.615 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:00:02.344 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:21:50.274 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:24:01.362 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:35:38.160 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:36:31.701 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:38:25.528 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:44:11.317 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:46:32.218 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:47:13.897 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:48:00.393 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:50:04.298 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:52:46.251 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 16:53:39.973 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 17:15:42.386 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 17:21:13.023 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 17:21:44.895 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 17:25:34.443 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python
+2025-12-15 17:27:28.037 [info] Resolved Python Environment /home/pablo/code/vulndb-5g/.venv/bin/python

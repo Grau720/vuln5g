@@ -1,0 +1,60 @@
+2025-12-16 16:19:54.323 [info] [main] Log level: Info
+2025-12-16 16:19:54.323 [info] [main] Validating found git in: "git"
+2025-12-16 16:19:54.323 [info] [main] Using git "2.51.0" from "git"
+2025-12-16 16:19:54.323 [info] [Model][doInitialScan] Initial repository scan started
+2025-12-16 16:19:54.323 [info] > git rev-parse --show-toplevel [673ms]
+2025-12-16 16:19:54.323 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:54.323 [info] > git rev-parse --show-toplevel [1284ms]
+2025-12-16 16:19:54.323 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:54.862 [info] > git rev-parse --show-toplevel [185ms]
+2025-12-16 16:19:54.862 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:55.360 [info] > git rev-parse --show-toplevel [347ms]
+2025-12-16 16:19:55.361 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:55.924 [info] > git rev-parse --show-toplevel [347ms]
+2025-12-16 16:19:55.928 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:56.487 [info] > git rev-parse --show-toplevel [504ms]
+2025-12-16 16:19:56.492 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:56.780 [info] > git rev-parse --show-toplevel [102ms]
+2025-12-16 16:19:56.780 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:57.202 [info] > git rev-parse --show-toplevel [174ms]
+2025-12-16 16:19:57.202 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:57.408 [info] > git rev-parse --show-toplevel [42ms]
+2025-12-16 16:19:57.409 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:57.514 [info] > git rev-parse --show-toplevel [74ms]
+2025-12-16 16:19:57.516 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:57.703 [info] > git rev-parse --show-toplevel [130ms]
+2025-12-16 16:19:57.703 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:57.708 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-12-16 16:19:57.786 [info] > git rev-parse --show-toplevel [43ms]
+2025-12-16 16:19:57.786 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:19:57.876 [info] > git rev-parse --show-toplevel [38ms]
+2025-12-16 16:19:57.876 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:37:21.448 [info] > git rev-parse --show-toplevel [77ms]
+2025-12-16 16:37:21.449 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-16 16:42:06.646 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-16 16:42:06.706 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [49ms]
+2025-12-16 16:42:06.734 [info] [Model][openRepository] Opened repository (path): /home/pablo/code/vulndb-5g
+2025-12-16 16:42:06.734 [info] [Model][openRepository] Opened repository (real path): /home/pablo/code/vulndb-5g
+2025-12-16 16:42:06.734 [info] [Model][openRepository] Opened repository (kind): repository
+2025-12-16 16:42:06.759 [info] > git config --get commit.template [2ms]
+2025-12-16 16:42:06.830 [info] [Git][getRemotes] No remotes found in the git config file
+2025-12-16 16:42:06.853 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [24ms]
+2025-12-16 16:42:06.855 [warning] [Git][getBranch] No such branch: master
+2025-12-16 16:42:07.042 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [24ms]
+2025-12-16 16:42:07.326 [info] > git check-ignore -v -z --stdin [12ms]
+2025-12-16 16:42:07.600 [info] > git show --textconv :api/routes/ia_api.py [19ms]
+2025-12-16 16:42:07.626 [info] > git ls-files --stage -- api/routes/ia_api.py [28ms]
+2025-12-16 16:42:07.692 [info] > git hash-object -t tree /dev/null [68ms]
+2025-12-16 16:42:07.692 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/pablo/code/vulndb-5g/api/routes/ia_api.py.git?%7B%22path%22%3A%22%2Fhome%2Fpablo%2Fcode%2Fvulndb-5g%2Fapi%2Froutes%2Fia_api.py%22%2C%22ref%22%3A%22%22%7D
+2025-12-16 16:42:07.711 [info] > git hash-object -t tree /dev/null [22ms]
+2025-12-16 16:42:07.712 [warning] [GitFileSystemProvider][stat] File not found - git:/home/pablo/code/vulndb-5g/api/routes/ia_api.py.git?%7B%22path%22%3A%22%2Fhome%2Fpablo%2Fcode%2Fvulndb-5g%2Fapi%2Froutes%2Fia_api.py%22%2C%22ref%22%3A%22%22%7D
+2025-12-16 16:42:09.350 [info] > git status -z -uall [2416ms] (cancelled)
+2025-12-16 16:42:10.865 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1546ms]
+2025-12-16 16:42:10.865 [warning] [Git][getBranch] No such branch: master
+2025-12-16 16:42:10.865 [error] [GitHistoryProvider][resolveHEADMergeBase] Failed to resolve merge base for master: Error: No such branch: master.
+2025-12-16 16:42:10.878 [info] > git config --get commit.template [13ms]
+2025-12-16 16:42:10.948 [info] [Git][getRemotes] No remotes found in the git config file
+2025-12-16 16:42:10.990 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [43ms]
+2025-12-16 16:42:10.991 [warning] [Git][getBranch] No such branch: master
+2025-12-16 16:42:11.136 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [93ms]
+2025-12-16 16:42:11.554 [info] > git status -z -uall [523ms] (cancelled)

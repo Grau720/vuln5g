@@ -1,0 +1,64 @@
+Error: the task 'Containers: Shell: vulndb_mongodb' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,a3e1728a1d6523bb4c43ba7cf49a5e4f94cebbd8d55ba9fb2c47992bd3cc177b,bash,",
+    "idRandomizer": 0.9452954701936715,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_mongodb"
+}
+Error: the task 'Containers: Shell: vulndb_mongodb' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,a3e1728a1d6523bb4c43ba7cf49a5e4f94cebbd8d55ba9fb2c47992bd3cc177b,bash,",
+    "idRandomizer": 0.9452954701936715,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_mongodb"
+}
+Error: the task 'Containers: Shell: vulndb_ia' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,95c0a4b7dd6da1d64e199748aaf20bb4789e30d02a19f5498b9f5b41dce02942,bash,",
+    "idRandomizer": 0.2523894869081734,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_ia"
+}
+Error: the task 'Containers: Shell: vulndb_ia' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,95c0a4b7dd6da1d64e199748aaf20bb4789e30d02a19f5498b9f5b41dce02942,bash,",
+    "idRandomizer": 0.2523894869081734,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_ia"
+}
+Error: the task 'Containers: Shell: vulndb_api' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,e6e407c0b8eb76d374fdcc32f3645534dda1d0f6f392d8f04c4f0f448a5cd961,bash,",
+    "idRandomizer": 0.3078896590350294,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_api"
+}
+Error: the task 'Containers: Shell: vulndb_api' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,e6e407c0b8eb76d374fdcc32f3645534dda1d0f6f392d8f04c4f0f448a5cd961,bash,",
+    "idRandomizer": 0.3078896590350294,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_api"
+}
+Error: the task 'Containers: Shell: vulndb_ia' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,930d656b776632e910db9eb906d7e751fd6605bf19d4e42c38c58784933c9c50,bash,",
+    "idRandomizer": 0.3303467668277237,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_ia"
+}
+Error: the task 'Containers: Shell: vulndb_ia' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,930d656b776632e910db9eb906d7e751fd6605bf19d4e42c38c58784933c9c50,bash,",
+    "idRandomizer": 0.3303467668277237,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_ia"
+}

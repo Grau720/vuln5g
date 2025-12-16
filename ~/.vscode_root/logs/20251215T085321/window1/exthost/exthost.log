@@ -1,0 +1,41 @@
+2025-12-15 08:53:28.610 [info] Extension host with pid 7954 started
+2025-12-15 08:53:28.610 [info] Skipping acquiring lock for /home/pablo/code/vulndb-5g/~/.vscode_root/User/workspaceStorage/fe06d59c31d4c1f208fdfa32acf0afc8.
+2025-12-15 08:53:28.980 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-15 08:53:29.050 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-15 08:53:29.187 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2025-12-15 08:53:29.208 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-15 08:53:29.466 [info] Eager extensions activated
+2025-12-15 08:53:29.478 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-15 08:53:29.483 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-15 08:53:38.073 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2025-12-15 08:53:38.396 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2025-12-15 08:53:40.823 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'workspaceContains:requirements.txt'
+2025-12-15 08:53:41.761 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-12-15 08:53:44.032 [error] Error: chatParticipant must be declared in package.json: claude-code
+    at PXt.$registerAgent (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:517:9858)
+2025-12-15 08:53:46.496 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-15 08:53:46.498 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async tC._fetchModels (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:5764:4429)
+	at async tC.getAllChatModels (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:5764:2353)
+	at async uM.getAllChatEndpoints (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:5764:13748)
+2025-12-15 08:53:47.784 [error] Error: GitHubLoginFailed
+	at mH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:33635)
+	at async mH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1908:31508)
+	at async HX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:1054:2402)
+	at async q8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:2105:31762)
+2025-12-15 08:53:48.632 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'api', root cause: ms-python.python
+2025-12-15 08:53:49.776 [info] ExtensionService#_doActivateExtension ms-python.vscode-python-envs, startup: false, activationEvent: 'api', root cause: ms-python.vscode-pylance
+2025-12-15 08:53:54.077 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-15 08:53:55.027 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-15 08:53:55.503 [info] ExtensionService#_doActivateExtension vscode.terminal-suggest, startup: false, activationEvent: 'onTerminalShellIntegration:*'
+2025-12-15 08:53:56.001 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-12-15 08:54:01.753 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-15 08:54:01.787 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-15 08:54:01.815 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'

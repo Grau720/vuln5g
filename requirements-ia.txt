@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+joblib
+pymongo
+matplotlib
+seaborn
+tabulate
+python-dateutil

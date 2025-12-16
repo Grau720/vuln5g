@@ -1,0 +1,16 @@
+2025-12-15 15:17:35.120 [info] Latency measurements for local backend
+window<->ptyhost (message port): 8.70ms
+window<->ptyhostservice<->ptyhost: 113.10ms
+ptyhostservice<->ptyhost: 74.05ms []
+2025-12-15 15:24:24.570 [info] Latency measurements for local backend
+window<->ptyhost (message port): 3.50ms
+window<->ptyhostservice<->ptyhost: 2.70ms
+ptyhostservice<->ptyhost: 0.81ms []
+2025-12-15 15:24:26.712 [info] Latency measurements for local backend
+window<->ptyhost (message port): 60.90ms
+window<->ptyhostservice<->ptyhost: 6.80ms
+ptyhostservice<->ptyhost: 2.21ms []
+2025-12-15 15:24:28.911 [info] Latency measurements for local backend
+window<->ptyhost (message port): 4.50ms
+window<->ptyhostservice<->ptyhost: 4.70ms
+ptyhostservice<->ptyhost: 3.45ms []

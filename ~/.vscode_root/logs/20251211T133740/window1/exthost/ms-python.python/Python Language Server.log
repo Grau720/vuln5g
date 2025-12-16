@@ -1,0 +1,44 @@
+2025-12-11 13:39:45.262 [info] Client: Pylance client (2025.10.4) started with python extension (2025.20.0)
+2025-12-11 13:39:47.742 [info] (12049): Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-11 13:39:47.746 [info] (12049): Pylance language server 2025.10.4 (pyright version 1.1.407, commit 906e40aa) starting
+2025-12-11 13:39:47.757 [info] (12049): Starting service instance "vulndb-5g" for workspace "/home/pablo/Descargas/code/vulndb-5g"
+2025-12-11 13:39:49.976 [info] (12049): Loading background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js into file:///home/pablo/Descargas/code/vulndb-5g...
+2025-12-11 13:39:50.275 [info] (12049): FG(vulndb-5g): Setting environmentName for service "vulndb-5g": "3.13.7 (.venv venv)"
+2025-12-11 13:39:50.276 [info] (12049): FG(vulndb-5g): Setting pythonPath for service "vulndb-5g": "/home/pablo/Descargas/code/vulndb-5g/.venv/bin/python"
+2025-12-11 13:39:50.276 [info] (12049): FG(vulndb-5g): No include entries specified; assuming /home/pablo/Descargas/code/vulndb-5g
+2025-12-11 13:39:50.276 [info] (12049): FG(vulndb-5g): Auto-excluding **/node_modules
+2025-12-11 13:39:50.276 [info] (12049): FG(vulndb-5g): Auto-excluding **/__pycache__
+2025-12-11 13:39:50.276 [info] (12049): FG(vulndb-5g): Auto-excluding **/.*
+2025-12-11 13:39:50.456 [info] (12049): FG(vulndb-5g): Assuming Python version 3.13.7.final.0
+2025-12-11 13:39:50.895 [info] (12049): Starting Mcp server id:5301 ...
+2025-12-11 13:39:51.349 [info] (12049): FG(vulndb-5g): Found 87 source files
+2025-12-11 13:39:51.774 [info] (12049): Settings have not changed. Skipping update.
+2025-12-11 13:39:53.145 [info] (12049): PQ(vulndb-5g): Priority queue background worker(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-11 13:39:53.156 [info] (12049): PQ(vulndb-5g): Priority queue background worker(2) started
+2025-12-11 13:39:53.967 [info] (12049): IDX(vulndb-5g): Indexer background runner(3) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist (index)
+2025-12-11 13:39:53.969 [info] (12049): IDX(vulndb-5g): Indexing(3) started
+2025-12-11 13:39:54.124 [info] (12049): BG(vulndb-5g): Loaded external background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js. 
+2025-12-11 13:39:55.550 [info] (12049): IDX(vulndb-5g): scanned(3) 55 files over 1 exec env
+2025-12-11 13:39:58.605 [info] (12049): BG(vulndb-5g): Long operation: checking: file:///home/pablo/Descargas/code/vulndb-5g/scripts/ingest.py (3529ms)
+2025-12-11 13:39:58.613 [info] (12049): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/Descargas/code/vulndb-5g/scripts/ingest.py (4151ms)
+2025-12-11 13:39:59.835 [info] (12049): IDX(vulndb-5g): Long operation: index execution environment file:///home/pablo/Descargas/code/vulndb-5g (3665ms)
+2025-12-11 13:39:59.843 [info] (12049): IDX(vulndb-5g): Long operation: index packages file:///home/pablo/Descargas/code/vulndb-5g (3687ms)
+2025-12-11 13:39:59.846 [info] (12049): IDX(vulndb-5g): indexed(3) 55 files over 1 exec env
+2025-12-11 13:39:59.891 [info] (12049): IDX(vulndb-5g): Indexing finished(3).
+2025-12-11 13:40:36.525 [info] (12049): FG(vulndb-5g): No source files found.
+2025-12-11 13:40:37.040 [info] (12049): FG(vulndb-5g): Setting environmentName for service "vulndb-5g": "3.13.7 (global)"
+2025-12-11 13:40:37.042 [info] (12049): FG(vulndb-5g): Setting pythonPath for service "vulndb-5g": "/home/pablo/Descargas/code/vulndb-5g/.venv/bin/python"
+2025-12-11 13:40:37.043 [info] (12049): FG(vulndb-5g): No include entries specified; assuming /home/pablo/Descargas/code/vulndb-5g
+2025-12-11 13:40:37.047 [info] (12049): FG(vulndb-5g): Auto-excluding **/node_modules
+2025-12-11 13:40:37.055 [info] (12049): FG(vulndb-5g): Auto-excluding **/__pycache__
+2025-12-11 13:40:37.058 [info] (12049): FG(vulndb-5g): Auto-excluding **/.*
+2025-12-11 13:40:37.901 [info] (12049): FG(vulndb-5g): No source files found.
+2025-12-11 13:40:40.239 [info] (12049): FG(vulndb-5g): No source files found.
+2025-12-11 13:40:41.902 [info] (12049): IDX(vulndb-5g): Indexer background runner(4) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist (index)
+2025-12-11 13:40:41.903 [info] (12049): IDX(vulndb-5g): Indexing(4) started
+2025-12-11 13:40:42.379 [info] (12049): IDX(vulndb-5g): scanned(4) 55 files over 1 exec env
+2025-12-11 13:40:42.605 [info] (12049): IDX(vulndb-5g): indexed(4) 55 files over 1 exec env
+2025-12-11 13:40:42.617 [info] (12049): IDX(vulndb-5g): Indexing finished(4).
+2025-12-11 13:40:49.648 [info] (12049): FG(vulndb-5g): No source files found.
+2025-12-11 13:53:05.575 [info] (12049): Settings have not changed. Skipping update.
+2025-12-11 13:53:14.438 [info] (12049): Settings have not changed. Skipping update.

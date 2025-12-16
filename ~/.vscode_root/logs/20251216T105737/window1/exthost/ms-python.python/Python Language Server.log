@@ -1,0 +1,57 @@
+2025-12-16 10:58:11.258 [info] Client: Pylance client (2025.10.4) started with python extension (2025.20.0)
+2025-12-16 10:58:13.750 [info] (5917): Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-16 10:58:13.755 [info] (5917): Pylance language server 2025.10.4 (pyright version 1.1.407, commit 906e40aa) starting
+2025-12-16 10:58:13.767 [info] (5917): Starting service instance "vulndb-5g" for workspace "/home/pablo/code/vulndb-5g"
+2025-12-16 10:58:15.797 [info] (5917): Loading background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js into file:///home/pablo/code/vulndb-5g...
+2025-12-16 10:58:16.232 [info] (5917): FG(vulndb-5g): Setting environmentName for service "vulndb-5g": "3.13.7 (.venv venv)"
+2025-12-16 10:58:16.232 [info] (5917): FG(vulndb-5g): Setting pythonPath for service "vulndb-5g": "/home/pablo/code/vulndb-5g/.venv/bin/python"
+2025-12-16 10:58:16.234 [info] (5917): FG(vulndb-5g): No include entries specified; assuming /home/pablo/code/vulndb-5g
+2025-12-16 10:58:16.236 [info] (5917): FG(vulndb-5g): Auto-excluding **/node_modules
+2025-12-16 10:58:16.238 [info] (5917): FG(vulndb-5g): Auto-excluding **/__pycache__
+2025-12-16 10:58:16.240 [info] (5917): FG(vulndb-5g): Auto-excluding **/.*
+2025-12-16 10:58:16.423 [info] (5917): FG(vulndb-5g): Assuming Python version 3.13.7.final.0
+2025-12-16 10:58:17.475 [info] (5917): FG(vulndb-5g): Found 102 source files
+2025-12-16 10:58:17.515 [info] (5917): Settings have not changed. Skipping update.
+2025-12-16 10:58:17.523 [info] (5917): Starting Mcp server id:3156 ...
+2025-12-16 10:58:19.298 [info] (5917): PQ(vulndb-5g): Priority queue background worker(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-16 10:58:19.305 [info] (5917): PQ(vulndb-5g): Priority queue background worker(2) started
+2025-12-16 10:58:20.302 [info] (5917): BG(vulndb-5g): Loaded external background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js. 
+2025-12-16 11:17:55.511 [info] (5917): IDX(vulndb-5g): Indexer background runner(3) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist (index)
+2025-12-16 11:17:55.527 [info] (5917): IDX(vulndb-5g): Indexing(3) started
+2025-12-16 11:17:55.861 [info] (5917): BG(vulndb-5g): Long operation: SemanticTokens range 0:0 - 53:6 at file:///home/pablo/code/vulndb-5g/services/ia/compare_versions.py (3407ms)
+2025-12-16 11:18:01.844 [info] (5917): IDX(vulndb-5g): Long operation: scan packages file:///home/pablo/code/vulndb-5g (4843ms)
+2025-12-16 11:18:01.849 [info] (5917): IDX(vulndb-5g): scanned(3) 55 files over 1 exec env
+2025-12-16 11:18:03.182 [info] (5917): IDX(vulndb-5g): indexed(3) 55 files over 1 exec env
+2025-12-16 11:18:03.387 [info] (5917): IDX(vulndb-5g): Indexing finished(3).
+2025-12-16 11:35:46.842 [info] (5917): Settings have not changed. Skipping update.
+2025-12-16 11:42:24.036 [info] (5917): FG(vulndb-5g): Found 103 source files
+2025-12-16 11:42:32.835 [info] (5917): FG(vulndb-5g): Found 104 source files
+2025-12-16 11:42:48.272 [info] (5917): FG(vulndb-5g): Found 103 source files
+2025-12-16 11:42:51.270 [info] (5917): FG(vulndb-5g): Found 102 source files
+2025-12-16 11:58:42.639 [info] (5917): FG(vulndb-5g): Found 102 source files
+2025-12-16 11:59:03.075 [info] (5917): FG(vulndb-5g): Found 103 source files
+2025-12-16 11:59:03.101 [info] (5917): BG(vulndb-5g): Long operation: indexing: file:///home/pablo/code/vulndb-5g/api/__init__.py (2484ms)
+2025-12-16 11:59:04.767 [info] (5917): FG(vulndb-5g): Found 103 source files
+2025-12-16 11:59:13.866 [info] (5917): FG(vulndb-5g): Found 104 source files
+2025-12-16 11:59:22.293 [info] (5917): FG(vulndb-5g): Found 105 source files
+2025-12-16 11:59:30.378 [info] (5917): FG(vulndb-5g): Found 106 source files
+2025-12-16 12:29:18.807 [info] (5917): BG(vulndb-5g): Long operation: SemanticTokens range 2:0 - 55:26 at file:///home/pablo/code/vulndb-5g/api/app.py (9915ms)
+2025-12-16 12:32:07.639 [info] (5917): FG(vulndb-5g): Found 107 source files
+2025-12-16 12:34:02.870 [info] (5917): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/api/routes/scan_api.py (2491ms)
+2025-12-16 12:34:02.877 [info] (5917): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/api/routes/scan_api.py (2491ms)
+2025-12-16 13:31:59.915 [info] (5917): FG(vulndb-5g): Found 101 source files
+2025-12-16 13:32:03.517 [info] (5917): BG(vulndb-5g): Long operation: parsing: file:///home/pablo/code/vulndb-5g/services/rules/suricata_templates.py (3142ms)
+2025-12-16 13:32:08.137 [info] (5917): FG(vulndb-5g): Long operation: parsing: file:///home/pablo/code/vulndb-5g/services/rules/suricata_templates.py (2463ms)
+2025-12-16 13:32:10.825 [info] (5917): BG(vulndb-5g): Long operation: parsing: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/typeshed-fallback/stdlib/builtins.pyi (3581ms)
+2025-12-16 13:32:12.147 [info] (5917): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/services/rules/suricata_templates.py (3651ms)
+2025-12-16 13:32:12.155 [info] (5917): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/services/rules/suricata_templates.py (11703ms)
+2025-12-16 13:32:17.820 [info] (5917): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/api/routes/rules_api.py (2851ms)
+2025-12-16 13:32:17.820 [info] (5917): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/api/routes/rules_api.py (2901ms)
+2025-12-16 13:32:20.089 [info] (5917): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/api/app.py (2226ms)
+2025-12-16 13:32:20.089 [info] (5917): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/api/app.py (2226ms)
+2025-12-16 13:32:34.266 [info] (5917): Settings have not changed. Skipping update.
+2025-12-16 13:32:34.456 [info] (5917): Settings have not changed. Skipping update.
+2025-12-16 13:32:34.627 [info] (5917): Settings have not changed. Skipping update.
+2025-12-16 13:52:09.044 [info] (5917): BG(vulndb-5g): Long operation: SemanticTokens range 212:0 - 287:4 at file:///home/pablo/code/vulndb-5g/services/ia/train_exploit_model.py (4300ms)
+2025-12-16 14:04:46.045 [info] (5917): BG(vulndb-5g): Long operation: checking: file:///home/pablo/code/vulndb-5g/services/ia/train_exploit_model.py (2497ms)
+2025-12-16 14:04:46.047 [info] (5917): BG(vulndb-5g): Long operation: analyzing: file:///home/pablo/code/vulndb-5g/services/ia/train_exploit_model.py (2497ms)

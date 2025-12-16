@@ -1,0 +1,71 @@
+2025-12-15 12:01:33.758 [info] Started local extension host with pid 4376.
+2025-12-15 12:01:35.687 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-15 12:01:37.219 [warning] No search provider registered for scheme: file, waiting
+2025-12-15 12:01:38.585 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-15 12:01:41.773 [warning] [DefaultAccount] Attempt 1 to get sessions failed: Timed out waiting for authentication provider 'github' to register.
+2025-12-15 12:01:42.147 [info] [perf] Render performance baseline is 372ms
+2025-12-15 12:01:43.105 [info] Extension host (LocalProcess pid: 4376) is unresponsive.
+2025-12-15 12:01:46.818 [error] [Extension Host] (node:4376) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-15 12:01:46.848 [error] [Extension Host] (node:4376) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-15 12:01:47.655 [info] Extension host (LocalProcess pid: 4376) is responsive.
+2025-12-15 12:01:51.587 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-15 12:01:52.955 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:04:48.144 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:05:03.463 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:05:54.742 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:06:01.714 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:08:06.477 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:08:26.742 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:44:09.268 [info] Extension host (LocalProcess pid: 4376) is unresponsive.
+2025-12-15 12:44:10.056 [info] Extension host (LocalProcess pid: 4376) is responsive.
+2025-12-15 12:44:10.058 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-15 12:44:29.309 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-15 12:51:12.288 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:51:40.109 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:51:51.918 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:55:30.784 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:56:03.820 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:56:25.662 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 12:57:18.691 [error] Cancelled: Canceled: Canceled
+    at oZe.L (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:35145)
+    at async oZe.K (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:33869)
+    at async oZe.C (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:24589)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:23954
+    at async Promise.all (index 0)
+    at async oZe.B (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:23908)
+    at async oZe.getExtensions (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:22571)
+    at async ept.getExtensions (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2511:15150)
+    at async Xtn.Rc (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2507:17026)
+    at async Xtn.$c (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2507:19670)
+2025-12-15 12:57:43.147 [error] [Extension Host] (node:4376) [DEP0051] DeprecationWarning: The `util.isNullOrUndefined` API is deprecated. Please use `arg === null || arg === undefined` instead.
+2025-12-15 13:19:11.450 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:26:24.291 [info] Extension host (LocalProcess pid: 4376) is unresponsive.
+2025-12-15 13:26:24.692 [info] Extension host (LocalProcess pid: 4376) is responsive.
+2025-12-15 13:26:24.693 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-15 13:26:28.931 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-15 13:26:28.964 [info] Extension host (LocalProcess pid: 4376) is unresponsive.
+2025-12-15 13:26:29.070 [info] Extension host (LocalProcess pid: 4376) is responsive.
+2025-12-15 13:33:44.052 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:34:17.006 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:35:01.852 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:42:40.165 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:43:21.123 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:43:59.567 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:44:30.412 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:45:03.980 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:48:24.159 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:49:38.877 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:49:48.502 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:55:04.999 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:55:48.981 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 13:57:53.470 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-15 14:39:07.843 [info] Extension host (LocalProcess pid: 4376) is unresponsive.
+2025-12-15 14:39:07.970 [info] Extension host (LocalProcess pid: 4376) is responsive.
+2025-12-15 14:39:07.971 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-15 14:39:13.098 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-15 14:52:28.745 [info] Extension host (LocalProcess pid: 4376) is unresponsive.
+2025-12-15 14:52:28.756 [info] Extension host (LocalProcess pid: 4376) is responsive.
+2025-12-15 14:52:28.758 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-15 14:52:33.293 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-15 14:52:34.326 [warning] UNRESPONSIVE extension host: 'ms-azuretools.vscode-containers' took 42.44757910789173% of 5.567ms, saved PROFILE here: 'file:///tmp/exthost-16d79d.cpuprofile'

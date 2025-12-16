@@ -1,0 +1,26 @@
+2025-12-15 08:53:43.243 [info] Starting Python Locator /root/.vscode/extensions/ms-python.python-2025.20.0-linux-x64/python-env-tools/bin/pet server
+2025-12-15 08:53:43.908 [info] Discovered manager: (Pyenv) /usr/bin/pyenv
+2025-12-15 08:53:43.909 [info] Discovered env: /root/.pyenv/versions/3.11.8/bin/python
+2025-12-15 08:53:43.927 [info] Discovered env: /root/.pyenv/versions/3.10.13/bin/python
+2025-12-15 08:53:43.928 [info] Discovered env: /root/.pyenv/versions/tf-env/bin/python
+2025-12-15 08:53:43.928 [info] Discovered env: /usr/bin/python
+2025-12-15 08:53:43.929 [info] Discovered env: /usr/bin/python2
+2025-12-15 08:53:43.929 [info] Discovered env: /bin/python
+2025-12-15 08:53:43.930 [info] Discovered env: /bin/python2
+2025-12-15 08:53:43.931 [info] Locator Conda took 1.406392808s
+2025-12-15 08:53:43.931 [info] Locator Homebrew took 227.851µs
+2025-12-15 08:53:43.931 [info] Locator LinuxGlobal took 1.35669057s
+2025-12-15 08:53:43.931 [info] Locator PipEnv took 23.608µs
+2025-12-15 08:53:43.931 [info] Locator Pixi took 7.826143ms
+2025-12-15 08:53:43.931 [info] Locator Poetry took 12.845689ms
+2025-12-15 08:53:43.931 [info] Locator PyEnv took 337.167429ms
+2025-12-15 08:53:43.931 [info] Locator Uv took 4.48763ms
+2025-12-15 08:53:43.932 [info] Locator Venv took 43.967µs
+2025-12-15 08:53:43.932 [info] Locator VirtualEnv took 48.215µs
+2025-12-15 08:53:43.932 [info] Locator VirtualEnvWrapper took 88.673µs
+2025-12-15 08:53:43.932 [info] Locator GlobalVirtualEnvs took 123.646µs
+2025-12-15 08:53:43.932 [info] Locator Locators took 1.430288933s
+2025-12-15 08:53:43.932 [info] Locator Path took 1.803260439s
+2025-12-15 08:53:43.932 [info] Locator Workspaces took 1.752µs
+2025-12-15 08:53:43.932 [info] Refresh completed in 1812ms
+2025-12-15 08:53:48.614 [info] Resolved Python Environment /root/.pyenv/versions/3.11.8/bin/python

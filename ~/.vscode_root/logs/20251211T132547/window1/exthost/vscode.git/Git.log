@@ -1,0 +1,46 @@
+2025-12-11 13:26:01.725 [info] [main] Log level: Info
+2025-12-11 13:26:01.725 [info] [main] Validating found git in: "git"
+2025-12-11 13:26:01.725 [info] [main] Using git "2.51.0" from "git"
+2025-12-11 13:26:01.725 [info] [Model][doInitialScan] Initial repository scan started
+2025-12-11 13:26:01.725 [info] > git rev-parse --show-toplevel [79ms]
+2025-12-11 13:26:01.725 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:01.942 [info] > git rev-parse --show-toplevel [17ms]
+2025-12-11 13:26:01.942 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:02.002 [info] > git rev-parse --show-toplevel [44ms]
+2025-12-11 13:26:02.002 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:02.056 [info] > git rev-parse --show-toplevel [41ms]
+2025-12-11 13:26:02.056 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:02.141 [info] > git rev-parse --show-toplevel [78ms]
+2025-12-11 13:26:02.141 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:02.225 [info] > git rev-parse --show-toplevel [46ms]
+2025-12-11 13:26:02.225 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:02.357 [info] > git rev-parse --show-toplevel [93ms]
+2025-12-11 13:26:02.591 [info] > git rev-parse --git-dir --git-common-dir [50ms]
+2025-12-11 13:26:02.762 [info] [Model][openRepository] Opened repository: /home/pablo/Descargas/code/vulndb-5g/docker_open5gs
+2025-12-11 13:26:02.886 [info] > git rev-parse --show-toplevel [40ms]
+2025-12-11 13:26:02.886 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:02.887 [info] > git config --get commit.template [70ms]
+2025-12-11 13:26:03.349 [info] > git rev-parse --show-toplevel [255ms]
+2025-12-11 13:26:03.349 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:03.442 [info] > git check-ignore -v -z --stdin [15ms]
+2025-12-11 13:26:03.451 [info] > git rev-parse --show-toplevel [74ms]
+2025-12-11 13:26:03.451 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-11 13:26:03.452 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-12-11 13:26:03.464 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [128ms]
+2025-12-11 13:26:03.479 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/pablo/Descargas/code/vulndb-5g/docker_open5gs/.git/refs/remotes/origin/master'
+2025-12-11 13:26:03.493 [info] > git rev-parse refs/remotes/origin/master [12ms]
+2025-12-11 13:26:03.644 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [47ms]
+2025-12-11 13:26:04.517 [info] > git status -z -uall [993ms]
+2025-12-11 13:26:05.124 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [174ms]
+2025-12-11 13:26:05.218 [info] > git config --get --local branch.master.vscode-merge-base [41ms]
+2025-12-11 13:26:05.247 [info] > git config --get commit.template [116ms]
+2025-12-11 13:26:05.723 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/master refs/remotes/origin/master [485ms]
+2025-12-11 13:26:05.887 [info] > git merge-base refs/heads/master refs/remotes/origin/master [131ms]
+2025-12-11 13:26:05.950 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [99ms]
+2025-12-11 13:26:05.951 [info] > git diff --name-status -z --diff-filter=ADMR 6531237ee9fcbcf3dac9007b676d86926f88dedb...refs/remotes/origin/master [19ms]
+2025-12-11 13:26:05.985 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/pablo/Descargas/code/vulndb-5g/docker_open5gs/.git/refs/remotes/origin/master'
+2025-12-11 13:26:05.997 [info] > git rev-parse refs/remotes/origin/master [12ms]
+2025-12-11 13:26:06.058 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [19ms]
+2025-12-11 13:26:06.129 [info] > git status -z -uall [116ms]
+2025-12-11 13:27:02.560 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-11 13:27:02.560 [info] fatal: not a git repository (or any of the parent directories): .git

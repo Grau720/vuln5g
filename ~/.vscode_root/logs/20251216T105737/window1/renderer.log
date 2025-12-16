@@ -1,0 +1,127 @@
+2025-12-16 10:57:42.004 [warning] Creation of workbench contribution 'workbench.contrib.configurationDefaultOverridesContribution' took 32ms.
+2025-12-16 10:57:43.361 [info] Started local extension host with pid 5364.
+2025-12-16 10:57:53.476 [warning] [DefaultAccount] Attempt 1 to get sessions failed: Timed out waiting for authentication provider 'github' to register.
+2025-12-16 10:57:55.934 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 10:57:56.668 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-16 10:57:57.505 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-16 10:57:58.998 [info] [perf] Render performance baseline is 351ms
+2025-12-16 10:58:00.886 [error] [Extension Host] (node:5364) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-16 10:58:00.887 [error] [Extension Host] (node:5364) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-16 10:58:00.925 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 10:58:05.789 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)
+2025-12-16 10:58:07.513 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-16 10:58:10.597 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 10:58:12.469 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 10:59:06.977 [error] [Extension Host] (node:5364) [DEP0051] DeprecationWarning: The `util.isNullOrUndefined` API is deprecated. Please use `arg === null || arg === undefined` instead.
+2025-12-16 11:35:38.968 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 11:35:52.177 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 11:45:09.214 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 11:47:38.767 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 11:47:38.847 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 11:47:38.848 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 11:47:48.599 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 11:48:05.742 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 11:48:05.744 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 11:48:10.535 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 11:48:10.993 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 11:48:11.022 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 11:48:11.040 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 11:48:52.104 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 11:48:52.107 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 11:48:52.108 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 11:48:54.534 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 11:49:30.188 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 11:49:30.206 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 11:49:30.209 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 11:49:38.434 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 11:49:41.524 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 11:49:41.527 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 11:49:41.527 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 12:18:24.051 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 12:18:24.682 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 12:18:24.684 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 12:18:30.828 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 12:18:35.916 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 12:18:36.021 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 12:18:36.024 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 12:19:06.505 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 12:19:06.536 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 12:19:06.546 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 12:19:12.770 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 12:19:28.354 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 12:19:28.390 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 12:19:28.391 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 12:19:31.187 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 12:19:59.935 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 12:19:59.956 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 12:19:59.956 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 12:20:03.970 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 12:21:38.763 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 12:21:38.787 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 12:21:38.792 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 12:21:48.689 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 12:32:44.670 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 12:32:52.537 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 12:33:53.620 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 12:34:47.584 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 12:36:52.746 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 12:37:04.251 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 12:37:14.258 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:14:59.976 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:17:17.576 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 13:17:18.279 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 13:17:18.292 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 13:17:35.410 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 13:20:44.015 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 13:20:44.020 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 13:20:44.022 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 13:20:55.059 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-16 13:32:30.864 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:32:39.836 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:33:52.881 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:34:02.422 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:35:07.401 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:37:25.190 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:37:37.265 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:37:53.875 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:38:02.407 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:38:04.034 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:38:20.608 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:38:31.542 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:39:42.752 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:39:54.944 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:40:41.633 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 13:41:00.375 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:04:48.591 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:18:53.230 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:19:05.501 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:19:22.942 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:19:35.485 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:19:53.955 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-16 14:49:19.248 [info] Extension host (LocalProcess pid: 5364) is unresponsive.
+2025-12-16 14:49:19.589 [info] Extension host (LocalProcess pid: 5364) is responsive.
+2025-12-16 14:49:19.590 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-16 14:49:24.885 [info] UNRESPONSIVE extension host: starting to profile NOW
