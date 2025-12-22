@@ -1,0 +1,18 @@
+2025-12-22 13:59:46.442 [info] Client: Pylance client (2025.10.4) started with python extension (2025.20.1)
+2025-12-22 13:59:50.365 [info] (16165): Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-22 13:59:50.365 [info] (16165): Pylance language server 2025.10.4 (pyright version 1.1.407, commit 906e40aa) starting
+2025-12-22 13:59:50.460 [info] (16165): Starting service instance "vulndb-5g" for workspace "/home/pablo/code/vulndb-5g"
+2025-12-22 13:59:56.970 [info] (16165): Loading background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js into file:///home/pablo/code/vulndb-5g...
+2025-12-22 13:59:58.113 [info] (16165): Starting Mcp server id:4740 ...
+2025-12-22 14:00:00.792 [info] (16165): FG(vulndb-5g): Setting environmentName for service "vulndb-5g": "3.13.7 (.venv venv)"
+2025-12-22 14:00:00.794 [info] (16165): FG(vulndb-5g): Setting pythonPath for service "vulndb-5g": "/home/pablo/code/vulndb-5g/.venv/bin/python"
+2025-12-22 14:00:00.794 [info] (16165): FG(vulndb-5g): No include entries specified; assuming /home/pablo/code/vulndb-5g
+2025-12-22 14:00:00.794 [info] (16165): FG(vulndb-5g): Auto-excluding **/node_modules
+2025-12-22 14:00:00.799 [info] (16165): FG(vulndb-5g): Auto-excluding **/__pycache__
+2025-12-22 14:00:00.799 [info] (16165): FG(vulndb-5g): Auto-excluding **/.*
+2025-12-22 14:00:01.078 [info] (16165): FG(vulndb-5g): Assuming Python version 3.13.7.final.0
+2025-12-22 14:00:02.368 [info] (16165): FG(vulndb-5g): Found 102 source files
+2025-12-22 14:00:02.559 [info] (16165): Settings have not changed. Skipping update.
+2025-12-22 14:00:02.877 [info] (16165): PQ(vulndb-5g): Priority queue background worker(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-22 14:00:02.880 [info] (16165): PQ(vulndb-5g): Priority queue background worker(2) started
+2025-12-22 14:00:03.304 [info] (16165): BG(vulndb-5g): Loaded external background bundle file:///root/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js. 

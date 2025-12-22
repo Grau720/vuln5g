@@ -1,7 +1,0 @@
-2025-12-15 08:53:31.815 [info] Getting Manifest... ms-python.vscode-python-envs
-2025-12-15 08:53:32.001 [info] Installing extension: ms-python.vscode-python-envs {"productVersion":{"version":"1.107.0","date":"2025-12-10T07:43:47.883Z"},"pinned":false,"operation":3,"isApplicationScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"}}
-2025-12-15 08:53:35.834 [info] Extension signature verification result for ms-python.vscode-python-envs: Success. Internal Code: 0. Executed: true. Duration: 2062ms.
-2025-12-15 08:53:36.871 [info] Extracted extension to file:///root/.vscode/extensions/ms-python.vscode-python-envs-1.14.0-linux-x64: ms-python.vscode-python-envs
-2025-12-15 08:53:36.905 [info] Renamed to /root/.vscode/extensions/ms-python.vscode-python-envs-1.14.0-linux-x64
-2025-12-15 08:53:36.939 [info] Marked extension as removed ms-python.vscode-python-envs-1.12.0-linux-x64
-2025-12-15 08:53:36.977 [info] Extension installed successfully: ms-python.vscode-python-envs vscode-userdata:/root/.vscode/extensions/extensions.json

@@ -1,0 +1,58 @@
+2025-12-22 13:58:04.327 [warning] Creation of workbench contribution 'workbench.contrib.chatSetup' took 52ms.
+2025-12-22 13:58:05.181 [warning] Creation of workbench contribution 'mcpContextKeys' took 42ms.
+2025-12-22 13:58:05.283 [warning] Creation of workbench contribution 'workbench.contrib.interactiveDocument' took 212ms.
+2025-12-22 13:58:05.367 [warning] Creation of workbench contribution 'workbench.contrib.localHistoryTimeline' took 60ms.
+2025-12-22 13:58:05.650 [warning] Creation of workbench contribution 'workbench.contrib.configurationDefaultOverridesContribution' took 115ms.
+2025-12-22 13:58:10.475 [info] Started local extension host with pid 15080.
+2025-12-22 13:58:25.038 [warning] [DefaultAccount] Attempt 1 to get sessions failed: Timed out waiting for authentication provider 'github' to register.
+2025-12-22 13:58:31.890 [info] Extension host (LocalProcess pid: 15080) is unresponsive.
+2025-12-22 13:58:41.937 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-22 13:58:43.402 [error] [Extension Host] (node:15080) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-22 13:58:43.449 [error] [Extension Host] (node:15080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-22 13:58:43.480 [info] Extension host (LocalProcess pid: 15080) is responsive.
+2025-12-22 13:58:46.582 [warning] Creation of workbench contribution 'terminal.chatAgentTools' took 187ms.
+2025-12-22 13:58:46.583 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-22 13:58:47.892 [info] Extension host (LocalProcess pid: 15080) is unresponsive.
+2025-12-22 13:58:51.089 [warning] Creation of workbench contribution 'workbench.contrib.dynamicWindowConfiguration' took 127ms.
+2025-12-22 13:58:52.701 [info] [perf] Render performance baseline is 197ms
+2025-12-22 13:58:54.921 [info] Extension host (LocalProcess pid: 15080) is responsive.
+2025-12-22 13:59:03.330 [info] Extension host (LocalProcess pid: 15080) is unresponsive.
+2025-12-22 13:59:07.012 [info] Extension host (LocalProcess pid: 15080) is responsive.
+2025-12-22 13:59:07.015 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-22 13:59:09.918 [info] Extension host (LocalProcess pid: 15080) is unresponsive.
+2025-12-22 13:59:10.960 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-22 13:59:13.697 [info] Extension host (LocalProcess pid: 15080) is responsive.
+2025-12-22 13:59:25.229 [info] Extension host (LocalProcess pid: 15080) is unresponsive.
+2025-12-22 13:59:25.230 [info] Extension host (LocalProcess pid: 15080) is responsive.
+2025-12-22 13:59:25.230 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-22 13:59:25.231 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-22 13:59:29.362 [info] Extension host (LocalProcess pid: 15080) is unresponsive.
+2025-12-22 13:59:31.690 [info] Extension host (LocalProcess pid: 15080) is responsive.
+2025-12-22 13:59:32.436 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-22 13:59:32.476 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-22 13:59:39.054 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-22 13:59:41.603 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-22 13:59:46.092 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)

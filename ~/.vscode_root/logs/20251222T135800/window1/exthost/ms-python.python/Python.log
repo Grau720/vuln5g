@@ -1,0 +1,7 @@
+2025-12-22 13:59:21.539 [info] Native locator: Refresh started
+2025-12-22 13:59:36.822 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-22 13:59:36.883 [info] > pyenv which python
+2025-12-22 13:59:36.883 [info] cwd: .
+2025-12-22 13:59:39.177 [info] Native locator: Refresh finished in 40994 ms
+2025-12-22 13:59:39.209 [info] Python interpreter path: ./.venv/bin/python
+2025-12-22 13:59:57.198 [info] Starting Pylance language server.

@@ -1,0 +1,5 @@
+alert tcp any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via pipe"; content:"cmd="; content:"%7c"; nocase; sid:9504101; rev:1;)
+alert tcp any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via semicolon"; content:"cmd="; content:"%3b"; nocase; sid:9504102; rev:1;)
+alert tcp any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via subshell"; content:"cmd="; content:"%24%28"; nocase; sid:9504103; rev:1;)
+alert tcp any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via logical and"; content:"cmd="; content:"%26%26"; nocase; sid:9504104; rev:1;)
+alert tcp any any -> 172.22.0.52 5000 (msg:"DEBUG cmd parameter detected"; content:"cmd="; sid:9999998; rev:1;)

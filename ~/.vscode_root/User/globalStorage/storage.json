@@ -43,7 +43,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 35,
             "activityBarWidth": 48,
-            "sideBarWidth": 0,
+            "sideBarWidth": 170,
             "auxiliaryBarWidth": 0,
             "statusBarHeight": 22,
             "windowBorder": false
@@ -55,17 +55,17 @@
             "backupPath": "/home/pablo/code/vulndb-5g/~/.vscode_root/Backups/4da3475376e6920aea79e96e967813bc",
             "uiState": {
                 "mode": 0,
-                "x": 218,
-                "y": 92,
+                "x": 240,
+                "y": 29,
                 "width": 1440,
-                "height": 788
+                "height": 900
             }
         },
         "openedWindows": []
     },
     "windowSplashWorkspaceOverride": {
         "layoutInfo": {
-            "sideBarWidth": 300,
+            "sideBarWidth": 170,
             "auxiliaryBarWidth": 300,
             "workspaces": {
                 "e54bed8c0360b27f8f12c20a475e8a2d": {
@@ -73,7 +73,7 @@
                     "auxiliaryBarVisible": true
                 },
                 "fe06d59c31d4c1f208fdfa32acf0afc8": {
-                    "sideBarVisible": false,
+                    "sideBarVisible": true,
                     "auxiliaryBarVisible": false
                 }
             }

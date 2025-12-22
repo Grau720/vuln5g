@@ -1,0 +1,64 @@
+Error: the task 'Containers: Shell: vulndb_suricata' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,7d32d1bff59048f1c7c3b0b140f62fbe3f3f7ca3eb40ba0bc3e7cd6a860510e5,bash,",
+    "idRandomizer": 0.010306647154044057,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_suricata"
+}
+Error: the task 'Containers: Shell: vulndb_suricata' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,7d32d1bff59048f1c7c3b0b140f62fbe3f3f7ca3eb40ba0bc3e7cd6a860510e5,bash,",
+    "idRandomizer": 0.010306647154044057,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_suricata"
+}
+Error: the task 'Containers: Shell: vulndb_suricata' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,7d32d1bff59048f1c7c3b0b140f62fbe3f3f7ca3eb40ba0bc3e7cd6a860510e5,bash,",
+    "idRandomizer": 0.9875712869910965,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_suricata"
+}
+Error: the task 'Containers: Shell: vulndb_suricata' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,7d32d1bff59048f1c7c3b0b140f62fbe3f3f7ca3eb40ba0bc3e7cd6a860510e5,bash,",
+    "idRandomizer": 0.9875712869910965,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_suricata"
+}
+Error: the task 'Containers: Shell: vulndb_suricata' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,7d32d1bff59048f1c7c3b0b140f62fbe3f3f7ca3eb40ba0bc3e7cd6a860510e5,bash,",
+    "idRandomizer": 0.08248028851906264,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_suricata"
+}
+Error: the task 'Containers: Shell: vulndb_suricata' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,7d32d1bff59048f1c7c3b0b140f62fbe3f3f7ca3eb40ba0bc3e7cd6a860510e5,bash,",
+    "idRandomizer": 0.08248028851906264,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_suricata"
+}
+Error: the task 'Containers: Shell: vulndb_mongodb' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,edf2a91a901642b48ba5a620f983fd012edcf62ca7a07524502671868ed451ce,bash,",
+    "idRandomizer": 0.6035687442111848,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_mongodb"
+}
+Error: the task 'Containers: Shell: vulndb_mongodb' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,edf2a91a901642b48ba5a620f983fd012edcf62ca7a07524502671868ed451ce,bash,",
+    "idRandomizer": 0.6035687442111848,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_mongodb"
+}

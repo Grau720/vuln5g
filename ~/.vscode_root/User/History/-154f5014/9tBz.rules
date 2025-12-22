@@ -1,0 +1,23 @@
+alert http any any -> 172.22.0.52 5000 (msg:"DEBUG API exec endpoint accessed"; flow:established,to_server; content:"/api/v1/exec"; http_uri; sid:9999001; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"DEBUG cmd parameter detected"; flow:established,to_server; content:"cmd="; http_uri; sid:9999002; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"DEBUG HTTP traffic to API"; flow:established,to_server; sid:9999003; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via pipe"; flow:established,to_server; content:"cmd="; http_uri; pcre:"/cmd=[^&]*(\\||%7[cC])/i"; classtype:web-application-attack; sid:9504101; rev:2;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via semicolon"; flow:established,to_server; content:"cmd="; http_uri; pcre:"/cmd=[^&]*(;|%3[bB])/i"; classtype:web-application-attack; sid:9504102; rev:2;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via logical AND"; flow:established,to_server; content:"cmd="; http_uri; pcre:"/cmd=[^&]*(&&|%26%26)/i"; classtype:web-application-attack; sid:9504103; rev:2;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via subshell"; flow:established,to_server; content:"cmd="; http_uri; pcre:"/cmd=[^&]*(\\$\\(|%24%28)/i"; classtype:web-application-attack; sid:9504104; rev:2;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via backticks"; flow:established,to_server; content:"cmd="; http_uri; pcre:"/cmd=[^&]*(`|%60)/i"; classtype:web-application-attack; sid:9504105; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE common system commands"; flow:established,to_server; content:"cmd="; http_uri; pcre:"/cmd=[^&]*(whoami|ls|cat|nc|curl|wget|bash|sh|bin|etc|passwd)/i"; classtype:web-application-attack; sid:9504106; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G SQL Injection OR 1=1"; flow:established,to_server; pcre:"/(%27|')\s*(OR|or)\s*(%27|')?1(%27|')?=(%27|')?1/i"; classtype:web-application-attack; sid:9501101; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G SQL Injection UNION"; flow:established,to_server; pcre:"/(UNION|union)\s+(SELECT|select|ALL|all)/i"; classtype:web-application-attack; sid:9501102; rev:1;)
+
+alert http any any -> 172.22.0.52 5000 (msg:"VULNDB-5G Path Traversal"; flow:established,to_server; pcre:"/(\\.{2}\/|%2e%2e%2f|%2e%2e\/)/i"; classtype:web-application-attack; sid:9502101; rev:1;)

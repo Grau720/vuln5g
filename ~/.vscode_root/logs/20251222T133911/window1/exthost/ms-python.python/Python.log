@@ -1,0 +1,8 @@
+2025-12-22 13:40:35.512 [info] Native locator: Refresh started
+2025-12-22 13:40:37.259 [info] > pyenv which python
+2025-12-22 13:40:37.259 [info] cwd: .
+2025-12-22 13:40:41.149 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-22 13:40:41.171 [info] Native locator: Refresh finished in 71142 ms
+2025-12-22 13:40:41.207 [info] Python interpreter path: ./.venv/bin/python
+2025-12-22 13:40:45.737 [info] Starting Pylance language server.
+2025-12-22 13:48:20.983 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate

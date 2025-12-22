@@ -55,3 +55,5 @@
 2025-12-16 16:37:21.679 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
 2025-12-16 16:42:09.241 [warning] [Decorations] CAPPING events from decorations provider vscode.git 10000
 2025-12-16 16:42:11.526 [warning] [Decorations] CAPPING events from decorations provider vscode.git 10000
+2025-12-16 16:43:51.535 [warning] [Decorations] CAPPING events from decorations provider vscode.git 10000
+2025-12-16 16:45:41.488 [warning] [Decorations] CAPPING events from decorations provider vscode.git 10014

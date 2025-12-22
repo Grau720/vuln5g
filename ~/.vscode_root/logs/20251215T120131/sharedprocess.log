@@ -1,6 +1,0 @@
-2025-12-15 12:57:20.069 [info] Getting Manifest... mechatroner.rainbow-csv
-2025-12-15 12:57:20.220 [info] Installing extension: mechatroner.rainbow-csv {"isMachineScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.107.0","date":"2025-12-10T07:43:47.883Z"}}
-2025-12-15 12:57:24.270 [info] Extension signature verification result for mechatroner.rainbow-csv: Success. Internal Code: 0. Executed: true. Duration: 2679ms.
-2025-12-15 12:57:24.567 [info] Extracted extension to file:///root/.vscode/extensions/mechatroner.rainbow-csv-3.23.0: mechatroner.rainbow-csv
-2025-12-15 12:57:24.591 [info] Renamed to /root/.vscode/extensions/mechatroner.rainbow-csv-3.23.0
-2025-12-15 12:57:24.723 [info] Extension installed successfully: mechatroner.rainbow-csv vscode-userdata:/root/.vscode/extensions/extensions.json

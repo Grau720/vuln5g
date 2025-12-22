@@ -1,5 +1,0 @@
-2025-12-11 13:39:44.861 [info] Latency measurements for local backend
-window<->ptyhost (message port): 3.60ms
-window<->ptyhostservice<->ptyhost: 2.80ms
-ptyhostservice<->ptyhost: 1.43ms []
-2025-12-11 14:50:53.337 [info] The pty host became responsive again []

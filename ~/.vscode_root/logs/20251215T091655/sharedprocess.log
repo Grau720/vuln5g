@@ -1,7 +1,0 @@
-2025-12-15 09:17:09.564 [info] Deleted marked for removal extension from disk ms-python.vscode-python-envs /root/.vscode/extensions/ms-python.vscode-python-envs-1.12.0-linux-x64
-2025-12-15 09:19:48.172 [info] Getting Manifest... ms-azuretools.vscode-containers
-2025-12-15 09:19:48.299 [info] Installing extension: ms-azuretools.vscode-containers {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"isApplicationScoped":false,"productVersion":{"version":"1.107.0","date":"2025-12-10T07:43:47.883Z"}}
-2025-12-15 09:19:54.514 [info] Extension signature verification result for ms-azuretools.vscode-containers: Success. Internal Code: 0. Executed: true. Duration: 4518ms.
-2025-12-15 09:19:55.024 [info] Extracted extension to file:///root/.vscode/extensions/ms-azuretools.vscode-containers-2.3.0: ms-azuretools.vscode-containers
-2025-12-15 09:19:55.042 [info] Renamed to /root/.vscode/extensions/ms-azuretools.vscode-containers-2.3.0
-2025-12-15 09:19:55.105 [info] Extension installed successfully: ms-azuretools.vscode-containers vscode-userdata:/root/.vscode/extensions/extensions.json

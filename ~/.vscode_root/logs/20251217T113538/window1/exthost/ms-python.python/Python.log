@@ -1,0 +1,51 @@
+2025-12-17 11:35:55.509 [info] Native locator: Refresh started
+2025-12-17 11:35:55.570 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-17 11:35:55.991 [info] Native locator: Refresh finished in 4975 ms
+2025-12-17 11:35:58.765 [info] Python interpreter path: ./.venv/bin/python
+2025-12-17 11:36:01.154 [info] > /usr/bin/pyenv which python
+2025-12-17 11:36:01.154 [info] cwd: .
+2025-12-17 11:36:08.132 [info] Starting Pylance language server.
+2025-12-17 11:43:47.034 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 11:56:12.307 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 12:02:13.052 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 12:02:25.946 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 12:05:59.188 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 12:13:22.540 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 13:51:02.284 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 14:10:17.187 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 14:10:20.522 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 14:12:39.106 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 14:14:22.231 [info] Native locator: Refresh started
+2025-12-17 14:14:27.116 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-17 14:14:37.338 [info] > /usr/bin/pyenv which python
+2025-12-17 14:14:37.339 [info] cwd: .
+2025-12-17 14:14:38.973 [info] Native locator: Refresh finished in 26250 ms
+2025-12-17 14:14:38.987 [info] Python interpreter path: ./.venv/bin/python
+2025-12-17 14:14:48.796 [info] Starting Pylance language server.
+2025-12-17 14:16:35.181 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 14:16:38.692 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 16:13:33.850 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 16:18:05.868 [info] Native locator: Refresh started
+2025-12-17 16:18:09.309 [info] > pyenv which python
+2025-12-17 16:18:09.315 [info] cwd: .
+2025-12-17 16:18:15.801 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-17 16:18:15.925 [info] Native locator: Refresh finished in 12849 ms
+2025-12-17 16:18:15.939 [info] Python interpreter path: ./.venv/bin/python
+2025-12-17 16:18:22.912 [info] Starting Pylance language server.
+2025-12-17 16:22:06.468 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 16:34:47.359 [info] Native locator: Refresh started
+2025-12-17 16:34:54.858 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-17 16:34:56.034 [info] > pyenv which python
+2025-12-17 16:34:56.035 [info] cwd: .
+2025-12-17 16:34:58.850 [info] Native locator: Refresh finished in 17734 ms
+2025-12-17 16:34:58.865 [info] Python interpreter path: ./.venv/bin/python
+2025-12-17 16:35:06.902 [info] Starting Pylance language server.
+2025-12-17 16:50:54.794 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 16:53:02.834 [info] Send text to terminal: source /home/pablo/code/vulndb-5g/.venv/bin/activate
+2025-12-17 16:55:21.265 [info] Native locator: Refresh started
+2025-12-17 16:55:21.578 [info] Pyenv environment manager found at: /usr/bin/pyenv
+2025-12-17 16:55:21.599 [info] Native locator: Refresh finished in 5384 ms
+2025-12-17 16:55:33.328 [info] > /usr/bin/pyenv which python
+2025-12-17 16:55:33.333 [info] cwd: .
+2025-12-17 16:55:34.023 [info] Python interpreter path: ./.venv/bin/python
+2025-12-17 16:55:55.146 [info] Starting Pylance language server.

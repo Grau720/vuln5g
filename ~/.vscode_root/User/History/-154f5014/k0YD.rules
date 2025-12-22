@@ -1,0 +1,1 @@
+alert tcp any any -> 172.22.0.52 5000 (msg:"VULNDB-5G RCE attempt via cmd parameter"; pcre:"/cmd=.*((\||;|&&|\$\(|`)|(%7c|%3b|%26%26|%24%28|%60))/Ui"; sid:9504005; rev:1;)

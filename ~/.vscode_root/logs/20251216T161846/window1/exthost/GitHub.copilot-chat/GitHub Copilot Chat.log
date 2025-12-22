@@ -86,3 +86,19 @@
 	at async dK.provideInlineCompletionItems (/root/.vscode/extensions/github.copilot-chat-0.35.0/dist/extension.js:4398:1015)
 	at async Ao.provideInlineCompletions (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:144:158133)]
 2025-12-16 16:31:43.368 [warning] GitHub login failed
+2025-12-16 16:46:38.713 [info] Logged in as Grau720
+2025-12-16 16:46:39.461 [info] Got Copilot token for Grau720
+2025-12-16 16:46:39.461 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-16 16:46:47.653 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-16 16:46:47.653 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-16 16:46:47.807 [info] Registering default platform agent...
+2025-12-16 16:46:47.818 [info] [code-referencing] Public code references are enabled.
+2025-12-16 16:46:48.069 [info] BYOK: Copilot Chat known models list fetched successfully.
+2025-12-16 16:46:50.162 [info] Fetched model metadata in 2492ms 73104b3b-4e5e-4f23-9911-324a73c0174c
+2025-12-16 16:46:50.539 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-16 16:46:50.544 [info] ccreq:edbd53a0.copilotmd | markdown
+2025-12-16 16:46:53.355 [info] GithubAvailableEmbeddingTypesManager: Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+2025-12-16 16:46:53.397 [info] WorkspaceChunkSearchService: using embedding type metis-1024-I16-Binary
+2025-12-16 16:46:59.590 [info] Refetch model metadata: Succeeded in 2077ms 2205045f-ac2e-4fbd-9f80-105a533576a8 (FFC5:15E34C:22A133:268BB8:69417EF5) using node-http with status 200.
+2025-12-16 16:47:00.385 [info] Refetch model metadata: Succeeded in 794ms f66f1970-cd2c-490a-8444-56fac051b5ae (FFC6:1C2222:22AB21:268E61:69417EF6) using electron-fetch with status 200.
+2025-12-16 16:47:01.267 [info] Refetch model metadata: Succeeded in 881ms a53b2c2c-9741-4b6a-9118-eeef94786c9e (FFC7:DB888:227E1B:26610A:69417EF7) using node-fetch with status 200.

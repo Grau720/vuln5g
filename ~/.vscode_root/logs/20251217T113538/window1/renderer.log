@@ -1,0 +1,462 @@
+2025-12-17 11:35:40.889 [info] Started local extension host with pid 3481.
+2025-12-17 11:35:47.005 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-17 11:35:47.257 [warning] Creation of workbench contribution 'terminal.chatAgentTools' took 106ms.
+2025-12-17 11:35:47.753 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-17 11:35:47.979 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:35:48.601 [info] [perf] Render performance baseline is 42ms
+2025-12-17 11:35:49.160 [warning] [DefaultAccount] Attempt 1 to get sessions failed: Timed out waiting for authentication provider 'github' to register.
+2025-12-17 11:35:49.173 [error] [Extension Host] (node:3481) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-17 11:35:49.176 [error] [Extension Host] (node:3481) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-17 11:35:49.177 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:35:56.153 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:35:56.251 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:35:56.252 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 11:35:56.376 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-17 11:35:58.355 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 11:35:59.433 [warning] UNRESPONSIVE extension host: 'vscode.git' took 19.6390060947023% of 12.567ms, saved PROFILE here: 'file:///tmp/exthost-ea76eb.cpuprofile'
+2025-12-17 11:36:00.349 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:36:04.094 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)
+2025-12-17 11:36:04.343 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:36:07.000 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:36:21.489 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:36:47.558 [error] [Extension Host] (node:3481) [DEP0051] DeprecationWarning: The `util.isNullOrUndefined` API is deprecated. Please use `arg === null || arg === undefined` instead.
+2025-12-17 11:38:34.527 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:39:08.162 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:39:10.225 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:39:10.225 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 11:39:11.383 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 11:39:12.422 [warning] UNRESPONSIVE extension host: 'vscode.terminal-suggest' took 88.021856458047% of 262.578ms, saved PROFILE here: 'file:///tmp/exthost-fc35e9.cpuprofile'
+2025-12-17 11:39:15.394 [error] [computePromptSlashCommands] Failed to parse prompt file for slash command: file:///root/.vscode/extensions/github.copilot-chat-0.35.0/assets/prompts/savePrompt.prompt.md Canceled
+2025-12-17 11:40:25.558 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:40:39.349 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:40:46.526 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 11:41:36.414 [error] CodeExpectedError: No default agent registered
+    at xdt.activateDefaultAgent (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2200:15465)
+2025-12-17 11:42:18.231 [error] Failed to fetch MCP registry providers Server returned 404
+2025-12-17 11:42:20.954 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:42:21.294 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:42:21.297 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 11:42:21.555 [error] command 'github.copilot.signIn' not found: Error: command 'github.copilot.signIn' not found
+    at FXe.n (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1344:3890)
+    at FXe.executeCommand (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1344:3822)
+2025-12-17 11:42:28.008 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:42:28.409 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 11:42:28.542 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:42:28.646 [warning] UNRESPONSIVE extension host: 'vscode.github-authentication' took 100% of 5.793ms, saved PROFILE here: 'file:///tmp/exthost-d5fa18.cpuprofile'
+2025-12-17 11:42:32.127 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 11:42:32.128 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 11:42:45.509 [error] [Extension Host] (node:3481) [DEP0052] DeprecationWarning: The `util.isNumber` API is deprecated. Please use `typeof arg === "number"` instead.
+2025-12-17 11:53:36.111 [error] Make sure the ref is set before accessing the element. Maybe wrong initialization order?: Error: Make sure the ref is set before accessing the element. Maybe wrong initialization order?
+    at o.get (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:35:22039)
+    at qge.triggerAnimation (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:480:98720)
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:480:100587
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:20858
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:20759
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:20667
+    at N8._runFn (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:7689)
+    at N8.k (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:5808)
+    at N8.endUpdate (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:6222)
+    at Nb.endUpdate (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:10953)
+2025-12-17 11:54:33.436 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:54:33.632 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:54:33.632 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 11:54:48.515 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:54:49.211 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:54:49.214 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 11:54:55.172 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 11:54:55.214 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 11:54:55.661 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 11:54:55.663 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 12:31:16.096 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 12:31:16.137 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 12:31:16.139 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 12:31:36.675 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 12:31:41.753 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 12:31:41.759 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 12:31:41.772 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 12:35:05.604 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 12:35:07.012 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 12:35:07.485 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 12:35:07.486 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 12:37:33.556 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 12:37:33.560 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 12:54:48.338 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 12:54:58.951 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 12:55:02.432 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 12:55:02.591 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:02:28.273 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:02:31.395 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:02:31.782 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:02:31.783 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:02:47.558 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:02:49.196 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:02:49.198 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:02:51.410 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:02:52.338 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:02:59.747 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:03:00.091 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:03:00.155 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:03:03.466 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 38.23562323882768% of 187.93ms, saved PROFILE here: 'file:///tmp/exthost-cbe00d.cpuprofile'
+2025-12-17 13:04:43.410 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:04:48.063 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:04:48.428 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:04:48.443 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:04:49.853 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 74.52983539200966% of 721.22ms, saved PROFILE here: 'file:///tmp/exthost-78ddb5.cpuprofile'
+2025-12-17 13:07:40.193 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:07:41.050 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:07:41.052 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:07:42.899 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:07:44.422 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 73.69344608879493% of 209.142ms, saved PROFILE here: 'file:///tmp/exthost-f75943.cpuprofile'
+2025-12-17 13:12:31.728 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:12:31.800 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:12:31.809 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:12:33.559 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:30:21.273 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:30:22.657 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:30:23.330 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:30:23.331 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:30:23.546 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 71.87860262129314% of 520.616ms, saved PROFILE here: 'file:///tmp/exthost-6aefe5.cpuprofile'
+2025-12-17 13:32:54.165 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 13:32:54.189 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 13:33:26.408 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:33:26.576 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:33:26.579 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:33:30.648 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:44:41.326 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:44:50.892 [error] Error: Aborted onWillSaveTextDocument-event after 1750ms
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:572:11858
+2025-12-17 13:44:51.169 [error] [text file model] handleSaveError(368) - exit - resulted in a save error: Error: Unable to write file '/home/pablo/code/vulndb-5g/runtime/suricata/logs/eve.json' (Error: File Modified Since) file:///home/pablo/code/vulndb-5g/runtime/suricata/logs/eve.json
+2025-12-17 13:44:53.084 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:44:56.991 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:44:56.993 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:44:57.462 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 71.69517997368003% of 2875.437ms, saved PROFILE here: 'file:///tmp/exthost-5711ac.cpuprofile'
+2025-12-17 13:44:58.632 [error] [text file model] handleSaveError(369) - exit - resulted in a save error: Error: Unable to write file '/home/pablo/code/vulndb-5g/runtime/suricata/logs/eve.json' (Error: File Modified Since) file:///home/pablo/code/vulndb-5g/runtime/suricata/logs/eve.json
+2025-12-17 13:45:00.743 [error] [text file model] handleSaveError(369) - exit - resulted in a save error: Error: Unable to write file '/home/pablo/code/vulndb-5g/runtime/suricata/logs/eve.json' (Error: File Modified Since) file:///home/pablo/code/vulndb-5g/runtime/suricata/logs/eve.json
+2025-12-17 13:48:20.452 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 13:48:23.147 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 13:48:23.259 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 13:48:23.262 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 13:48:25.145 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 38.07867027282515% of 116.012ms, saved PROFILE here: 'file:///tmp/exthost-f5f5b7.cpuprofile'
+2025-12-17 13:48:55.648 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-17 14:06:09.747 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:06:09.753 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:06:09.772 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:06:10.353 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:11:45.006 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 14:11:51.213 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 14:11:51.230 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 14:11:54.412 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 14:11:57.544 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 14:12:00.589 [info] Extension host (LocalProcess pid: 3481) is responsive.
+2025-12-17 14:12:00.635 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 14:12:00.638 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 14:13:41.315 [info] Extension host (LocalProcess pid: 3481) is unresponsive.
+2025-12-17 14:13:46.361 [error] Extension host (LocalProcess pid: 3481) terminated unexpectedly. The following extensions were running: vscode.github-authentication, mechatroner.rainbow-csv, vscode.emmet, GitHub.copilot-chat, vscode.git-base, ms-python.python, vscode.microsoft-authentication, vscode.git, vscode.github, vscode.debug-auto-launch, vscode.merge-conflict, vscode.terminal-suggest, ms-python.vscode-pylance, ms-python.vscode-python-envs, ms-azuretools.vscode-containers, vscode.npm, vscode.configuration-editing, vscode.extension-editing, vscode.json-language-features, vscode.typescript-language-features, ms-python.debugpy, vscode.grunt, vscode.gulp, vscode.jake
+2025-12-17 14:13:46.495 [info] Automatically restarting the extension host.
+2025-12-17 14:13:49.808 [info] Started local extension host with pid 78502.
+2025-12-17 14:13:50.235 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)
+2025-12-17 14:14:02.191 [info] Extension host (LocalProcess pid: 78502) is unresponsive.
+2025-12-17 14:14:03.868 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 14:14:05.193 [error] [Extension Host] (node:78502) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-17 14:14:05.208 [error] [Extension Host] (node:78502) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-17 14:14:11.823 [info] Extension host (LocalProcess pid: 78502) is responsive.
+2025-12-17 14:14:19.581 [error] [Extension Host] (node:78502) [DEP0051] DeprecationWarning: The `util.isNullOrUndefined` API is deprecated. Please use `arg === null || arg === undefined` instead.
+2025-12-17 14:14:22.699 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-17 14:14:38.123 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:14:38.124 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:14:38.126 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:14:42.642 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 14:16:06.806 [error] Unexpected: The specified task is missing an execution: CodeExpectedError: Unexpected: The specified task is missing an execution
+	at S4.B (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:125:15058)
+	at S4.$onDidEndTaskProcess (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:125:13381)
+	at l5.S (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:125043)
+	at l5.Q (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:124823)
+	at l5.M (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123912)
+	at l5.L (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:123017)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:121814)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at _d.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:9330)
+	at I.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2328)
+	at I.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2546)
+	at Vo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9454)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:7564)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+	at Object.callbackTrampoline (node:internal/async_hooks:130:17)
+2025-12-17 15:12:16.206 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 15:12:16.239 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 15:52:48.518 [info] Extension host (LocalProcess pid: 78502) is unresponsive.
+2025-12-17 15:52:58.355 [info] Extension host (LocalProcess pid: 78502) is responsive.
+2025-12-17 15:52:58.356 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 15:52:59.957 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:07:22.742 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:07:22.744 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:08:38.192 [info] Extension host (LocalProcess pid: 78502) is unresponsive.
+2025-12-17 16:08:38.484 [info] Extension host (LocalProcess pid: 78502) is responsive.
+2025-12-17 16:08:38.495 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:08:44.233 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:15:06.741 [error] Unable to resolve nonexistent file '/var/log/suricata/': Error: Unable to resolve nonexistent file '/var/log/suricata/'
+    at uEt.resolve (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3853:61974)
+    at async Lze.resolveResources (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:38824)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:37135
+    at async Promise.all (index 0)
+    at async Lze.r (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:37454)
+    at async b1t.jb (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3034:29988)
+    at async b1t.requestCompletions (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3034:31617)
+2025-12-17 16:15:29.350 [info] Extension host (LocalProcess pid: 78502) is unresponsive.
+2025-12-17 16:15:33.326 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:15:34.627 [error] Error: Aborted onWillSaveTextDocument-event after 1750ms
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:572:11858
+2025-12-17 16:15:42.321 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 74.08802970466412% of 6149.588ms, saved PROFILE here: 'file:///tmp/exthost-2bc9f0.cpuprofile'
+2025-12-17 16:15:58.022 [error] Error: Aborted onWillSaveTextDocument-event after 1750ms
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:572:11858
+2025-12-17 16:16:04.727 [info] Extension host (LocalProcess pid: 78502) is responsive.
+2025-12-17 16:16:15.941 [error] Cannot read properties of undefined (reading 'getViewLineMinColumn'): TypeError: Cannot read properties of undefined (reading 'getViewLineMinColumn')
+    at _ts.getViewLineMinColumn (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:47541)
+    at Qts.getLineMinColumn (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:68232)
+    at Qts.C (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:58199)
+    at Qts.F (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:58396)
+    at Sce.value (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:56720)
+    at E.C (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:29:2349)
+    at E.D (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:29:2419)
+    at E.fire (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:29:2637)
+    at P4.n (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:75:33072)
+    at P4.setScrollDimensions (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:75:31810)
+2025-12-17 16:16:15.945 [error] Cannot read properties of undefined (reading 'getModelColumnOfViewPosition'): TypeError: Cannot read properties of undefined (reading 'getModelColumnOfViewPosition')
+    at _ts.convertViewPositionToModelPosition (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:48973)
+    at Gts.convertViewPositionToModelPosition (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:52623)
+    at _4i.onCursorStateChanged (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:78:69141)
+    at _4i.handleEvents (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:73:1194)
+    at pts.u (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:286:32942)
+    at pts.t (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:286:32831)
+    at pts.s (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:286:32804)
+    at pts.endEmitViewEvents (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:286:32627)
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:287:62191
+    at Sce.value (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:277:29804)
+2025-12-17 16:17:49.062 [info] Extension host (LocalProcess pid: 78502) is unresponsive.
+2025-12-17 16:17:51.184 [error] Extension host (LocalProcess pid: 78502) terminated unexpectedly. The following extensions were running: vscode.github-authentication, mechatroner.rainbow-csv, vscode.emmet, GitHub.copilot-chat, vscode.git-base, ms-python.python, vscode.microsoft-authentication, vscode.git, vscode.github, vscode.debug-auto-launch, vscode.merge-conflict, vscode.terminal-suggest, ms-python.vscode-pylance, ms-python.vscode-python-envs, ms-azuretools.vscode-containers, vscode.npm, vscode.configuration-editing, vscode.extension-editing, vscode.json-language-features, vscode.typescript-language-features, ms-python.debugpy, vscode.grunt, vscode.gulp, vscode.jake
+2025-12-17 16:17:51.185 [info] Automatically restarting the extension host.
+2025-12-17 16:17:52.579 [info] Started local extension host with pid 100451.
+2025-12-17 16:17:52.766 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)
+2025-12-17 16:17:59.312 [error] [Extension Host] (node:100451) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-17 16:17:59.313 [error] [Extension Host] (node:100451) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-17 16:18:08.710 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-17 16:18:14.303 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:18:14.304 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:18:15.552 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:18:15.554 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:21:42.103 [info] Extension host (LocalProcess pid: 100451) is unresponsive.
+2025-12-17 16:21:44.043 [info] Extension host (LocalProcess pid: 100451) is responsive.
+2025-12-17 16:21:44.256 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:21:50.071 [info] Extension host (LocalProcess pid: 100451) is unresponsive.
+2025-12-17 16:22:00.230 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:22:00.484 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 100% of 61.103ms, saved PROFILE here: 'file:///tmp/exthost-ab7cc3.cpuprofile'
+2025-12-17 16:22:00.593 [info] Extension host (LocalProcess pid: 100451) is responsive.
+2025-12-17 16:23:58.614 [error] Unable to resolve nonexistent file '/var/log/suricata/': Error: Unable to resolve nonexistent file '/var/log/suricata/'
+    at uEt.resolve (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3853:61974)
+    at async Lze.resolveResources (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:38824)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:37135
+    at async Promise.all (index 0)
+    at async Lze.r (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:37454)
+    at async b1t.jb (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3034:29988)
+    at async b1t.requestCompletions (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3034:31617)
+2025-12-17 16:23:59.826 [error] Unable to resolve nonexistent file '/var/log/suricata/': Error: Unable to resolve nonexistent file '/var/log/suricata/'
+    at uEt.resolve (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3853:61974)
+    at async Lze.resolveResources (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:38824)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:37135
+    at async Promise.all (index 0)
+    at async Lze.r (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:576:37454)
+    at async b1t.jb (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3034:29988)
+    at async b1t.requestCompletions (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3034:31617)
+2025-12-17 16:34:24.308 [info] Extension host (LocalProcess pid: 100451) is unresponsive.
+2025-12-17 16:34:25.955 [error] Extension host (LocalProcess pid: 100451) terminated unexpectedly. The following extensions were running: vscode.github-authentication, mechatroner.rainbow-csv, vscode.emmet, GitHub.copilot-chat, vscode.git-base, ms-python.python, vscode.microsoft-authentication, vscode.git, vscode.github, vscode.debug-auto-launch, vscode.merge-conflict, vscode.terminal-suggest, ms-python.vscode-pylance, ms-python.vscode-python-envs, ms-azuretools.vscode-containers, vscode.npm, vscode.configuration-editing, vscode.extension-editing, vscode.json-language-features, vscode.typescript-language-features, ms-python.debugpy, vscode.grunt, vscode.gulp, vscode.jake
+2025-12-17 16:34:25.956 [info] Automatically restarting the extension host.
+2025-12-17 16:34:27.868 [info] Started local extension host with pid 114986.
+2025-12-17 16:34:28.053 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)
+2025-12-17 16:34:34.976 [info] Extension host (LocalProcess pid: 114986) is unresponsive.
+2025-12-17 16:34:35.035 [error] [Extension Host] (node:114986) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-17 16:34:35.044 [error] [Extension Host] (node:114986) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-17 16:34:37.039 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:34:40.386 [info] Extension host (LocalProcess pid: 114986) is responsive.
+2025-12-17 16:34:40.386 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:34:50.144 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-17 16:34:59.507 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:34:59.509 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:35:04.001 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:35:04.004 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:50:10.954 [info] Extension host (LocalProcess pid: 114986) is unresponsive.
+2025-12-17 16:50:11.479 [info] Extension host (LocalProcess pid: 114986) is responsive.
+2025-12-17 16:50:11.480 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:50:14.303 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:50:14.564 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 100% of 143.315ms, saved PROFILE here: 'file:///tmp/exthost-b3412e.cpuprofile'
+2025-12-17 16:50:44.428 [error] [Extension Host] (node:114986) [DEP0051] DeprecationWarning: The `util.isNullOrUndefined` API is deprecated. Please use `arg === null || arg === undefined` instead.
+2025-12-17 16:52:20.594 [info] Extension host (LocalProcess pid: 114986) is unresponsive.
+2025-12-17 16:52:20.596 [info] Extension host (LocalProcess pid: 114986) is responsive.
+2025-12-17 16:52:20.622 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:52:21.762 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:52:21.916 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 100% of 4.93ms, saved PROFILE here: 'file:///tmp/exthost-b33fff.cpuprofile'
+2025-12-17 16:54:23.825 [info] Extension host (LocalProcess pid: 114986) is unresponsive.
+2025-12-17 16:54:30.487 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:54:30.495 [info] Extension host (LocalProcess pid: 114986) is responsive.
+2025-12-17 16:54:30.502 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:54:35.792 [info] Extension host (LocalProcess pid: 114986) is unresponsive.
+2025-12-17 16:54:39.099 [info] Extension host (LocalProcess pid: 114986) is responsive.
+2025-12-17 16:54:44.998 [info] Extension host (LocalProcess pid: 114986) is unresponsive.
+2025-12-17 16:54:45.455 [error] Extension host (LocalProcess pid: 114986) terminated unexpectedly. The following extensions were running: vscode.github-authentication, mechatroner.rainbow-csv, vscode.emmet, GitHub.copilot-chat, vscode.git-base, ms-python.python, vscode.microsoft-authentication, vscode.git, vscode.github, vscode.debug-auto-launch, vscode.merge-conflict, vscode.terminal-suggest, ms-python.vscode-pylance, ms-python.vscode-python-envs, ms-azuretools.vscode-containers, vscode.npm, vscode.configuration-editing, vscode.extension-editing, vscode.json-language-features, vscode.typescript-language-features, ms-python.debugpy, vscode.grunt, vscode.gulp, vscode.jake
+2025-12-17 16:54:45.474 [info] Automatically restarting the extension host.
+2025-12-17 16:54:51.024 [info] Started local extension host with pid 128055.
+2025-12-17 16:54:55.021 [error] [UriError]: Scheme contains illegal characters.: Error: [UriError]: Scheme contains illegal characters.
+    at r8 (file:///usr/share/code/resources/app/out/main.js:30:64420)
+    at new ld (file:///usr/share/code/resources/app/out/main.js:30:67800)
+    at new Hr (file:///usr/share/code/resources/app/out/main.js:30:69238)
+    at ld.revive (file:///usr/share/code/resources/app/out/main.js:30:69015)
+    at y2.call (file:///usr/share/code/resources/app/out/main.js:91:107011)
+    at _f.s (file:///usr/share/code/resources/app/out/main.js:31:14882)
+    at _f.q (file:///usr/share/code/resources/app/out/main.js:31:14405)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:31:13807)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.D (file:///usr/share/code/resources/app/out/main.js:30:2398)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2615)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5389)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at na.value (file:///usr/share/code/resources/app/out/main.js:28:5577)
+    at P.C (file:///usr/share/code/resources/app/out/main.js:30:2328)
+    at P.fire (file:///usr/share/code/resources/app/out/main.js:30:2546)
+    at N (file:///usr/share/code/resources/app/out/main.js:28:7871)
+    at IpcMainImpl.i (file:///usr/share/code/resources/app/out/main.js:36:10815)
+    at IpcMainImpl.emit (node:events:519:28)
+    at Session.<anonymous> (node:electron/js2c/browser_init:2:106616)
+    at Session.emit (node:events:519:28)
+2025-12-17 16:54:57.473 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 42.3390232514565% of 555.872ms, saved PROFILE here: 'file:///tmp/exthost-97db33.cpuprofile'
+2025-12-17 16:55:07.154 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 16:55:09.173 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:55:09.509 [error] [Extension Host] (node:128055) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-17 16:55:09.511 [error] [Extension Host] (node:128055) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-17 16:55:15.654 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 16:55:20.483 [error] [Extension Host] (node:128055) [DEP0051] DeprecationWarning: The `util.isNullOrUndefined` API is deprecated. Please use `arg === null || arg === undefined` instead.
+2025-12-17 16:55:27.232 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-17 16:55:48.303 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:55:48.305 [error] Error providing chat sessions: Cannot read properties of undefined (reading 'created_at')
+2025-12-17 16:56:22.390 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 16:56:22.420 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 16:56:22.433 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:56:24.600 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:59:35.772 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 16:59:36.069 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 16:59:36.070 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:59:37.226 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:59:37.837 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 100% of 236.834ms, saved PROFILE here: 'file:///tmp/exthost-20270e.cpuprofile'
+2025-12-17 16:59:45.440 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 16:59:45.807 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 16:59:45.842 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:59:48.929 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 16:59:51.608 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 16:59:51.675 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 16:59:51.682 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 16:59:56.623 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 79.97792275322729% of 2440.935ms, saved PROFILE here: 'file:///tmp/exthost-5dea9e.cpuprofile'
+2025-12-17 17:02:58.940 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 17:02:59.434 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 17:02:59.437 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 17:03:00.378 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 17:03:00.695 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 81.46462311064496% of 315.352ms, saved PROFILE here: 'file:///tmp/exthost-5b196b.cpuprofile'
+2025-12-17 17:17:31.322 [info] Extension host (LocalProcess pid: 128055) is unresponsive.
+2025-12-17 17:17:32.296 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-12-17 17:17:32.638 [info] Extension host (LocalProcess pid: 128055) is responsive.
+2025-12-17 17:17:32.639 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-12-17 17:17:32.974 [warning] UNRESPONSIVE extension host: 'github.copilot-chat' took 53.928110097802126% of 277.63ms, saved PROFILE here: 'file:///tmp/exthost-3c953c.cpuprofile'

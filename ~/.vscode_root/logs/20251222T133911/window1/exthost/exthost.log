@@ -1,0 +1,146 @@
+2025-12-22 13:39:21.607 [info] Extension host with pid 3921 started
+2025-12-22 13:39:21.607 [info] Skipping acquiring lock for /home/pablo/code/vulndb-5g/~/.vscode_root/User/workspaceStorage/fe06d59c31d4c1f208fdfa32acf0afc8.
+2025-12-22 13:39:22.490 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-22 13:39:22.922 [info] ExtensionService#_doActivateExtension mechatroner.rainbow-csv, startup: false, activationEvent: 'onLanguage:plaintext'
+2025-12-22 13:39:22.939 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-22 13:39:23.205 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2025-12-22 13:39:23.698 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'
+2025-12-22 13:39:25.626 [info] ExtensionService#_doActivateExtension ms-python.vscode-python-envs, startup: false, activationEvent: 'onLanguage:python'
+2025-12-22 13:39:25.737 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onChatSession:copilotcli'
+2025-12-22 13:39:29.767 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-22 13:39:30.552 [info] Not activating extension 'ms-python.python': Timed out while searching for 'workspaceContains' pattern **/pylock.*.toml
+2025-12-22 13:39:31.853 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-22 13:39:32.343 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-22 13:39:32.365 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-12-22 13:40:33.790 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-22 13:40:33.812 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-22 13:40:33.896 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-containers, startup: false, activationEvent: 'onStartupFinished'
+2025-12-22 13:40:35.205 [info] Eager extensions activated
+2025-12-22 13:40:35.307 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2025-12-22 13:40:36.092 [error] Error: chatParticipant must be declared in package.json: claude-code
+    at PXt.$registerAgent (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:517:9858)
+2025-12-22 13:40:36.613 [info] ExtensionService#_doActivateExtension vscode.terminal-suggest, startup: false, activationEvent: 'onTerminalShellIntegration:*'
+2025-12-22 13:40:39.910 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:40:39.919 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async nC._fetchModels (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:5765:4429)
+	at async nC.getAllChatModels (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:5765:2353)
+	at async pM.getAllChatEndpoints (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:5765:13748)
+2025-12-22 13:40:39.924 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:40:40.056 [warning] [Decorations] CAPPING events from decorations provider vscode.git 576
+2025-12-22 13:40:42.928 [warning] [Decorations] CAPPING events from decorations provider vscode.git 577
+2025-12-22 13:40:47.259 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-22 13:40:48.442 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-22 13:40:51.580 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:40:57.820 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:41:19.443 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:41:25.070 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:41:30.671 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:41:58.457 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:42:04.648 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:42:10.634 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:42:16.803 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:42:22.968 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:09.824 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:17.024 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:23.450 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:30.530 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:36.853 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:42.617 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:48.256 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:43:54.470 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:44:12.952 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:44:19.565 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:44:27.154 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:44:34.093 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:44:44.400 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:44:53.632 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:45:00.668 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:45:06.420 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:45:13.321 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:45:19.568 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:45:25.852 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:45:57.093 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:03.290 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:09.309 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:15.317 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:21.547 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:27.301 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:33.733 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:39.899 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:45.511 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:46:51.144 [warning] [Decorations] CAPPING events from decorations provider vscode.git 576
+2025-12-22 13:46:56.917 [warning] [Decorations] CAPPING events from decorations provider vscode.git 578
+2025-12-22 13:47:00.676 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:47:04.259 [warning] [Decorations] CAPPING events from decorations provider vscode.git 582
+2025-12-22 13:47:10.611 [warning] [Decorations] CAPPING events from decorations provider vscode.git 580
+2025-12-22 13:47:16.609 [warning] [Decorations] CAPPING events from decorations provider vscode.git 579
+2025-12-22 13:47:22.353 [warning] [Decorations] CAPPING events from decorations provider vscode.git 580
+2025-12-22 13:47:28.779 [warning] [Decorations] CAPPING events from decorations provider vscode.git 580
+2025-12-22 13:47:34.941 [warning] [Decorations] CAPPING events from decorations provider vscode.git 580
+2025-12-22 13:47:35.192 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-12-22 13:47:40.388 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-22 13:47:40.422 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-22 13:47:40.464 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-12-22 13:47:41.157 [warning] [Decorations] CAPPING events from decorations provider vscode.git 581
+2025-12-22 13:47:47.555 [warning] [Decorations] CAPPING events from decorations provider vscode.git 581
+2025-12-22 13:47:53.200 [warning] [Decorations] CAPPING events from decorations provider vscode.git 582
+2025-12-22 13:47:57.909 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:47:59.349 [warning] [Decorations] CAPPING events from decorations provider vscode.git 582
+2025-12-22 13:48:06.471 [warning] [Decorations] CAPPING events from decorations provider vscode.git 582
+2025-12-22 13:48:10.824 [info] ExtensionService#_doActivateExtension ms-azuretools.vscode-containers, startup: false, activationEvent: 'onView:vscode-containers.views.containers'
+2025-12-22 13:48:16.313 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:48:22.470 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:48:28.518 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:48:34.724 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:48:44.412 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:49:12.862 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:49:23.747 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:49:39.975 [warning] [Decorations] CAPPING events from decorations provider vscode.git 583
+2025-12-22 13:49:46.171 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:49:48.477 [warning] [Decorations] CAPPING events from decorations provider vscode.git 584
+2025-12-22 13:49:59.997 [warning] [Decorations] CAPPING events from decorations provider vscode.git 584
+2025-12-22 13:50:17.153 [warning] [Decorations] CAPPING events from decorations provider vscode.git 584
+2025-12-22 13:50:44.609 [warning] [Decorations] CAPPING events from decorations provider vscode.git 584
+2025-12-22 13:51:10.031 [warning] [Decorations] CAPPING events from decorations provider vscode.git 584
+2025-12-22 13:51:36.273 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-22 13:51:39.218 [error] TypeError: Cannot read properties of undefined (reading 'subscriptions')
+	at Object.G [as deactivate] (/root/.vscode/extensions/ms-python.vscode-python-envs-1.14.0-linux-x64/dist/extension.js:2:684166)
+	at HX.eb (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:11850)
+	at file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:10000
+	at Array.map (<anonymous>)
+	at HX.$ (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:9988)
+	at HX.terminate (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:10231)
+	at yN.terminate (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:122:914)
+	at Us (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:11129)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:404:7604)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-22 13:51:39.220 [error] Unable to refresh tree view vscode-containers.views.containers: Canceled
+2025-12-22 13:51:39.220 [error] Unable to refresh tree view vscode-containers.views.networks: Canceled
+2025-12-22 13:51:39.221 [error] Unable to refresh tree view vscode-containers.views.images: Canceled
+2025-12-22 13:51:39.221 [error] Unable to refresh tree view vscode-containers.views.volumes: Canceled
+2025-12-22 13:51:39.221 [error] Unable to refresh tree view vscode-containers.views.dockerContexts: Canceled
+2025-12-22 13:51:39.330 [info] Extension host with pid 3921 exiting with code 0

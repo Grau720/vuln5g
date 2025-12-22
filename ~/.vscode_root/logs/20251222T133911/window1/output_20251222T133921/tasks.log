@@ -1,0 +1,16 @@
+Error: the task 'Containers: Shell: vulndb_attacker' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,c9a5fc6f087d8c2f858b54c586d60ee7dbe54753c36a0ff2f758f327b1f238fe,bash,",
+    "idRandomizer": 0.7954628960894004,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_attacker"
+}
+Error: the task 'Containers: Shell: vulndb_attacker' neither specifies a command nor a dependsOn property. The task will be ignored. Its definition is:
+{
+    "type": "shell",
+    "id": "shell,docker,exec,-it,c9a5fc6f087d8c2f858b54c586d60ee7dbe54753c36a0ff2f758f327b1f238fe,bash,",
+    "idRandomizer": 0.7954628960894004,
+    "problemMatcher": [],
+    "label": "Containers: Shell: vulndb_attacker"
+}

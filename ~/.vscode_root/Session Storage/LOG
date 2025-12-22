@@ -1,2 +1,3 @@
-2025/12/11-13:27:10.277 b07 Creating DB /home/pablo/Descargas/code/vulndb-5g/~/.vscode_root/Session Storage since it was missing.
-2025/12/11-13:27:10.341 b07 Reusing MANIFEST /home/pablo/Descargas/code/vulndb-5g/~/.vscode_root/Session Storage/MANIFEST-000001
+2025/12/22-13:51:36.045 ea0 Reusing MANIFEST /home/pablo/code/vulndb-5g/~/.vscode_root/Session Storage/MANIFEST-000001
+2025/12/22-13:51:36.046 ea0 Recovering log #3
+2025/12/22-13:51:36.048 ea0 Reusing old log /home/pablo/code/vulndb-5g/~/.vscode_root/Session Storage/000003.log 

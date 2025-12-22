@@ -1,0 +1,45 @@
+2025-12-22 13:58:21.573 [info] Extension host with pid 15080 started
+2025-12-22 13:58:21.573 [info] Skipping acquiring lock for /home/pablo/code/vulndb-5g/~/.vscode_root/User/workspaceStorage/fe06d59c31d4c1f208fdfa32acf0afc8.
+2025-12-22 13:58:25.905 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-22 13:58:26.010 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onChatSession:copilotcli'
+2025-12-22 13:58:42.888 [info] Not activating extension 'ms-python.python': Timed out while searching for 'workspaceContains' pattern **/pylock.*.toml
+2025-12-22 13:58:42.891 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-22 13:58:44.672 [info] ExtensionService#_doActivateExtension ms-python.python, startup: true, activationEvent: 'workspaceContains:requirements.txt'
+2025-12-22 13:58:50.562 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-22 13:58:50.568 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-22 13:58:50.812 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-containers, startup: false, activationEvent: 'onStartupFinished'
+2025-12-22 13:58:54.748 [info] ExtensionService#_doActivateExtension vscode.terminal-suggest, startup: false, activationEvent: 'onTerminalShellIntegration:*'
+2025-12-22 13:58:59.702 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-22 13:59:00.171 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-22 13:59:00.180 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-12-22 13:59:19.943 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-22 13:59:21.510 [info] Eager extensions activated
+2025-12-22 13:59:21.515 [error] Error: chatParticipant must be declared in package.json: claude-code
+    at PXt.$registerAgent (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:517:9858)
+2025-12-22 13:59:39.043 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:59:39.048 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async nC._fetchModels (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:5765:4429)
+	at async nC.getAllChatModels (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:5765:2353)
+	at async pM.getAllChatEndpoints (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:5765:13748)
+2025-12-22 13:59:39.231 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'api', root cause: ms-python.python
+2025-12-22 13:59:41.507 [warning] [Decorations] CAPPING events from decorations provider vscode.git 776
+2025-12-22 13:59:41.596 [error] Error: GitHubLoginFailed
+	at hH._authShowWarnings (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:33644)
+	at async hH.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1909:31517)
+	at async YX.getCopilotToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:1054:2402)
+	at async z8.updateCachedToken (/root/.vscode/extensions/github.copilot-chat-0.35.2/dist/extension.js:2106:31762)
+2025-12-22 13:59:43.738 [info] ExtensionService#_doActivateExtension ms-python.vscode-python-envs, startup: false, activationEvent: 'api', root cause: ms-python.vscode-pylance
+2025-12-22 13:59:45.715 [warning] [Decorations] CAPPING events from decorations provider vscode.git 776
+2025-12-22 13:59:47.305 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-12-22 13:59:55.467 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-22 13:59:55.485 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-12-22 13:59:55.732 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-12-22 14:00:02.251 [warning] DiagnosticCollection with name 'Pylance' does already exist.
+2025-12-22 14:00:02.566 [warning] DiagnosticCollection with name 'Pylance' does already exist.

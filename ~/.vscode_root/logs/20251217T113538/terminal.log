@@ -1,0 +1,86 @@
+2025-12-17 11:35:46.920 [info] Latency measurements for local backend
+window<->ptyhost (message port): 5.80ms
+window<->ptyhostservice<->ptyhost: 6.60ms
+ptyhostservice<->ptyhost: 0.76ms []
+2025-12-17 11:56:12.567 [info] Latency measurements for local backend
+window<->ptyhost (message port): 4.00ms
+window<->ptyhostservice<->ptyhost: 30.70ms
+ptyhostservice<->ptyhost: 14.62ms []
+2025-12-17 12:02:13.488 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.70ms
+window<->ptyhostservice<->ptyhost: 3.10ms
+ptyhostservice<->ptyhost: 1.06ms []
+2025-12-17 12:02:26.168 [info] Latency measurements for local backend
+window<->ptyhost (message port): 3.40ms
+window<->ptyhostservice<->ptyhost: 16.70ms
+ptyhostservice<->ptyhost: 7.20ms []
+2025-12-17 12:05:59.663 [info] Latency measurements for local backend
+window<->ptyhost (message port): 4.30ms
+window<->ptyhostservice<->ptyhost: 4.30ms
+ptyhostservice<->ptyhost: 1.13ms []
+2025-12-17 12:13:22.928 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.50ms
+window<->ptyhostservice<->ptyhost: 2.80ms
+ptyhostservice<->ptyhost: 1.52ms []
+2025-12-17 13:51:02.739 [info] Latency measurements for local backend
+window<->ptyhost (message port): 29.40ms
+window<->ptyhostservice<->ptyhost: 13.60ms
+ptyhostservice<->ptyhost: 3.98ms []
+2025-12-17 13:53:49.439 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.90ms
+window<->ptyhostservice<->ptyhost: 1.70ms
+ptyhostservice<->ptyhost: 0.74ms []
+2025-12-17 13:57:01.364 [info] Latency measurements for local backend
+window<->ptyhost (message port): 2.00ms
+window<->ptyhostservice<->ptyhost: 10.30ms
+ptyhostservice<->ptyhost: 7.44ms []
+2025-12-17 13:58:37.572 [info] Latency measurements for local backend
+window<->ptyhost (message port): 2.90ms
+window<->ptyhostservice<->ptyhost: 7.40ms
+ptyhostservice<->ptyhost: 1.93ms []
+2025-12-17 14:02:29.797 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.30ms
+window<->ptyhostservice<->ptyhost: 3.90ms
+ptyhostservice<->ptyhost: 1.36ms []
+2025-12-17 14:06:36.836 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.90ms
+window<->ptyhostservice<->ptyhost: 59.20ms
+ptyhostservice<->ptyhost: 4.13ms []
+2025-12-17 14:09:52.332 [info] Latency measurements for local backend
+window<->ptyhost (message port): 2.60ms
+window<->ptyhostservice<->ptyhost: 3.40ms
+ptyhostservice<->ptyhost: 1.91ms []
+2025-12-17 14:10:12.328 [error] Exception occurred during xterm disposal [{}]
+2025-12-17 14:10:18.380 [info] Latency measurements for local backend
+window<->ptyhost (message port): 4.10ms
+window<->ptyhostservice<->ptyhost: 1.80ms
+ptyhostservice<->ptyhost: 0.61ms []
+2025-12-17 14:10:21.157 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.60ms
+window<->ptyhostservice<->ptyhost: 5.40ms
+ptyhostservice<->ptyhost: 3.06ms []
+2025-12-17 14:12:40.365 [info] Latency measurements for local backend
+window<->ptyhost (message port): 24.00ms
+window<->ptyhostservice<->ptyhost: 37.90ms
+ptyhostservice<->ptyhost: 0.98ms []
+2025-12-17 14:16:35.470 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.10ms
+window<->ptyhostservice<->ptyhost: 3.40ms
+ptyhostservice<->ptyhost: 1.67ms []
+2025-12-17 14:16:39.144 [info] Latency measurements for local backend
+window<->ptyhost (message port): 1.30ms
+window<->ptyhostservice<->ptyhost: 2.80ms
+ptyhostservice<->ptyhost: 0.93ms []
+2025-12-17 16:21:44.788 [info] Webgl lost context, disposing of webgl renderer []
+2025-12-17 16:50:55.335 [info] Latency measurements for local backend
+window<->ptyhost (message port): 3.60ms
+window<->ptyhostservice<->ptyhost: 8.90ms
+ptyhostservice<->ptyhost: 6.28ms []
+2025-12-17 16:52:31.806 [info] Latency measurements for local backend
+window<->ptyhost (message port): 10.60ms
+window<->ptyhostservice<->ptyhost: 2.80ms
+ptyhostservice<->ptyhost: 0.76ms []
+2025-12-17 16:53:03.026 [info] Latency measurements for local backend
+window<->ptyhost (message port): 5.30ms
+window<->ptyhostservice<->ptyhost: 2.50ms
+ptyhostservice<->ptyhost: 1.05ms []
