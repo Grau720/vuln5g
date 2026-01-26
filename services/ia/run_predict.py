@@ -19,6 +19,7 @@ import os
 import sys
 import json
 import argparse
+import datetime
 from pymongo import MongoClient
 from joblib import load
 
@@ -261,9 +262,12 @@ def predict_top_risks(model, featurizer, db, limit=10, min_cvss=0.0, attack_vect
     return results[:limit]
 
 
-def predict_batch(model, featurizer, db, output_file=None):
+def predict_batch(model, featurizer, db, output_file=None, save_to_db=True):
     """
-    Predice sobre todos los CVEs y guarda resultados.
+    Predice sobre todos los CVEs y guarda resultados en MongoDB.
+    
+    Args:
+        save_to_db: Si True, guarda en MongoDB (default: True)
     """
     col = db[MONGO_COLLECTION]
     cves = list(col.find({"cvssv3.score": {"$exists": True}}))
@@ -272,10 +276,11 @@ def predict_batch(model, featurizer, db, output_file=None):
     
     results = []
     errors = 0
+    saved = 0
     
     for i, cve in enumerate(cves, 1):
         if i % 50 == 0:
-            print(f"   Progreso: {i}/{len(cves)}")
+            print(f"   Progreso: {i}/{len(cves)} | Guardados: {saved}")
         
         try:
             raw = featurizer.extract_raw_features(cve)
@@ -294,21 +299,38 @@ def predict_batch(model, featurizer, db, output_file=None):
             else:
                 av = "UNKNOWN"
             
-            results.append({
-                "cve_id": cve.get("cve_id"),
+            ia_analysis = {
                 "exploit_probability": prob,
                 "predicted_label": pred,
                 "risk_level": get_risk_level(prob),
-                "cvss_score": cve.get("cvssv3", {}).get("score", 0),
                 "attack_vector": av,
+                "model_version": "v2.1_calibrated",
+                "last_updated": datetime.datetime.utcnow()
+            }
+            
+            results.append({
+                "cve_id": cve.get("cve_id"),
+                **ia_analysis,
+                "cvss_score": cve.get("cvssv3", {}).get("score", 0),
                 "tipo": cve.get("tipo"),
                 "infraestructura_5g": cve.get("infraestructura_5g_afectada", [])
             })
+            
+            # ⭐ GUARDAR EN MONGODB (NUEVO)
+            if save_to_db:
+                col.update_one(
+                    {"_id": cve["_id"]},
+                    {"$set": {"ia_analysis": ia_analysis}}
+                )
+                saved += 1
+                
         except Exception as e:
             errors += 1
             continue
     
     print(f"✅ Completado: {len(results)} predicciones")
+    if save_to_db:
+        print(f"💾 Guardados en DB: {saved} CVEs")
     if errors > 0:
         print(f"⚠️  {errors} errores")
     

@@ -1,0 +1,43 @@
+# config/ueransim/ue2.yaml
+# UE2 Configuration - Second Simulated Device
+
+supi: 'imsi-001010000000002'
+mcc: '001'
+mnc: '01'
+routingIndicator: '0000'
+protectionScheme: 0
+homeNetworkPublicKey: '5a8d38864820197c3394b92613b20b91633cbd897119273bf8e4a6f4eec0a650'
+homeNetworkPublicKeyId: 1
+key: '465B5CE8B199B49FAA5F0A2EE238A6BC'
+op: 'E8ED289DEBA952E4283B54E88E6183CA'
+amf: '8000'
+imei: '356938035643804'
+imeiSv: '4370816125816152'
+
+gnbSearchList:
+  - 172.22.0.30
+
+sessions:
+  - type: 'IPv4'
+    apn: 'internet'
+    slice:
+      sst: 1
+      sd: 0x000001
+
+configured-nssai:
+  - sst: 1
+    sd: 0x000001
+
+default-nssai:
+  - sst: 1
+    sd: 0x000001
+
+integrity:
+  IA1: true
+  IA2: true
+  IA3: true
+
+ciphering:
+  EA1: true
+  EA2: true
+  EA3: true

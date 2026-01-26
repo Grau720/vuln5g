@@ -1,0 +1,197 @@
+# NOTA: Este compose usa imágenes REALES que EXISTEN en Docker Hub
+# Basado en: https://github.com/Borjis131/docker-open5gs
+
+services:
+  nrf:
+    image: borieher/nrf:v2.7.6
+    container_name: nrf
+    # depends_on:
+    #   - mongodb
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.10
+
+  scp:
+    image: borieher/scp:v2.7.6
+    container_name: scp
+    depends_on:
+      - nrf
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.11
+
+  amf:
+    image: borieher/amf:v2.7.6
+    container_name: amf
+    depends_on:
+      - nrf
+      - scp
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.12
+
+  smf:
+    image: borieher/smf:v2.7.6
+    container_name: smf
+    depends_on:
+      - nrf
+      - scp
+      - upf
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.13
+
+  upf:
+    image: borieher/upf:v2.7.6
+    container_name: upf
+    depends_on:
+      - nrf
+      - scp
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    sysctls:
+      - net.ipv4.ip_forward=1
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.20
+
+  ausf:
+    image: borieher/ausf:v2.7.6
+    container_name: ausf
+    depends_on:
+      - nrf
+      - scp
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.14
+
+  udm:
+    image: borieher/udm:v2.7.6
+    container_name: udm
+    depends_on:
+      - nrf
+      - scp
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.15
+
+  udr:
+    image: borieher/udr:v2.7.6
+    container_name: udr
+    depends_on:
+      - nrf
+      - scp
+      # - mongodb
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.16
+
+  pcf:
+    image: borieher/pcf:v2.7.6
+    container_name: pcf
+    depends_on:
+      - nrf
+      - scp
+      # - mongodb
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.17
+
+  nssf:
+    image: borieher/nssf:v2.7.6
+    container_name: nssf
+    depends_on:
+      - nrf
+      - scp
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.18
+
+  bsf:
+    image: borieher/bsf:v2.7.6
+    container_name: bsf
+    depends_on:
+      - nrf
+      - scp
+      # - mongodb
+    volumes:
+      - ./config/open5gs:/etc/open5gs/default
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.19
+
+  webui:
+    image: borieher/webui:v2.7.6
+    container_name: open5gs-webui
+    # depends_on:
+    #   - mongodb
+    environment:
+      - DB_URI=mongodb://webui:webui123@172.22.0.50/open5gs?authSource=admin
+    ports:
+      - "9999:9999"
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.8
+
+  # UERANSIM - gNB (Base Station)
+  gnb:
+    image: towards5gs/ueransim-gnb:v3.2.6
+    container_name: ueransim-gnb
+    depends_on:
+      - amf
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./config/ueransim:/etc/ueransim
+    command: ["/ueransim/build/nr-gnb", "-c", "/etc/ueransim/gnb.yaml"]
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.30
+
+  # UERANSIM - UE (User Equipment / Phone simulator)
+  ue1:
+    image: towards5gs/ueransim-ue:v3.2.6
+    container_name: ueransim-ue1
+    depends_on:
+      - gnb
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./config/ueransim:/etc/ueransim
+    command: ["/ueransim/build/nr-ue", "-c", "/etc/ueransim/ue1.yaml"]
+    networks:
+      docker_open5gs_default:
+        ipv4_address: 172.22.0.31
+
+networks:
+  docker_open5gs_default:
+    external: true

@@ -1,0 +1,49 @@
+%YAML 1.1
+---
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
+    EXTERNAL_NET: "!$HOME_NET"
+    
+outputs:
+  - fast:
+      enabled: yes
+      filename: fast.log
+      append: yes
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types:
+        - alert:
+            tagged-packets: yes
+        - http:
+            extended: yes
+        - dns
+        - tls
+
+af-packet:
+  - interface: eth0
+
+stream:
+  memcap: 64mb
+  checksum-validation: yes
+
+detect:
+  profile: medium
+
+logging:
+  default-log-level: notice
+  outputs:
+  - console:
+      enabled: yes
+  - file:
+      enabled: yes
+      level: info
+      filename: suricata.log
+
+classification-file: /etc/suricata/classification.config
+reference-config-file: /etc/suricata/reference.config
+
+rule-files:
+  - /etc/suricata/rules/generated.rules

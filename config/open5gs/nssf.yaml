@@ -1,0 +1,22 @@
+# NSSF - Network Slice Selection Function
+logger:
+  file:
+    path: /var/log/open5gs/nssf.log
+  level: info
+
+nssf:
+  sbi:
+    server:
+      - address: 172.22.0.18
+        port: 7777
+    client:
+      nrf:
+        - uri: http://172.22.0.10:7777
+      scp:
+        - uri: http://172.22.0.11:7777
+  
+  nsi:
+    - addr: 172.22.0.18
+      port: 7777
+      s_nssai:
+        - sst: 1

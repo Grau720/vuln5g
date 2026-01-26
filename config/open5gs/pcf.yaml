@@ -1,0 +1,18 @@
+# PCF - Policy Control Function
+logger:
+  file:
+    path: /var/log/open5gs/pcf.log
+  level: debug
+
+pcf:
+  sbi:
+    server:
+      - address: 172.22.0.17
+        port: 7777
+    client:
+      nrf:
+        - uri: http://172.22.0.10:7777
+      scp:
+        - uri: http://172.22.0.11:7777
+
+db_uri: mongodb://admin:changeme@172.22.0.50/open5gs?authSource=admin

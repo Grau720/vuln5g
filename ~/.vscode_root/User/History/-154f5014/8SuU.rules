@@ -1,1 +1,0 @@
-alert ip any any -> 172.22.0.52 5000 (msg:"TEST - Any traffic to API"; sid:8888888; rev:1;)

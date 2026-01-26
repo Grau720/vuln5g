@@ -1,1 +1,0 @@
-alert ip any any -> any any (msg:"TEST VulnDB Suricata integration OK"; sid:9000001; rev:1;)

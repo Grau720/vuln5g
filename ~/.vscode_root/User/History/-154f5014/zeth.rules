@@ -1,1 +1,0 @@
-alert tcp any any -> any 5000 (msg:"DEBUG tráfico TCP hacia API 5000"; sid:9999991; rev:1;)

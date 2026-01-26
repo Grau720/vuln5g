@@ -79,8 +79,11 @@ services:
     volumes:
       - ./runtime/suricata/rules:/etc/suricata/rules
       - ./runtime/suricata/logs:/var/log/suricata
+      - ./runtime/suricata/classification.config:/etc/suricata/classification.config:ro
+      - ./runtime/suricata/reference.config:/etc/suricata/reference.config:ro
+      - ./runtime/suricata/suricata.yaml:/etc/suricata/suricata.yaml:ro
       - ./scripts:/scripts
-    command: suricata -i eth0 -S /etc/suricata/rules/generated.rules -l /var/log/suricata
+    command: suricata -c /etc/suricata/suricata.yaml -i eth0 -l /var/log/suricata
     restart: unless-stopped
 
   attacker:
@@ -92,6 +95,13 @@ services:
     networks:
       docker_open5gs_default:
         ipv4_address: ${VULNDB_ATTACKER_IP}
+
+  dummy-service:
+    image: nginx:alpine
+    container_name: dummy-asset
+    networks:
+      docker_open5gs_default:
+        ipv4_address: ${VULNDB_DUMMY_IP}
 
 networks:
   docker_open5gs_default:

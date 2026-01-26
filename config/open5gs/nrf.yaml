@@ -1,0 +1,11 @@
+# NRF - NF Repository Function
+logger:
+  file:
+    path: /var/log/open5gs/nrf.log
+  level: info
+
+nrf:
+  sbi:
+    server:
+      - address: 172.22.0.10
+        port: 7777

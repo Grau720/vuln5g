@@ -1,0 +1,18 @@
+# UDR - Unified Data Repository
+logger:
+  file:
+    path: /var/log/open5gs/udr.log
+  level: debug
+
+udr:
+  sbi:
+    server:
+      - address: 172.22.0.16
+        port: 7777
+    client:
+      nrf:
+        - uri: http://172.22.0.10:7777
+      scp:
+        - uri: http://172.22.0.11:7777
+
+db_uri: mongodb://admin:changeme@172.22.0.50/open5gs?authSource=admin

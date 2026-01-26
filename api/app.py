@@ -15,6 +15,8 @@ from routes.frontend import bp_frontend
 from taxii.routes import bp_taxii
 from routes.ia_api import bp_ia
 from routes.rules_api import bp_rules
+from routes.alerts_api import bp_alerts
+from routes.assets_api import bp_assets
 from utils.db import ensure_indexes
 
 def create_app():
@@ -46,8 +48,9 @@ def create_app():
     app.register_blueprint(bp_ia)
     app.register_blueprint(bp_frontend)
     app.register_blueprint(bp_rules)
+    app.register_blueprint(bp_alerts)
+    app.register_blueprint(bp_assets)
 
-    
     print("\n=== Rutas registradas ===")
     for rule in app.url_map.iter_rules():
         methods = ",".join(sorted(rule.methods - {"HEAD", "OPTIONS"}))

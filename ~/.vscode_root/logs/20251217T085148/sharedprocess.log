@@ -1,7 +1,0 @@
-2025-12-17 08:51:59.989 [info] Getting Manifest... ms-python.debugpy
-2025-12-17 08:52:00.156 [info] Installing extension: ms-python.debugpy {"productVersion":{"version":"1.107.0","date":"2025-12-10T07:43:47.883Z"},"pinned":false,"operation":3,"isApplicationScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"}}
-2025-12-17 08:52:08.346 [info] Extension signature verification result for ms-python.debugpy: Success. Internal Code: 0. Executed: true. Duration: 3810ms.
-2025-12-17 08:52:12.336 [info] Extracted extension to file:///root/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64: ms-python.debugpy
-2025-12-17 08:52:12.485 [info] Renamed to /root/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64
-2025-12-17 08:52:12.557 [info] Marked extension as removed ms-python.debugpy-2025.16.0-linux-x64
-2025-12-17 08:52:12.612 [info] Extension installed successfully: ms-python.debugpy vscode-userdata:/root/.vscode/extensions/extensions.json

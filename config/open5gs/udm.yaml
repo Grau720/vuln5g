@@ -1,0 +1,16 @@
+# UDM - Unified Data Management
+logger:
+  file:
+    path: /var/log/open5gs/udm.log
+  level: info
+
+udm:
+  sbi:
+    server:
+      - address: 172.22.0.15
+        port: 7777
+    client:
+      nrf:
+        - uri: http://172.22.0.10:7777
+      scp:
+        - uri: http://172.22.0.11:7777

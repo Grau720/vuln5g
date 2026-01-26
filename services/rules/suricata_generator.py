@@ -234,51 +234,17 @@ class SuricataRuleGenerator:
     
     def reload_suricata(self):
         """
-        Recarga Suricata para aplicar nuevas reglas.
+        DISABLED: El reload debe hacerse desde fuera del contenedor.
         
-        Método 1: suricatasc (si está disponible)
-        Método 2: docker restart (fallback)
+        Este método ahora solo retorna False y logea un warning.
+        El reload debe ejecutarse externamente con:
+            docker exec vulndb_suricata suricatasc -c reload-rules
+        o:
+            docker restart vulndb_suricata
         """
-        import subprocess
-        
-        try:
-            # Intentar reload via suricatasc
-            result = subprocess.run(
-                ['docker', 'exec', 'vulndb_suricata', 'suricatasc', '-c', 'reload-rules'],
-                capture_output=True,
-                text=True,
-                timeout=10
-            )
-            
-            if result.returncode == 0:
-                logger.info("✓ Suricata rules reloaded successfully")
-                return True
-            else:
-                logger.warning(f"suricatasc reload failed: {result.stderr}")
-        
-        except Exception as e:
-            logger.warning(f"suricatasc not available: {e}")
-        
-        # Fallback: restart container
-        try:
-            logger.info("Attempting container restart...")
-            result = subprocess.run(
-                ['docker', 'restart', 'vulndb_suricata'],
-                capture_output=True,
-                text=True,
-                timeout=30
-            )
-            
-            if result.returncode == 0:
-                logger.info("✓ Suricata container restarted")
-                return True
-            else:
-                logger.error(f"Container restart failed: {result.stderr}")
-                return False
-        
-        except Exception as e:
-            logger.error(f"Error reloading Suricata: {e}")
-            return False
+        logger.warning("⚠ Suricata reload disabled - debe ejecutarse externamente")
+        logger.info("💡 Para recargar reglas ejecuta: docker restart vulndb_suricata")
+        return False
     
     def generate_and_deploy(
         self, 
@@ -286,7 +252,7 @@ class SuricataRuleGenerator:
         risk_levels: List[str] = ['CRITICAL', 'HIGH'],
         attack_vectors: List[str] = ['NETWORK'],
         limit: int = 50,
-        auto_reload: bool = True
+        auto_reload: bool = False  # CAMBIADO: por defecto False
     ) -> dict:
         """
         Pipeline completo: generar reglas y desplegar en Suricata.
@@ -296,7 +262,7 @@ class SuricataRuleGenerator:
             risk_levels: Niveles de riesgo a incluir
             attack_vectors: Vectores de ataque a incluir
             limit: Límite de reglas
-            auto_reload: Si hacer reload automático de Suricata
+            auto_reload: Si hacer reload automático de Suricata (DISABLED, usar False)
         
         Returns:
             Diccionario con estadísticas
@@ -313,10 +279,10 @@ class SuricataRuleGenerator:
         if rules:
             self.write_rules_file(rules, mode='overwrite')
         
-        # Reload Suricata
+        # Reload Suricata - DESHABILITADO
         reload_success = False
-        if auto_reload and rules:
-            reload_success = self.reload_suricata()
+        if auto_reload:
+            logger.warning("⚠ auto_reload está deshabilitado - ejecuta manualmente: docker restart vulndb_suricata")
         
         # Estadísticas
         stats = {
@@ -324,6 +290,7 @@ class SuricataRuleGenerator:
             'timestamp': start_time.isoformat() + 'Z',
             'rules_file': str(self.rules_file),
             'suricata_reloaded': reload_success,
+            'reload_command': 'docker restart vulndb_suricata',
             'sid_stats': self.sid_allocator.get_stats()
         }
         

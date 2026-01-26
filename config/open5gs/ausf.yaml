@@ -1,0 +1,16 @@
+# AUSF - Authentication Server Function
+logger:
+  file:
+    path: /var/log/open5gs/ausf.log
+  level: info
+
+ausf:
+  sbi:
+    server:
+      - address: 172.22.0.14
+        port: 7777
+    client:
+      nrf:
+        - uri: http://172.22.0.10:7777
+      scp:
+        - uri: http://172.22.0.11:7777
