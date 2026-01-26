@@ -1,0 +1,14 @@
+# MongoDB runtime data
+services/mongodb/data/
+data/mongodb-5g/
+
+# Suricata runtime logs
+runtime/suricata/logs/
+runtime/suricata/*.json
+
+# General logs
+*.log
+
+# Docker / runtime leftovers
+**/data/
+**/logs/
