@@ -9,6 +9,7 @@ import AttackGroupsDashboard from "./components/AttackGroupsDashboard";
 import AttackGroupDetail from "./components/AttackGroupDetail";
 import AssetsDashboard from "./components/AssetsDashboard";
 import AssetDetail from "./components/AssetDetail";
+import AssetDiscoveryDashboard from "./components/AssetDiscoveryDashboard"; // 👈 NUEVO
 
 // ============================================================================
 // THEME HOOK
@@ -57,7 +58,7 @@ function Sidebar({
   onToggleTheme: () => void;
   collapsed: boolean;
   onToggleCollapse: () => void;
-  stats: { activeGroups: number; criticalCVEs: number };
+  stats: { activeGroups: number; criticalCVEs: number; pendingAssets: number }; // 👈 AÑADIDO pendingAssets
 }) {
   const location = useLocation();
   const navigate = useNavigate();
@@ -210,28 +211,34 @@ function AppLayout({ children }: { children: React.ReactNode }) {
     const saved = localStorage.getItem("sidebar_collapsed");
     return saved === "true";
   });
-  const [stats, setStats] = useState({ activeGroups: 0, criticalCVEs: 0 });
+  const [stats, setStats] = useState({ 
+    activeGroups: 0, 
+    criticalCVEs: 0,
+    pendingAssets: 0 // 👈 NUEVO
+  });
 
   // Persistir estado del sidebar
   useEffect(() => {
     localStorage.setItem("sidebar_collapsed", String(collapsed));
   }, [collapsed]);
 
-  // Cargar stats para badges
+  // 👇 ACTUALIZADO: Cargar stats incluyendo pending assets
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [groupsRes, cvesRes] = await Promise.all([
+        const [groupsRes, cvesRes, assetsRes] = await Promise.all([
           fetch("/api/v1/alerts/groups?status=active&per_page=1"),
-          fetch("/api/v1/cves?min_score=9&per_page=1")
+          fetch("/api/v1/cves?min_score=9&per_page=1"),
         ]);
         
         const groupsData = await groupsRes.json();
         const cvesData = await cvesRes.json();
+        const assetsData = await assetsRes.json();
         
         setStats({
           activeGroups: groupsData.pagination?.total || 0,
-          criticalCVEs: cvesData.total || 0
+          criticalCVEs: cvesData.total || 0,
+          pendingAssets: assetsData.total || 0 // 👈 NUEVO
         });
       } catch (e) {
         console.error("Error loading sidebar stats:", e);

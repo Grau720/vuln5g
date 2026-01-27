@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Ya no necesitas copiar nada porque los volúmenes lo harán
 # Pero dejamos esto por si ejecutas sin docker-compose
 COPY api/ ./api/
+COPY config/ ./config/
 COPY services/ ./services/
 
 ENV PYTHONPATH=/app

@@ -19,3 +19,5 @@ matplotlib
 seaborn
 tabulate
 python-dateutil
+docker>=7.0.0
+psutil>=5.9.0

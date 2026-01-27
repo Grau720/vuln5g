@@ -53,6 +53,7 @@ class CorrelationEngine:
         self.db = mongo_db
         self.alerts_col = mongo_db['alerts']
         self.groups_col = mongo_db['attack_groups']
+        self.assets_col = mongo_db['network_assets']
     
     def create_indexes(self):
         """Crear índices optimizados para la nueva estructura"""
@@ -388,52 +389,86 @@ class CorrelationEngine:
     
     def _enrich_group_with_asset(self, group: Dict) -> Dict:
         """
-        ✅ NUEVO: Enriquece un grupo sin asset buscando en sus alertas.
+        ✅ MEJORADO: Enriquece un grupo buscando el asset en network_assets.
         
         AUTO-REPAIR para grupos antiguos que no tienen target_asset.
         """
         try:
-            # Si ya tiene asset, no hacer nada
-            if group.get('target_asset') and group.get('target_asset').get('hostname'):
+            # Si ya tiene asset completo Y está marcado como known, no hacer nada
+            target_asset = group.get('target_asset', {})
+            if target_asset.get('known') and target_asset.get('hostname'):  # 👈 CAMBIO
                 return group
             
-            group_id = group['_id']
+            dest_ip = group.get('dest_ip')
+            if not dest_ip:
+                return group
             
-            # Buscar la alerta más reciente del grupo que tenga asset
-            alert_with_asset = self.alerts_col.find_one(
-                {
-                    'correlation_group_id': group_id,
-                    'target_asset': {'$exists': True, '$ne': None}
-                },
-                sort=[('timestamp', -1)]
-            )
+            # Buscar en colección de assets registrados
+            asset = self.assets_col.find_one({'ip': dest_ip})
             
-            if alert_with_asset:
-                target_asset = alert_with_asset.get('target_asset')
+            if asset:
+                # Asset encontrado en inventario
+                target_asset = {
+                    'ip': dest_ip,
+                    'hostname': asset.get('hostname'),
+                    'role': asset.get('role'),
+                    'component_5g': asset.get('component_5g'),
+                    'component_type': asset.get('component_type'),
+                    'software': asset.get('software'),
+                    'version': asset.get('version'),
+                    'criticality': asset.get('criticality'),
+                    'owner': asset.get('owner'),
+                    'known': True,
+                    'tags': asset.get('tags', [])
+                }
                 
-                if target_asset:
-                    # Actualizar el grupo
-                    self.groups_col.update_one(
-                        {'_id': group_id},
-                        {
-                            '$set': {
-                                'target_asset': target_asset,
-                                'asset_enriched': True,
-                                'asset_enriched_at': datetime.utcnow()
-                            }
+                # Actualizar el grupo en BD
+                self.groups_col.update_one(
+                    {'_id': group['_id']},
+                    {
+                        '$set': {
+                            'target_asset': target_asset,
+                            'asset_enriched': True,
+                            'enrichment_status': 'enriched',
+                            'asset_enriched_at': datetime.utcnow()
                         }
-                    )
-                    
-                    group['target_asset'] = target_asset
-                    group['asset_enriched'] = True
-                    
-                    logger.info(f"🔧 AUTO-REPAIR: Asset añadido a grupo {group.get('group_id')}: {target_asset.get('hostname', target_asset.get('ip'))}")
+                    }
+                )
+                
+                group['target_asset'] = target_asset
+                group['asset_enriched'] = True
+                group['enrichment_status'] = 'enriched'
+                
+                logger.info(f"🔧 AUTO-REPAIR: Asset encontrado para grupo {group.get('group_id')}: {asset.get('hostname')} ({dest_ip})")
+            
+            else:
+                # Asset NO encontrado - marcar como desconocido
+                target_asset = {
+                    'ip': dest_ip,
+                    'known': False
+                }
+                
+                self.groups_col.update_one(
+                    {'_id': group['_id']},
+                    {
+                        '$set': {
+                            'target_asset': target_asset,
+                            'enrichment_status': 'unknown',
+                            'asset_enriched_at': datetime.utcnow()
+                        }
+                    }
+                )
+                
+                group['target_asset'] = target_asset
+                group['enrichment_status'] = 'unknown'
+                
+                logger.debug(f"⚠️ Asset no encontrado para grupo {group.get('group_id')}: {dest_ip}")
         
         except Exception as e:
-            logger.debug(f"Error enriqueciendo grupo con asset: {e}")
+            logger.error(f"Error enriqueciendo grupo con asset: {e}", exc_info=True)
         
         return group
-    
+
     def _extract_cves_from_alert(self, alert: Dict) -> List[str]:
         """Extrae CVE IDs de una alerta"""
         import re
@@ -521,8 +556,8 @@ class CorrelationEngine:
     
     def get_all_groups(self, page: int = 1, per_page: int = 10,
                       status: str = "all", severity: int = None,
-                      src_ip: str = None, category: str = None,
-                      attack_type: str = None) -> Dict:
+                      src_ip: str = None, dest_ip: Optional[str] = None,
+                      category: str = None, attack_type: str = None) -> Dict:
         """
         Obtiene grupos con filtros.
         
@@ -542,6 +577,9 @@ class CorrelationEngine:
             
             if src_ip:
                 query['src_ip'] = src_ip
+
+            if dest_ip: 
+                query['dest_ip'] = dest_ip
             
             if category:
                 query['category'] = {'$regex': category, '$options': 'i'}

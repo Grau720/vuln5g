@@ -1,9 +1,9 @@
 // components/AssetsDashboard.tsx
-// Dashboard de Asset Inventory con soporte para infraestructura 5G
-// Integrado con la nueva arquitectura de alertas (enrichment_status, cve_suggestions)
+// Dashboard de Asset Management con tabs: Inventory + Discovery
 
 import React, { useEffect, useState, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DataTable } from "@/components/ui/data-table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 import AssetRegisterModal from "./AssetRegisterModal";
+import AssetDiscoveryDashboard from "./AssetDiscoveryDashboard";
 
 // ============================================================================
 // TYPES
@@ -95,15 +96,6 @@ const SEVERITY_COLORS: Record<number, string> = {
   4: "text-emerald-400",
 };
 
-const COMPONENT_5G_OPTIONS = [
-  "AMF", "SMF", "UPF", "AUSF", "UDM", "UDR", "PCF", "NRF", "NSSF", "NEF", "SMSF",
-  "gNB", "CU", "DU", "RU", "RIC", "O-RAN Controller",
-  "HSS", "MME", "SGW", "PGW",  // Legacy 4G
-  "SCP", "SEPP", "BSF",  // Service-based
-  "DNS", "NTP", "Logging", "Monitoring",  // Support
-  "Other"
-];
-
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
@@ -112,6 +104,7 @@ export default function AssetsDashboard() {
   const [unknownAssets, setUnknownAssets] = useState<UnknownAssetRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [pendingDiscoveryCount, setPendingDiscoveryCount] = useState(0);
 
   // Filtros
   const [searchFilter, setSearchFilter] = useState("");
@@ -127,7 +120,10 @@ export default function AssetsDashboard() {
   } | null>(null);
 
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Determinar tab activo desde URL
+  const activeTab = searchParams.get("tab") || "inventory";
 
   // Abrir modal si viene de ?register=IP
   useEffect(() => {
@@ -136,6 +132,19 @@ export default function AssetsDashboard() {
       setRegisterModal({ ip: registerIp, maxSeverity: 3 });
     }
   }, [searchParams]);
+
+  // Fetch pending discovery count para el badge
+  const fetchPendingDiscoveryCount = async () => {
+    try {
+      const r = await fetch('/api/v1/assets/discovery/pending');
+      if (r.ok) {
+        const j = await r.json();
+        setPendingDiscoveryCount(j.assets?.length || 0);
+      }
+    } catch (e) {
+      console.error('Error fetching discovery count:', e);
+    }
+  };
 
   const load = async () => {
     setLoading(true);
@@ -223,6 +232,7 @@ export default function AssetsDashboard() {
 
   useEffect(() => {
     load();
+    fetchPendingDiscoveryCount();
   }, []);
 
   // Filtrar assets
@@ -468,9 +478,9 @@ export default function AssetsDashboard() {
         <header className="mb-6">
           <div className="panel px-4 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
-              <h1 className="text-2xl font-semibold">🧩 Asset Inventory</h1>
+              <h1 className="text-2xl font-semibold">📦 Asset Management</h1>
               <p className="text-xs text-[var(--muted)]">
-                Inventario de infraestructura 5G con detección automática de assets
+                Gestiona el inventario de assets y descubre nuevos en tu red 5G
               </p>
             </div>
             <div className="flex gap-2">
@@ -492,184 +502,226 @@ export default function AssetsDashboard() {
           </div>
         )}
 
-        {/* KPIs */}
-        <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">Assets</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold">{stats.total}</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">Críticos</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-red-400">{stats.critical}</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">Bajo ataque</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-red-400">{stats.underAttack}</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">Sospechosos</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-amber-400">{stats.suspicious}</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">Desconocidos</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-slate-400">{stats.unknown}</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">CVEs ✓</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-emerald-400">{stats.totalCves}</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="py-2">
-              <CardTitle className="text-xs text-[var(--muted)]">CVEs 💡</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-amber-400">{stats.pendingSuggestions}</CardContent>
-          </Card>
-        </div>
-
-        {/* Filtros */}
-        <Card className="mb-6">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base">Filtros</CardTitle>
-          </CardHeader>
-          <CardContent className="grid grid-cols-1 md:grid-cols-12 gap-3">
-            <div className="md:col-span-4">
-              <Label className="text-xs">Buscar</Label>
-              <Input
-                className="mt-1"
-                placeholder="IP, hostname, rol, software..."
-                value={searchFilter}
-                onChange={(e) => setSearchFilter(e.target.value)}
-              />
-            </div>
-            <div className="md:col-span-2">
-              <Label className="text-xs">Estado</Label>
-              <select
-                className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
-              >
-                <option value="all">Todos</option>
-                <option value="UNDER_ATTACK">🔴 Bajo ataque</option>
-                <option value="SUSPICIOUS">⚠️ Sospechoso</option>
-                <option value="NOISE">📊 Ruido</option>
-                <option value="NORMAL">✅ Normal</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <Label className="text-xs">Criticidad</Label>
-              <select
-                className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
-                value={criticalityFilter}
-                onChange={(e) => setCriticalityFilter(e.target.value)}
-              >
-                <option value="all">Todas</option>
-                <option value="CRITICAL">🔴 Critical</option>
-                <option value="HIGH">🟠 High</option>
-                <option value="MEDIUM">🔵 Medium</option>
-                <option value="LOW">⚪ Low</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <Label className="text-xs">Componente 5G</Label>
-              <select
-                className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
-                value={component5gFilter}
-                onChange={(e) => setComponent5gFilter(e.target.value)}
-              >
-                <option value="all">Todos</option>
-                {uniqueComponents.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
-            </div>
-            <div className="md:col-span-2 flex items-end">
-              <Button
-                className="btn-outline w-full"
-                onClick={() => {
-                  setSearchFilter("");
-                  setStatusFilter("all");
-                  setCriticalityFilter("all");
-                  setComponent5gFilter("all");
-                }}
-              >
-                Limpiar
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Known assets */}
-        <Card className="mb-6">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base flex items-center justify-between">
-              <span>Assets Registrados</span>
-              <span className="text-sm font-normal text-[var(--muted)]">
-                {filteredAssets.length} de {assets.length}
-              </span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {loading ? (
-              <div className="text-center py-8">
-                <div className="text-4xl mb-2 animate-pulse">🔄</div>
-                <p className="text-[var(--muted)]">Cargando assets...</p>
-              </div>
-            ) : filteredAssets.length === 0 ? (
-              <div className="text-center py-8">
-                <div className="text-4xl mb-2">📭</div>
-                <p className="text-[var(--muted)]">No hay assets que coincidan con los filtros</p>
-              </div>
-            ) : (
-              <DataTable
-                columns={assetColumns}
-                data={filteredAssets}
-                onRowClick={(row) => navigate(`/assets/${row.ip}`)}
-              />
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Unknown assets */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base flex items-center gap-2">
-              🚩 Assets Detectados No Registrados
-              {unknownAssets.length > 0 && (
-                <span className="px-2 py-0.5 rounded text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                  {unknownAssets.length} pendientes
+        {/* 🆕 TABS: Inventory + Discovery*/}
+        <Tabs 
+          value={activeTab} 
+          onValueChange={(value) => {
+            setSearchParams({ tab: value });
+          }}
+          className="w-full"
+        >
+          <TabsList className="mb-6">
+            <TabsTrigger value="inventory">
+              📋 Inventory
+            </TabsTrigger>
+            <TabsTrigger value="discovery" className="relative">
+              🔍 Discovery
+              {pendingDiscoveryCount > 0 && (
+                <span className="ml-2 px-1.5 py-0.5 rounded text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                  {pendingDiscoveryCount}
                 </span>
               )}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {unknownAssets.length === 0 ? (
-              <div className="text-center py-6">
-                <div className="text-3xl mb-2">✅</div>
-                <p className="text-[var(--muted)]">No se han detectado assets desconocidos</p>
+            </TabsTrigger>
+          </TabsList>
+
+          {/* ================================================================ */}
+          {/* TAB: INVENTORY - 👇 AÑADIDO mt-6 para espaciado */}
+          {/* ================================================================ */}
+          <TabsContent value="inventory" className="mt-6">
+            <div className="space-y-6">
+              {/* KPIs */}
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">Assets</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold">{stats.total}</CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">Críticos</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold text-red-400">{stats.critical}</CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">Bajo ataque</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold text-red-400">{stats.underAttack}</CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">Sospechosos</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold text-amber-400">{stats.suspicious}</CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">Desconocidos</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold text-slate-400">{stats.unknown}</CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">CVEs ✓</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold text-emerald-400">{stats.totalCves}</CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-xs text-[var(--muted)]">CVEs 💡</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold text-amber-400">{stats.pendingSuggestions}</CardContent>
+                </Card>
               </div>
-            ) : (
-              <>
-                <div className="mb-3 p-3 bg-amber-900/20 border border-amber-500/30 rounded-lg text-xs text-amber-300">
-                  ⚠️ Estos assets han sido detectados como destino de ataques pero no están en el inventario.
-                  Registrarlos mejora la precisión de las correlaciones de CVE.
-                </div>
-                <DataTable columns={unknownColumns} data={unknownAssets} />
-              </>
-            )}
-          </CardContent>
-        </Card>
+
+              {/* Filtros */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base">Filtros</CardTitle>
+                </CardHeader>
+                <CardContent className="grid grid-cols-1 md:grid-cols-12 gap-3">
+                  <div className="md:col-span-4">
+                    <Label className="text-xs">Buscar</Label>
+                    <Input
+                      className="mt-1"
+                      placeholder="IP, hostname, rol, software..."
+                      value={searchFilter}
+                      onChange={(e) => setSearchFilter(e.target.value)}
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <Label className="text-xs">Estado</Label>
+                    <select
+                      className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
+                      value={statusFilter}
+                      onChange={(e) => setStatusFilter(e.target.value)}
+                    >
+                      <option value="all">Todos</option>
+                      <option value="UNDER_ATTACK">🔴 Bajo ataque</option>
+                      <option value="SUSPICIOUS">⚠️ Sospechoso</option>
+                      <option value="NOISE">📊 Ruido</option>
+                      <option value="NORMAL">✅ Normal</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-2">
+                    <Label className="text-xs">Criticidad</Label>
+                    <select
+                      className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
+                      value={criticalityFilter}
+                      onChange={(e) => setCriticalityFilter(e.target.value)}
+                    >
+                      <option value="all">Todas</option>
+                      <option value="CRITICAL">🔴 Critical</option>
+                      <option value="HIGH">🟠 High</option>
+                      <option value="MEDIUM">🔵 Medium</option>
+                      <option value="LOW">⚪ Low</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-2">
+                    <Label className="text-xs">Componente 5G</Label>
+                    <select
+                      className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
+                      value={component5gFilter}
+                      onChange={(e) => setComponent5gFilter(e.target.value)}
+                    >
+                      <option value="all">Todos</option>
+                      {uniqueComponents.map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="md:col-span-2 flex items-end">
+                    <Button
+                      className="btn-outline w-full"
+                      onClick={() => {
+                        setSearchFilter("");
+                        setStatusFilter("all");
+                        setCriticalityFilter("all");
+                        setComponent5gFilter("all");
+                      }}
+                    >
+                      Limpiar
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Known assets */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center justify-between">
+                    <span>Assets Registrados</span>
+                    <span className="text-sm font-normal text-[var(--muted)]">
+                      {filteredAssets.length} de {assets.length}
+                    </span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {loading ? (
+                    <div className="text-center py-8">
+                      <div className="text-4xl mb-2 animate-pulse">🔄</div>
+                      <p className="text-[var(--muted)]">Cargando assets...</p>
+                    </div>
+                  ) : filteredAssets.length === 0 ? (
+                    <div className="text-center py-8">
+                      <div className="text-4xl mb-2">📭</div>
+                      <p className="text-[var(--muted)]">No hay assets que coincidan con los filtros</p>
+                    </div>
+                  ) : (
+                    <DataTable
+                      columns={assetColumns}
+                      data={filteredAssets}
+                      onRowClick={(row) => navigate(`/assets/${row.ip}`)}
+                    />
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Unknown assets */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    🚩 Assets Detectados No Registrados
+                    {unknownAssets.length > 0 && (
+                      <span className="px-2 py-0.5 rounded text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                        {unknownAssets.length} pendientes
+                      </span>
+                    )}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {unknownAssets.length === 0 ? (
+                    <div className="text-center py-6">
+                      <div className="text-3xl mb-2">✅</div>
+                      <p className="text-[var(--muted)]">No se han detectado assets desconocidos</p>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="mb-3 p-3 bg-amber-900/20 border border-amber-500/30 rounded-lg text-xs text-amber-300">
+                        ⚠️ Estos assets han sido detectados como destino de ataques pero no están en el inventario.
+                        Registrarlos mejora la precisión de las correlaciones de CVE.
+                      </div>
+                      <DataTable columns={unknownColumns} data={unknownAssets} />
+                    </>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+
+          {/* ================================================================ */}
+          {/* TAB: DISCOVERY */}
+          {/* ================================================================ */}
+          <TabsContent value="discovery" className="mt-6">
+            <AssetDiscoveryDashboard 
+              onAssetsDiscovered={() => {
+                fetchPendingDiscoveryCount();
+                load();
+              }}
+            />
+          </TabsContent>
+        </Tabs>
       </div>
 
       {/* Modal */}

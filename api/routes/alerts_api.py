@@ -861,6 +861,7 @@ def get_attack_groups():
         - status: active | resolved | re-opened
         - severity: 1, 2, 3
         - src_ip: filtrar por IP origen
+        - dest_ip: filtrar por IP destino
         - vuln_type: filtrar por tipo de vulnerabilidad
     """
     try:
@@ -870,6 +871,7 @@ def get_attack_groups():
         status = request.args.get('status', 'all')
         severity = request.args.get('severity', type=int)
         src_ip = request.args.get('src_ip')
+        dest_ip = request.args.get('dest_ip')
         vuln_type = request.args.get('vuln_type')
         
         engine = get_correlation_engine()
@@ -883,6 +885,7 @@ def get_attack_groups():
             status=status,
             severity=severity,
             src_ip=src_ip,
+            dest_ip=dest_ip,
             category=vuln_type  # Usamos category para vuln_type en el engine
         )
         
@@ -915,6 +918,9 @@ def get_attack_group_detail(group_id):
         
         if not result:
             return jsonify({'error': 'Incidente no encontrado'}), 404
+
+        if result.get('group'):
+            result['group'] = engine._enrich_group_with_asset(result['group'])
         
         # Convertir ObjectId
         if result['group']:
@@ -1080,6 +1086,42 @@ def reopen_attack_group(group_id):
         logger.error(f"Error reabriendo incidente: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
+@bp_alerts.route('/groups/<group_id>/status', methods=['PATCH'])
+def update_group_status(group_id):
+    """
+    PATCH /api/v1/alerts/groups/{group_id}/status
+    
+    Cambia estado a 'active' (sin metadata adicional).
+    Para resolved/re-opened usar endpoints específicos.
+    """
+    try:
+        data = request.get_json()
+        new_status = data.get('status')
+        
+        if new_status != 'active':
+            return jsonify({
+                'error': 'Use /resolve o /reopen para esos estados'
+            }), 400
+        
+        result = current_app.mongo.db['attack_groups'].update_one(
+            {'_id': ObjectId(group_id)},
+            {'$set': {
+                'status': 'active',
+                'manually_resolved': False,
+                'status_updated_at': datetime.utcnow()
+            }}
+        )
+        
+        if result.matched_count == 0:
+            return jsonify({'error': 'Grupo no encontrado'}), 404
+        
+        logger.info(f"✅ Grupo {group_id} marcado como activo")
+        
+        return jsonify({'status': 'ok', 'new_status': 'active'}), 200
+    
+    except Exception as e:
+        logger.error(f"Error actualizando estado: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
 
 @bp_alerts.route('/groups/<group_id>/link-cve', methods=['POST'])
 def link_cve_to_group(group_id):

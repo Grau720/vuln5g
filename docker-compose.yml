@@ -46,9 +46,11 @@ services:
     depends_on:
       - mongodb
     volumes:
-      - ./api:/app/api          
+      - ./api:/app/api 
+      - ./config:/app/config         
       - ./services:/app/services 
       - ./runtime:/app/runtime
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       docker_open5gs_default:
         ipv4_address: ${VULNDB_API_IP}

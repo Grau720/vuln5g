@@ -12,6 +12,7 @@ Integración en app.py:
 import logging
 from flask import Blueprint, jsonify, request, current_app
 from bson import ObjectId
+from datetime import datetime
 
 from api.assets.inventory import (
     AssetInventoryManager,
@@ -21,11 +22,19 @@ from api.assets.inventory import (
     initialize_open5gs_assets
 )
 
+from config.network_config import (
+    get_local_networks, 
+    is_target_in_local_networks,
+    get_discovery_config
+)
+
 logger = logging.getLogger(__name__)
 
 # Blueprint para todas las rutas de assets
 bp_assets = Blueprint('assets', __name__, url_prefix='/api/v1/assets')
 
+LOCAL_NETWORKS = get_local_networks()
+logger.info(f"🌐 Redes locales detectadas: {LOCAL_NETWORKS}")
 
 # ============================================================================
 # ASSET MANAGEMENT ENDPOINTS
@@ -504,6 +513,568 @@ def delete_whitelist_rule(rule_id):
         logger.error(f"Error eliminando whitelist: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
+# ============================================================================
+# DISCOVERY ENDPOINTS
+# ============================================================================
+
+@bp_assets.route('/discovery/pending', methods=['GET'])
+def list_pending_assets():
+    """
+    Lista assets descubiertos pero NO registrados aún
+    
+    Returns:
+        200: Lista de assets pendientes de aprobación
+    """
+    try:
+        db = current_app.mongo.db
+        
+        # Assets descubiertos (colección temporal)
+        pending = list(db['discovered_assets'].find({
+            'status': 'pending'
+        }))
+        
+        for asset in pending:
+            asset['_id'] = str(asset['_id'])
+        
+        return jsonify({
+            'total': len(pending),
+            'assets': pending
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error listando pending assets: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@bp_assets.route('/discovery/<ip>/approve', methods=['POST'])
+def approve_discovered_asset(ip):
+    """
+    Aprueba un asset descubierto y lo registra oficialmente
+    
+    Body (opcional):
+    {
+        "role": "override role",
+        "criticality": "HIGH",
+        "owner": "team-name"
+    }
+    
+    Returns:
+        200: Asset aprobado y registrado
+    """
+    try:
+        db = current_app.mongo.db
+        overrides = request.get_json() or {}
+        
+        # Obtener asset de cola
+        discovered = db['discovered_assets'].find_one({'ip': ip, 'status': 'pending'})
+        
+        if not discovered:
+            return jsonify({'error': 'Asset no encontrado en pending queue'}), 404
+        
+        # Merge con overrides del usuario
+        asset_data = {
+            'ip': discovered['ip'],
+            'hostname': overrides.get('hostname', discovered.get('hostname')),
+            'role': overrides.get('role', discovered.get('role')),
+            'owner': overrides.get('owner', 'unknown'),
+            'services': discovered.get('services', []),
+            'criticality': overrides.get('criticality', 'MEDIUM'),
+            'tags': discovered.get('tags', []) + ['approved'],
+        }
+        
+        # Registrar en inventory oficial
+        mgr = AssetInventoryManager(db)
+        mgr.create_asset(asset_data)
+        
+        # Marcar como aprobado en discovered_assets
+        db['discovered_assets'].update_one(
+            {'ip': ip},
+            {'$set': {'status': 'approved', 'approved_at': datetime.utcnow()}}
+        )
+        
+        return jsonify({
+            'status': 'ok',
+            'message': f'Asset {ip} aprobado y registrado'
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error aprobando asset: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@bp_assets.route('/discovery/<ip>/reject', methods=['POST'])
+def reject_discovered_asset(ip):
+    """
+    Rechaza un asset descubierto (no se registra)
+    """
+    try:
+        db = current_app.mongo.db
+        
+        result = db['discovered_assets'].update_one(
+            {'ip': ip, 'status': 'pending'},
+            {'$set': {'status': 'rejected', 'rejected_at': datetime.utcnow()}}
+        )
+        
+        if result.matched_count == 0:
+            return jsonify({'error': 'Asset no encontrado'}), 404
+        
+        return jsonify({
+            'status': 'ok',
+            'message': f'Asset {ip} rechazado'
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error rechazando asset: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@bp_assets.route('/discovery/config', methods=['GET'])
+def get_discovery_configuration():
+    """
+    Retorna configuración de discovery con redes permitidas auto-detectadas.
+    
+    Returns:
+        200: Configuración con redes locales y targets sugeridos
+    """
+    try:
+        config = get_discovery_config()
+        
+        return jsonify({
+            'status': 'ok',
+            'config': config
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error obteniendo config: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@bp_assets.route('/discovery/run', methods=['POST'])
+def run_discovery_to_queue():
+    """
+    Ejecuta discovery con fallback automático y validación de redes locales:
+    1. Valida que targets estén en redes locales
+    2. Intenta Docker inspect (rápido, solo desarrollo)
+    3. Si falla, usa network scan (producción)
+    
+    Body:
+    {
+        "targets": {
+            "core": ["172.22.0.0/24"],
+            "ran_oam": [],
+            "transport": []
+        },
+        "profile": "fast" | "standard" | "exhaustive"
+    }
+    
+    Returns:
+        202: Discovery iniciado
+        403: Targets no permitidos (redes externas)
+        400: Escaneo demasiado grande o targets faltantes
+    """
+    try:
+        from config.network_config import get_local_networks, is_target_in_local_networks
+        import ipaddress
+        
+        data = request.get_json()
+        targets = data.get('targets', {})
+        profile = data.get('profile', 'fast')
+        
+        db = current_app.mongo.db
+        discovered_count = 0
+        method_used = None
+        
+        # =================================================================
+        # VALIDACIÓN 1: REDES LOCALES
+        # =================================================================
+        local_networks = get_local_networks()
+        logger.info(f"🌐 Redes locales detectadas: {local_networks}")
+        
+        forbidden_targets = []
+        
+        for category, target_list in targets.items():
+            for target in target_list:
+                if target and not is_target_in_local_networks(target, local_networks):
+                    forbidden_targets.append(target)
+        
+        if forbidden_targets:
+            # Registrar intento de escaneo no autorizado
+            db['audit_log'].insert_one({
+                'timestamp': datetime.utcnow(),
+                'action': 'discovery_scan_blocked',
+                'user_ip': request.remote_addr,
+                'user_agent': request.headers.get('User-Agent'),
+                'forbidden_targets': forbidden_targets,
+                'allowed_networks': sorted(local_networks),
+                'reason': 'targets_not_in_local_networks'
+            })
+            
+            logger.warning(f"⛔ Discovery bloqueado desde {request.remote_addr}: targets no autorizados {forbidden_targets}")
+            
+            return jsonify({
+                'error': 'forbidden_networks',
+                'detail': f'Los siguientes targets no están en redes locales: {", ".join(forbidden_targets)}',
+                'allowed_networks': sorted(local_networks),
+                'hint': 'Solo puedes escanear redes accesibles desde este servidor.'
+            }), 403
+        
+        # =================================================================
+        # VALIDACIÓN 2: TAMAÑO MÁXIMO
+        # =================================================================
+        total_ips = 0
+        for category, target_list in targets.items():
+            for target in target_list:
+                if target:
+                    if "/" in target:
+                        try:
+                            network = ipaddress.ip_network(target, strict=False)
+                            total_ips += network.num_addresses
+                        except:
+                            total_ips += 1
+                    else:
+                        total_ips += 1
+        
+        MAX_IPS = 2048
+        if total_ips > MAX_IPS:
+            return jsonify({
+                'error': 'scan_too_large',
+                'detail': f'El escaneo incluye {total_ips} IPs. Máximo permitido: {MAX_IPS}',
+                'hint': 'Divide el escaneo en rangos más pequeños.'
+            }), 400
+        
+        # =================================================================
+        # AUDIT LOG: Registrar escaneo autorizado
+        # =================================================================
+        db['audit_log'].insert_one({
+            'timestamp': datetime.utcnow(),
+            'action': 'discovery_scan_authorized',
+            'user_ip': request.remote_addr,
+            'user_agent': request.headers.get('User-Agent'),
+            'targets': targets,
+            'total_ips': total_ips,
+            'profile': profile
+        })
+        
+        logger.info(f"✅ Discovery autorizado desde {request.remote_addr}: {total_ips} IPs en redes locales")
+        
+        # =================================================================
+        # MÉTODO 1: DOCKER INSPECT (solo desarrollo/testing)
+        # =================================================================
+        try:
+            import docker
+            
+            logger.info("🐳 Intentando discovery via Docker...")
+            
+            client = docker.from_env()
+            network_name = "docker_open5gs_default"
+            network = client.networks.get(network_name)
+            
+            containers = network.attrs.get('Containers', {})
+            
+            if not containers:
+                raise Exception("No hay contenedores en la red Docker")
+            
+            # Procesar contenedores encontrados
+            for container_id, container_info in containers.items():
+                name = container_info.get('Name', '').lower()
+                ip = container_info.get('IPv4Address', '').split('/')[0]
+                
+                if not ip:
+                    continue
+                
+                # Inferir metadatos
+                role = _infer_role(name)
+                services = _infer_services(name)
+                confidence = _calculate_confidence(name)
+                category = _infer_category(name)
+
+                # Verificar si ya está registrado en inventory oficial
+                existing_in_inventory = db['network_assets'].find_one({'ip': ip})
+                
+                # Guardar en cola de pending
+                db['discovered_assets'].update_one(
+                    {'ip': ip},
+                    {
+                        '$set': {
+                            'ip': ip,
+                            'hostname': name,
+                            'role': role,
+                            'services': services,
+                            'tags': [category, 'auto-discovered', 'docker'],
+                            'discovery_method': 'docker',
+                            'discovered_at': datetime.utcnow(),
+                            'status': 'pending',
+                            'confidence': confidence,
+                            'already_registered': existing_in_inventory is not None,
+                            'registered_at': existing_in_inventory.get('created_at') if existing_in_inventory else None,
+                        }
+                    },
+                    upsert=True
+                )
+                discovered_count += 1
+            
+            method_used = 'docker'
+            logger.info(f"✅ Docker discovery: {discovered_count} contenedores encontrados")
+        
+        except Exception as docker_error:
+            logger.info(f"🌐 Docker no disponible ({docker_error}), usando network scan...")
+            
+            # =================================================================
+            # MÉTODO 2: NETWORK SCAN (producción)
+            # =================================================================
+            
+            if not targets or not any(targets.values()):
+                return jsonify({
+                    'error': 'missing_targets',
+                    'detail': 'Docker no disponible. Debe especificar targets para network scan.'
+                }), 400
+            
+            from scanning.plugins.smart_discovery import SmartDiscovery
+            from scanning.plugin_base import ScanContext
+            import asyncio
+            
+            # Crear contexto de escaneo
+            ctx = ScanContext(
+                job_id=f"discovery_{int(datetime.utcnow().timestamp())}",
+                profile=profile,
+                targets=targets,
+                raw_targets=targets
+            )
+            
+            # Ejecutar discovery
+            plugin = SmartDiscovery()
+            
+            async def run_discovery():
+                return await plugin.run(ctx)
+            
+            findings = asyncio.run(run_discovery())
+            
+            # Procesar hosts activos descubiertos
+            for finding in findings:
+                if 'active_host' not in finding.tags:
+                    continue
+                
+                ip = finding.target
+                if not ip:
+                    continue
+                
+                # Inferir metadatos desde los findings
+                hostname = f"host-{ip.replace('.', '-')}"
+                role = "Unknown Service"
+                services = []
+                confidence = "MEDIUM"
+                category = "unknown"
+                
+                # Intentar inferir desde evidencia del finding
+                evidence = finding.evidence or {}
+                
+                # Si hay puertos abiertos, crear lista de servicios
+                if evidence.get('open_ports'):
+                    services = [
+                        {
+                            'name': _infer_service_name(port),
+                            'port': port,
+                            'protocol': 'TCP'
+                        }
+                        for port in evidence['open_ports']
+                    ]
+                    confidence = "HIGH"
+                
+                # Intentar identificar componente 5G por puerto
+                role = _infer_role_from_ports(evidence.get('open_ports', []))
+                category = _infer_category_from_role(role)
+                
+                # Si hay hostname detectado, usarlo
+                if evidence.get('hostname'):
+                    hostname = evidence['hostname']
+                    confidence = "HIGH"
+                
+                # Verificar si ya está registrado en inventory oficial
+                existing_in_inventory = db['network_assets'].find_one({'ip': ip})
+                
+                # Guardar en cola de pending
+                db['discovered_assets'].update_one(
+                    {'ip': ip},
+                    {
+                        '$set': {
+                            'ip': ip,
+                            'hostname': hostname,
+                            'role': role,
+                            'services': services,
+                            'tags': [category, 'auto-discovered', 'network-scan'],
+                            'discovery_method': 'network',
+                            'discovered_at': datetime.utcnow(),
+                            'status': 'pending',
+                            'confidence': confidence,
+                            'evidence': evidence,
+                            'already_registered': existing_in_inventory is not None,
+                            'registered_at': existing_in_inventory.get('created_at') if existing_in_inventory else None,
+                        }
+                    },
+                    upsert=True
+                )
+                discovered_count += 1
+            
+            method_used = 'network'
+            logger.info(f"✅ Network discovery: {discovered_count} hosts activos encontrados")
+        
+        # Contar total pending
+        total_pending = db['discovered_assets'].count_documents({'status': 'pending'})
+        
+        return jsonify({
+            'status': 'ok',
+            'message': f'Discovery completed via {method_used}',
+            'method_used': method_used,
+            'discovered_count': discovered_count,
+            'total_pending': total_pending
+        }), 202
+    
+    except Exception as e:
+        logger.error(f"Error en discovery: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+# ============================================================================
+# HELPERS DE INFERENCIA PROFESIONAL
+# ============================================================================
+
+def _infer_service_name(port: int) -> str:
+    """Mapeo de puertos conocidos de 5G/telco"""
+    port_map = {
+        # 5G Core
+        7777: "SBI (HTTP/2)",
+        38412: "NGAP",
+        2152: "GTP-U",
+        8805: "PFCP",
+        3868: "Diameter",
+        
+        # Management
+        22: "SSH",
+        443: "HTTPS",
+        80: "HTTP",
+        161: "SNMP",
+        830: "NETCONF",
+        
+        # Databases
+        27017: "MongoDB",
+        3306: "MySQL",
+        5432: "PostgreSQL",
+        6379: "Redis",
+        
+        # Messaging
+        5672: "AMQP",
+        9092: "Kafka",
+        
+        # Monitoring
+        9090: "Prometheus",
+        3000: "Grafana",
+        9200: "Elasticsearch"
+    }
+    
+    return port_map.get(port, f"Port {port}")
+
+
+def _infer_role_from_ports(ports: list) -> str:
+    """Identifica componente 5G por puertos abiertos"""
+    if not ports:
+        return "Unknown Service"
+    
+    ports_set = set(ports)
+    
+    # Patrones de componentes 5G
+    if 38412 in ports_set and 7777 in ports_set:
+        return "5G AMF"
+    elif 8805 in ports_set and 7777 in ports_set:
+        return "5G SMF"
+    elif 2152 in ports_set and 8805 in ports_set:
+        return "5G UPF"
+    elif 7777 in ports_set:
+        return "5G NF (SBI enabled)"
+    elif 3868 in ports_set:
+        return "Diameter Node (HSS/DRA)"
+    elif 2152 in ports_set:
+        return "GTP Node"
+    elif 27017 in ports_set:
+        return "Database (MongoDB)"
+    elif 9090 in ports_set or 3000 in ports_set:
+        return "Monitoring System"
+    elif 22 in ports_set and 161 in ports_set:
+        return "Network Element (Managed)"
+    else:
+        return "Network Service"
+
+
+def _infer_category_from_role(role: str) -> str:
+    """Categoriza asset por su rol"""
+    role_lower = role.lower()
+    
+    if any(x in role_lower for x in ['amf', 'smf', 'udm', 'ausf', 'pcf', 'nrf', 'nssf', 'scp']):
+        return "core"
+    elif any(x in role_lower for x in ['upf', 'gtp']):
+        return "transport"
+    elif any(x in role_lower for x in ['gnb', 'enb', 'ran']):
+        return "ran"
+    elif any(x in role_lower for x in ['mongo', 'database', 'redis', 'postgres']):
+        return "support"
+    elif any(x in role_lower for x in ['monitoring', 'grafana', 'prometheus']):
+        return "support"
+    else:
+        return "unknown"
+
+
+def _infer_category(name: str) -> str:
+    """Mantener compatibilidad con versión anterior (para Docker si se usa)"""
+    return _infer_category_from_role(_infer_role(name))
+
+
+def _infer_role(name: str) -> str:
+    """Versión simplificada basada en nombre (para Docker)"""
+    roles = {
+        "amf": "5G AMF",
+        "smf": "5G SMF",
+        "upf": "5G UPF",
+        "nrf": "5G NRF",
+        "ausf": "5G AUSF",
+        "udm": "5G UDM",
+        "mongo": "Database",
+        "api": "API Backend",
+    }
+    
+    name_lower = name.lower()
+    
+    for key, role in roles.items():
+        if key in name_lower:
+            return role
+    
+    return "Unknown Service"
+
+
+def _infer_services(name: str) -> list:
+    """Versión simplificada basada en nombre (para Docker)"""
+    services_map = {
+        "amf": [{"name": "NGAP", "port": 38412, "protocol": "SCTP"}],
+        "smf": [{"name": "PFCP", "port": 8805, "protocol": "UDP"}],
+        "upf": [{"name": "GTP-U", "port": 2152, "protocol": "UDP"}],
+        "mongo": [{"name": "MongoDB", "port": 27017, "protocol": "TCP"}],
+        "api": [{"name": "HTTP", "port": 5000, "protocol": "TCP"}],
+    }
+    
+    name_lower = name.lower()
+    
+    for key, services in services_map.items():
+        if key in name_lower:
+            return services
+    
+    return []
+
+
+def _calculate_confidence(name: str) -> str:
+    """Calcula confianza basada en nombre (para Docker)"""
+    known_patterns = ["amf", "smf", "upf", "nrf", "ausf", "udm", "mongo", "gnb"]
+    
+    name_lower = name.lower()
+    
+    if any(p in name_lower for p in known_patterns):
+        return "HIGH"
+    elif any(c.isdigit() for c in name):
+        return "MEDIUM"
+    else:
+        return "LOW"
 
 # ============================================================================
 # INITIALIZATION ENDPOINT

@@ -11,6 +11,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { DataTable } from "@/components/ui/data-table";
 import type { ColumnDef } from "@tanstack/react-table";
 import { cn } from "@/lib/utils";
@@ -438,6 +439,17 @@ export default function AttackGroupDetail() {
   const [selectedCVE, setSelectedCVE] = useState<string | null>(null);
   const [cveDetailOpen, setCveDetailOpen] = useState(false);
 
+  // Estados para modal de resolución
+  const [resolutionModal, setResolutionModal] = useState(false);
+  const [resolutionForm, setResolutionForm] = useState({
+    reason: '',
+    type: 'mitigated' as 'mitigated' | 'false_positive' | 'accepted_risk'
+  });
+
+  // Estados para modal de reapertura
+  const [reopenModal, setReopenModal] = useState(false);
+  const [reopenReason, setReopenReason] = useState('')
+
   // CVE linking
   const [linkingCVE, setLinkingCVE] = useState(false);
   const [manualCVEInput, setManualCVEInput] = useState("");
@@ -550,17 +562,80 @@ export default function AttackGroupDetail() {
 
   // Cambiar estado del incidente
   const updateStatus = async (newStatus: "active" | "resolved" | "re-opened") => {
+    // Si es resolved o re-opened, abrir modal en vez de llamar directamente
+    if (newStatus === 'resolved') {
+      setResolutionModal(true);
+      return;
+    }
+    
+    if (newStatus === 're-opened') {
+      setReopenModal(true);
+      return;
+    }
+    
+    // Para 'active', llamar directamente
     setUpdatingStatus(true);
     try {
       const res = await fetch(`/api/v1/alerts/groups/${groupId}/status`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: newStatus }),
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'active' })
       });
+      
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       await fetchGroupDetail();
     } catch (e: any) {
       alert(`Error al actualizar estado: ${e.message}`);
+    } finally {
+      setUpdatingStatus(false);
+    }
+  };
+
+  // Nueva función para resolver con el modal
+  const confirmResolve = async () => {
+    setUpdatingStatus(true);
+    try {
+      const res = await fetch(`/api/v1/alerts/groups/${groupId}/resolve`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          confirmed: true,
+          reason: resolutionForm.reason || 'Resuelto manualmente',
+          resolution_type: resolutionForm.type
+        })
+      });
+      
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      
+      await fetchGroupDetail();
+      setResolutionModal(false);
+      setResolutionForm({ reason: '', type: 'mitigated' });
+    } catch (e: any) {
+      alert(`Error al resolver incidente: ${e.message}`);
+    } finally {
+      setUpdatingStatus(false);
+    }
+  };
+
+  // Nueva función para reabrir con el modal
+  const confirmReopen = async () => {
+    setUpdatingStatus(true);
+    try {
+      const res = await fetch(`/api/v1/alerts/groups/${groupId}/reopen`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          reason: reopenReason || 'Reabierto manualmente'
+        })
+      });
+      
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      
+      await fetchGroupDetail();
+      setReopenModal(false);
+      setReopenReason('');
+    } catch (e: any) {
+      alert(`Error al reabrir incidente: ${e.message}`);
     } finally {
       setUpdatingStatus(false);
     }
@@ -1146,6 +1221,104 @@ export default function AttackGroupDetail() {
               setSelectedCVE(null);
             }}
           />
+        )}
+
+        {/* Modal de Resolución */}
+        {resolutionModal && (
+          <div className="fixed inset-0 z-[70]">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setResolutionModal(false)} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md panel p-6">
+              <h3 className="text-lg font-semibold mb-4">Resolver Incidente</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <Label className="text-sm mb-2">Tipo de Resolución</Label>
+                  <select
+                    className="w-full mt-1 rounded-md border px-3 py-2 text-sm bg-slate-900 border-slate-700"
+                    value={resolutionForm.type}
+                    onChange={(e) => setResolutionForm({
+                      ...resolutionForm, 
+                      type: e.target.value as any
+                    })}
+                  >
+                    <option value="mitigated">✅ Mitigado</option>
+                    <option value="false_positive">❌ Falso Positivo</option>
+                    <option value="accepted_risk">⚠️ Riesgo Aceptado</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <Label className="text-sm mb-2">Motivo (opcional)</Label>
+                  <textarea
+                    className="w-full mt-1 rounded-md border px-3 py-2 text-sm bg-slate-900 border-slate-700 min-h-[100px]"
+                    placeholder="Ej: Aplicado parche de seguridad, regla de firewall actualizada..."
+                    value={resolutionForm.reason}
+                    onChange={(e) => setResolutionForm({...resolutionForm, reason: e.target.value})}
+                  />
+                </div>
+                
+                <div className="flex gap-2 justify-end pt-2">
+                  <Button
+                    className="btn-outline"
+                    onClick={() => {
+                      setResolutionModal(false);
+                      setResolutionForm({ reason: '', type: 'mitigated' });
+                    }}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button
+                    className="btn-solid bg-emerald-600 hover:bg-emerald-700"
+                    onClick={confirmResolve}
+                    disabled={updatingStatus}
+                  >
+                    {updatingStatus ? 'Resolviendo...' : '✅ Confirmar Resolución'}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Modal de Reapertura */}
+        {reopenModal && (
+          <div className="fixed inset-0 z-[70]">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setReopenModal(false)} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md panel p-6">
+              <h3 className="text-lg font-semibold mb-4">Reabrir Incidente</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <Label className="text-sm mb-2">Motivo de Reapertura (opcional)</Label>
+                  <textarea
+                    className="w-full mt-1 rounded-md border px-3 py-2 text-sm bg-slate-900 border-slate-700 min-h-[100px]"
+                    placeholder="Ej: Se detectó nueva actividad, incidente no completamente resuelto..."
+                    value={reopenReason}
+                    onChange={(e) => setReopenReason(e.target.value)}
+                  />
+                </div>
+                
+                <div className="flex gap-2 justify-end pt-2">
+                  <Button
+                    className="btn-outline"
+                    onClick={() => {
+                      setReopenModal(false);
+                      setReopenReason('');
+                    }}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button
+                    className="btn-solid bg-amber-600 hover:bg-amber-700"
+                    onClick={confirmReopen}
+                    disabled={updatingStatus}
+                  >
+                    {updatingStatus ? 'Reabriendo...' : '🔄 Confirmar Reapertura'}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </div>
