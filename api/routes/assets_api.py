@@ -22,6 +22,20 @@ from api.assets.inventory import (
     initialize_open5gs_assets
 )
 
+from api.assets.version_detector import detect_version_simple
+
+from api.assets.inference import (
+    infer_service_name,
+    infer_role_from_ports,
+    infer_role_from_name,
+    infer_services_from_name,
+    infer_category_from_role,
+    calculate_confidence,
+    infer_role,
+    infer_services,
+    infer_category
+)
+
 from config.network_config import (
     get_local_networks, 
     is_target_in_local_networks,
@@ -34,7 +48,7 @@ logger = logging.getLogger(__name__)
 bp_assets = Blueprint('assets', __name__, url_prefix='/api/v1/assets')
 
 LOCAL_NETWORKS = get_local_networks()
-logger.info(f"🌐 Redes locales detectadas: {LOCAL_NETWORKS}")
+logger.debug(f"🌐 Redes locales detectadas: {LOCAL_NETWORKS}")
 
 # ============================================================================
 # ASSET MANAGEMENT ENDPOINTS
@@ -88,7 +102,6 @@ def register_asset():
         logger.error(f"Error registrando asset: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
-
 @bp_assets.route('/list', methods=['GET'])
 def list_assets():
     """
@@ -135,7 +148,6 @@ def list_assets():
         logger.error(f"Error listando assets: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
-
 @bp_assets.route('/<ip>', methods=['GET'])
 def get_asset(ip):
     """
@@ -166,7 +178,6 @@ def get_asset(ip):
     except Exception as e:
         logger.error(f"Error obteniendo asset: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
-
 
 @bp_assets.route('/<ip>', methods=['PUT', 'PATCH'])
 def update_asset(ip):
@@ -287,7 +298,6 @@ def add_expected_connection():
         logger.error(f"Error añadiendo conexión: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
-
 @bp_assets.route('/expected-connections/list', methods=['GET'])
 def list_expected_connections():
     """
@@ -314,7 +324,6 @@ def list_expected_connections():
     except Exception as e:
         logger.error(f"Error listando conexiones esperadas: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
-
 
 # ============================================================================
 # WHITELIST ENDPOINTS
@@ -392,7 +401,6 @@ def add_whitelist_rule():
         logger.error(f"Error añadiendo whitelist: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
-
 @bp_assets.route('/whitelist/list', methods=['GET'])
 def list_whitelist_rules():
     """
@@ -429,7 +437,6 @@ def list_whitelist_rules():
     except Exception as e:
         logger.error(f"Error listando whitelist: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
-
 
 @bp_assets.route('/whitelist/<rule_id>/approve', methods=['POST'])
 def approve_whitelist_rule(rule_id):
@@ -472,7 +479,6 @@ def approve_whitelist_rule(rule_id):
     except Exception as e:
         logger.error(f"Error aprobando whitelist: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
-
 
 @bp_assets.route('/whitelist/<rule_id>', methods=['DELETE'])
 def delete_whitelist_rule(rule_id):
@@ -521,9 +527,10 @@ def delete_whitelist_rule(rule_id):
 def list_pending_assets():
     """
     Lista assets descubiertos pero NO registrados aún
+    CON DETECCIÓN DINÁMICA DE CAMBIOS
     
     Returns:
-        200: Lista de assets pendientes de aprobación
+        200: Lista de assets pendientes de aprobación con cambios detectados
     """
     try:
         db = current_app.mongo.db
@@ -533,8 +540,99 @@ def list_pending_assets():
             'status': 'pending'
         }))
         
+        # Para cada asset, asegurar que tenga registered_data y changes si está registrado
         for asset in pending:
             asset['_id'] = str(asset['_id'])
+            
+            if asset.get('already_registered'):
+                # Buscar asset registrado
+                registered = db['network_assets'].find_one({'ip': asset['ip']})
+                
+                if registered:
+                    # Asegurar que tiene registered_data
+                    if not asset.get('registered_data'):
+                        asset['registered_data'] = {
+                            'hostname': registered.get('hostname'),
+                            'role': registered.get('role'),
+                            'services': registered.get('services', []),
+                            'tags': registered.get('tags', []),
+                            'software': registered.get('software'),
+                            'version': registered.get('version'),
+                            'criticality': registered.get('criticality'),
+                            'owner': registered.get('owner')
+                        }
+                    
+                    # SIEMPRE recalcular cambios (para estar seguro)
+                    changes = {}
+                    
+                    # Hostname
+                    if (registered.get('hostname') and asset.get('hostname') and 
+                        asset['hostname'] != registered['hostname']):
+                        changes['hostname'] = {
+                            'old': registered['hostname'],
+                            'new': asset['hostname']
+                        }
+                    
+                    # Role
+                    if (registered.get('role') and asset.get('role') and 
+                        asset['role'] != registered['role']):
+                        changes['role'] = {
+                            'old': registered['role'],
+                            'new': asset['role']
+                        }
+                    
+                    # Software
+                    if (registered.get('software') and asset.get('software') and 
+                        asset['software'] != registered['software']):
+                        changes['software'] = {
+                            'old': registered['software'],
+                            'new': asset['software']
+                        }
+                    
+                    # Version
+                    if (registered.get('version') and asset.get('version') and 
+                        asset['version'] != 'unknown' and
+                        asset['version'] != registered['version']):
+                        changes['version'] = {
+                            'old': registered['version'],
+                            'new': asset['version']
+                        }
+                    
+                    # Services - detectar añadidos/removidos
+                    if registered.get('services') and asset.get('services'):
+                        reg_ports = {f"{s['name']}:{s.get('port')}" for s in registered['services']}
+                        new_ports = {f"{s['name']}:{s.get('port')}" for s in asset['services']}
+                        
+                        added = [s for s in asset['services'] 
+                                if f"{s['name']}:{s.get('port')}" not in reg_ports]
+                        removed = [s for s in registered['services'] 
+                                  if f"{s['name']}:{s.get('port')}" not in new_ports]
+                        
+                        if added:
+                            changes['services_added'] = added
+                        if removed:
+                            changes['services_removed'] = removed
+                    
+                    # Tags - detectar añadidos/removidos
+                    if registered.get('tags') and asset.get('tags'):
+                        reg_tags = set(registered['tags'])
+                        new_tags = set(asset['tags'])
+                        
+                        # Filtrar tags automáticos
+                        exclude = {'auto-discovered', 'docker', 'network-scan'}
+                        new_tags = new_tags - exclude
+                        
+                        added = list(new_tags - reg_tags)
+                        removed = list(reg_tags - new_tags)
+                        
+                        if added:
+                            changes['tags_added'] = added
+                        if removed:
+                            changes['tags_removed'] = removed
+                    
+                    asset['changes'] = changes if changes else None
+                    
+                    logger.debug(f"Asset {asset['ip']}: {len(changes) if changes else 0} cambios detectados")
         
         return jsonify({
             'total': len(pending),
@@ -623,6 +721,164 @@ def reject_discovered_asset(ip):
     
     except Exception as e:
         logger.error(f"Error rechazando asset: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@bp_assets.route('/discovery/<ip>/update', methods=['PATCH'])
+def update_discovered_asset(ip):
+    """
+    Actualiza un asset registrado con cambios detectados en discovery
+    
+    Body:
+    {
+        "apply_changes": true,  // Si false, solo marca como revisado sin actualizar
+        "changes": {            // Cambios específicos a aplicar (opcional, aplica todos si no se especifica)
+            "hostname": {"old": "...", "new": "..."},
+            "version": {"old": "...", "new": "..."},
+            ...
+        }
+    }
+    
+    Returns:
+        200: Asset actualizado
+        404: Asset no encontrado
+        400: No hay cambios detectados
+    """
+    try:
+        db = current_app.mongo.db
+        data = request.get_json() or {}
+        
+        # Obtener asset descubierto
+        discovered = db['discovered_assets'].find_one({'ip': ip, 'status': 'pending'})
+        
+        if not discovered:
+            return jsonify({'error': 'Asset no encontrado en pending queue'}), 404
+        
+        if not discovered.get('already_registered'):
+            return jsonify({
+                'error': 'Este asset no está registrado. Use /approve en su lugar.'
+            }), 400
+        
+        # Si apply_changes es False, solo marcar como revisado
+        if not data.get('apply_changes', True):
+            db['discovered_assets'].update_one(
+                {'ip': ip},
+                {'$set': {'status': 'rejected', 'rejected_at': datetime.utcnow()}}
+            )
+            return jsonify({
+                'status': 'ok',
+                'message': 'Cambios ignorados, asset marcado como revisado'
+            }), 200
+        
+        # Obtener asset registrado actual
+        registered_asset = db['network_assets'].find_one({'ip': ip})
+        
+        if not registered_asset:
+            return jsonify({'error': 'Asset registrado no encontrado'}), 404
+        
+        # ============================================================
+        # MERGE INTELIGENTE: Aplicar solo cambios detectados
+        # ============================================================
+        update_fields = {}
+        
+        # Campos que se actualizan si cambiaron
+        simple_fields = ['hostname', 'role', 'software', 'version', 'version_confidence', 'version_method']
+        
+        for field in simple_fields:
+            if discovered.get(field) and discovered[field] != registered_asset.get(field):
+                update_fields[field] = discovered[field]
+                logger.info(f"📝 Actualizando {field}: {registered_asset.get(field)} → {discovered[field]}")
+        
+        # Services: MERGE (agregar nuevos, mantener existentes)
+        if discovered.get('services'):
+            existing_services = registered_asset.get('services', [])
+            new_services = discovered['services']
+            
+            # Crear set de servicios existentes para comparación rápida
+            existing_svc_keys = {f"{s['name']}:{s.get('port')}" for s in existing_services}
+            
+            # Agregar solo servicios nuevos
+            merged_services = existing_services.copy()
+            for svc in new_services:
+                svc_key = f"{svc['name']}:{svc.get('port')}"
+                if svc_key not in existing_svc_keys:
+                    merged_services.append(svc)
+                    logger.info(f"➕ Nuevo servicio detectado: {svc['name']}:{svc.get('port')}")
+            
+            if len(merged_services) > len(existing_services):
+                update_fields['services'] = merged_services
+        
+        # Tags: MERGE (agregar nuevos, mantener existentes)
+        if discovered.get('tags'):
+            existing_tags = set(registered_asset.get('tags', []))
+            new_tags = set(discovered['tags'])
+            
+            # Filtrar tags automáticos que no queremos propagar
+            exclude_tags = {'auto-discovered', 'docker', 'network-scan'}
+            new_tags = new_tags - exclude_tags
+            
+            merged_tags = list(existing_tags | new_tags)
+            
+            if len(merged_tags) > len(existing_tags):
+                update_fields['tags'] = merged_tags
+                logger.info(f"🏷️ Tags actualizados: {existing_tags} → {merged_tags}")
+        
+        # Actualizar timestamp
+        update_fields['last_scanned'] = datetime.utcnow()
+        
+        # ============================================================
+        # HISTORIAL DE VERSIONES
+        # ============================================================
+        if 'version' in update_fields and update_fields['version'] != 'unknown':
+            version_history = registered_asset.get('version_history', [])
+            
+            # Agregar nueva entrada al historial
+            version_history.append({
+                'version': update_fields['version'],
+                'detected_at': datetime.utcnow(),
+                'confidence': discovered.get('version_confidence', 'MEDIUM'),
+                'method': discovered.get('version_method', 'unknown')
+            })
+            
+            # Mantener solo últimas 10 versiones
+            update_fields['version_history'] = version_history[-10:]
+        
+        # ============================================================
+        # APLICAR CAMBIOS
+        # ============================================================
+        if not update_fields:
+            return jsonify({
+                'status': 'ok',
+                'message': 'No hay cambios que aplicar',
+                'changes_applied': []
+            }), 200
+        
+        # Actualizar en MongoDB
+        db['network_assets'].update_one(
+            {'ip': ip},
+            {'$set': update_fields}
+        )
+        
+        # Marcar como procesado en discovered_assets
+        db['discovered_assets'].update_one(
+            {'ip': ip},
+            {'$set': {
+                'status': 'approved',
+                'approved_at': datetime.utcnow(),
+                'changes_applied': list(update_fields.keys())
+            }}
+        )
+        
+        logger.info(f"✅ Asset {ip} actualizado con {len(update_fields)} cambios")
+        
+        return jsonify({
+            'status': 'ok',
+            'message': f'Asset {ip} actualizado correctamente',
+            'changes_applied': list(update_fields.keys()),
+            'updated_fields': update_fields
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error actualizando asset: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
 @bp_assets.route('/discovery/config', methods=['GET'])
@@ -779,13 +1035,43 @@ def run_discovery_to_queue():
                     continue
                 
                 # Inferir metadatos
-                role = _infer_role(name)
-                services = _infer_services(name)
-                confidence = _calculate_confidence(name)
-                category = _infer_category(name)
+                role = infer_role(name)
+                services = infer_services(name)
+                confidence = calculate_confidence(name, [s.get('port') for s in services if s.get('port')])
+                category = infer_category(name)
+
+                image_name = None
+                try:
+                    container_obj = client.containers.get(container_id)
+                    if container_obj.image.tags:
+                        image_name = container_obj.image.tags[0]
+                except Exception as e:
+                    logger.debug(f"No se pudo obtener imagen de {name}: {e}")
 
                 # Verificar si ya está registrado en inventory oficial
                 existing_in_inventory = db['network_assets'].find_one({'ip': ip})
+                
+                # ✅ DETECTAR VERSIÓN CON PRIORIDAD A DOCKER IMAGE
+                import asyncio
+                from api.assets.version_detector import VersionDetector
+                
+                detector = VersionDetector()
+                
+                # Método 1: Extraer de nombre de imagen Docker (PRIORITARIO)
+                software_from_image, version_from_image = detector._extract_version_from_docker_image(image_name)
+                
+                if software_from_image and version_from_image != 'unknown':
+                    version_info = {
+                        'software': software_from_image,
+                        'version': version_from_image,
+                        'confidence': 'HIGH',
+                        'method': 'docker_image_tag'
+                    }
+                    logger.info(f"✅ Versión desde Docker image: {software_from_image} {version_from_image}")
+                else:
+                    # Método 2: Detectar por red (fallback)
+                    ports = [s.get('port') for s in services if s.get('port')]
+                    version_info = asyncio.run(detect_version_simple(ip, ports, name))
                 
                 # Guardar en cola de pending
                 db['discovered_assets'].update_one(
@@ -803,6 +1089,10 @@ def run_discovery_to_queue():
                             'confidence': confidence,
                             'already_registered': existing_in_inventory is not None,
                             'registered_at': existing_in_inventory.get('created_at') if existing_in_inventory else None,
+                            'software': version_info.get('software'),
+                            'version': version_info.get('version'),
+                            'version_confidence': version_info.get('confidence'),
+                            'version_method': version_info.get('method'),
                         }
                     },
                     upsert=True
@@ -868,7 +1158,7 @@ def run_discovery_to_queue():
                 if evidence.get('open_ports'):
                     services = [
                         {
-                            'name': _infer_service_name(port),
+                            'name': infer_service_name(port),
                             'port': port,
                             'protocol': 'TCP'
                         }
@@ -877,8 +1167,8 @@ def run_discovery_to_queue():
                     confidence = "HIGH"
                 
                 # Intentar identificar componente 5G por puerto
-                role = _infer_role_from_ports(evidence.get('open_ports', []))
-                category = _infer_category_from_role(role)
+                role = infer_role_from_ports(evidence.get('open_ports', []))
+                category = infer_category_from_role(role)
                 
                 # Si hay hostname detectado, usarlo
                 if evidence.get('hostname'):
@@ -887,6 +1177,13 @@ def run_discovery_to_queue():
                 
                 # Verificar si ya está registrado en inventory oficial
                 existing_in_inventory = db['network_assets'].find_one({'ip': ip})
+                
+                # Detectar versión
+                version_info = asyncio.run(detect_version_simple(
+                    ip=ip,
+                    ports=evidence.get('open_ports', []),
+                    hostname=hostname
+                ))
                 
                 # Guardar en cola de pending
                 db['discovered_assets'].update_one(
@@ -905,6 +1202,10 @@ def run_discovery_to_queue():
                             'evidence': evidence,
                             'already_registered': existing_in_inventory is not None,
                             'registered_at': existing_in_inventory.get('created_at') if existing_in_inventory else None,
+                            'software': version_info.get('software'),
+                            'version': version_info.get('version'),
+                            'version_confidence': version_info.get('confidence'),
+                            'version_method': version_info.get('method'),
                         }
                     },
                     upsert=True
@@ -928,154 +1229,7 @@ def run_discovery_to_queue():
     except Exception as e:
         logger.error(f"Error en discovery: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
-
-# ============================================================================
-# HELPERS DE INFERENCIA PROFESIONAL
-# ============================================================================
-
-def _infer_service_name(port: int) -> str:
-    """Mapeo de puertos conocidos de 5G/telco"""
-    port_map = {
-        # 5G Core
-        7777: "SBI (HTTP/2)",
-        38412: "NGAP",
-        2152: "GTP-U",
-        8805: "PFCP",
-        3868: "Diameter",
         
-        # Management
-        22: "SSH",
-        443: "HTTPS",
-        80: "HTTP",
-        161: "SNMP",
-        830: "NETCONF",
-        
-        # Databases
-        27017: "MongoDB",
-        3306: "MySQL",
-        5432: "PostgreSQL",
-        6379: "Redis",
-        
-        # Messaging
-        5672: "AMQP",
-        9092: "Kafka",
-        
-        # Monitoring
-        9090: "Prometheus",
-        3000: "Grafana",
-        9200: "Elasticsearch"
-    }
-    
-    return port_map.get(port, f"Port {port}")
-
-
-def _infer_role_from_ports(ports: list) -> str:
-    """Identifica componente 5G por puertos abiertos"""
-    if not ports:
-        return "Unknown Service"
-    
-    ports_set = set(ports)
-    
-    # Patrones de componentes 5G
-    if 38412 in ports_set and 7777 in ports_set:
-        return "5G AMF"
-    elif 8805 in ports_set and 7777 in ports_set:
-        return "5G SMF"
-    elif 2152 in ports_set and 8805 in ports_set:
-        return "5G UPF"
-    elif 7777 in ports_set:
-        return "5G NF (SBI enabled)"
-    elif 3868 in ports_set:
-        return "Diameter Node (HSS/DRA)"
-    elif 2152 in ports_set:
-        return "GTP Node"
-    elif 27017 in ports_set:
-        return "Database (MongoDB)"
-    elif 9090 in ports_set or 3000 in ports_set:
-        return "Monitoring System"
-    elif 22 in ports_set and 161 in ports_set:
-        return "Network Element (Managed)"
-    else:
-        return "Network Service"
-
-
-def _infer_category_from_role(role: str) -> str:
-    """Categoriza asset por su rol"""
-    role_lower = role.lower()
-    
-    if any(x in role_lower for x in ['amf', 'smf', 'udm', 'ausf', 'pcf', 'nrf', 'nssf', 'scp']):
-        return "core"
-    elif any(x in role_lower for x in ['upf', 'gtp']):
-        return "transport"
-    elif any(x in role_lower for x in ['gnb', 'enb', 'ran']):
-        return "ran"
-    elif any(x in role_lower for x in ['mongo', 'database', 'redis', 'postgres']):
-        return "support"
-    elif any(x in role_lower for x in ['monitoring', 'grafana', 'prometheus']):
-        return "support"
-    else:
-        return "unknown"
-
-
-def _infer_category(name: str) -> str:
-    """Mantener compatibilidad con versión anterior (para Docker si se usa)"""
-    return _infer_category_from_role(_infer_role(name))
-
-
-def _infer_role(name: str) -> str:
-    """Versión simplificada basada en nombre (para Docker)"""
-    roles = {
-        "amf": "5G AMF",
-        "smf": "5G SMF",
-        "upf": "5G UPF",
-        "nrf": "5G NRF",
-        "ausf": "5G AUSF",
-        "udm": "5G UDM",
-        "mongo": "Database",
-        "api": "API Backend",
-    }
-    
-    name_lower = name.lower()
-    
-    for key, role in roles.items():
-        if key in name_lower:
-            return role
-    
-    return "Unknown Service"
-
-
-def _infer_services(name: str) -> list:
-    """Versión simplificada basada en nombre (para Docker)"""
-    services_map = {
-        "amf": [{"name": "NGAP", "port": 38412, "protocol": "SCTP"}],
-        "smf": [{"name": "PFCP", "port": 8805, "protocol": "UDP"}],
-        "upf": [{"name": "GTP-U", "port": 2152, "protocol": "UDP"}],
-        "mongo": [{"name": "MongoDB", "port": 27017, "protocol": "TCP"}],
-        "api": [{"name": "HTTP", "port": 5000, "protocol": "TCP"}],
-    }
-    
-    name_lower = name.lower()
-    
-    for key, services in services_map.items():
-        if key in name_lower:
-            return services
-    
-    return []
-
-
-def _calculate_confidence(name: str) -> str:
-    """Calcula confianza basada en nombre (para Docker)"""
-    known_patterns = ["amf", "smf", "upf", "nrf", "ausf", "udm", "mongo", "gnb"]
-    
-    name_lower = name.lower()
-    
-    if any(p in name_lower for p in known_patterns):
-        return "HIGH"
-    elif any(c.isdigit() for c in name):
-        return "MEDIUM"
-    else:
-        return "LOW"
-
 # ============================================================================
 # INITIALIZATION ENDPOINT
 # ============================================================================

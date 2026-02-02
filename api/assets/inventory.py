@@ -76,6 +76,10 @@ class AssetInventoryManager:
             'allowed_outbound_ips': asset_data.get('allowed_outbound_ips', []),
             'criticality': asset_data.get('criticality', 'MEDIUM'),
             'tags': asset_data.get('tags', []),
+            'version': asset_data.get('version', []),
+            'version_confidence': asset_data.get('version_confidence', []),
+            'version_method': asset_data.get('version_method', []),
+            'software': asset_data.get('software', []),
             'last_scanned': datetime.utcnow(),
             'created_at': datetime.utcnow()
         }

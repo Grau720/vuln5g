@@ -1,6 +1,6 @@
 // components/AssetDetail.tsx
 // Vista detallada de un asset con información 5G y CVEs asociados
-// Integrado con la nueva arquitectura de alertas
+// 🆕 Mejorado con soporte para versiones detectadas y cambios
 
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -23,16 +23,24 @@ type Asset = {
   owner?: string;
   os?: string;
   criticality?: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
-  // 5G specific
   component_5g?: string;
   component_type?: string;
   software?: string;
   version?: string;
-  // Services & metadata
+  version_confidence?: "HIGH" | "MEDIUM" | "LOW";
+  version_method?: string;
   services?: { name: string; port: number; protocol?: string }[];
   tags?: string[];
   created_at?: string;
   updated_at?: string;
+  last_scanned?: string;
+  // 🆕 Historial de versiones
+  version_history?: Array<{
+    version: string;
+    detected_at: string;
+    confidence: string;
+    method: string;
+  }>;
 };
 
 type CVESuggestion = {
@@ -208,6 +216,41 @@ function CVEDetailModal({ cveId, onClose }: { cveId: string; onClose: () => void
 }
 
 // ============================================================================
+// 🆕 VERSION HISTORY COMPONENT
+// ============================================================================
+function VersionHistory({ history }: { history?: Array<any> }) {
+  if (!history || history.length === 0) {
+    return <p className="text-sm text-slate-500">No hay historial de versiones</p>;
+  }
+
+  return (
+    <div className="space-y-2">
+      {history.map((item, idx) => (
+        <div key={idx} className="flex items-center gap-3 text-sm pb-2 border-b border-slate-700/50 last:border-0">
+          <div className="flex-1">
+            <code className="text-emerald-400 font-medium">v{item.version}</code>
+            <span className="text-xs text-slate-400 ml-2">
+              via {item.method?.replace('_', ' ') || 'unknown'}
+            </span>
+          </div>
+          <span className={cn(
+            "px-2 py-0.5 rounded text-xs",
+            item.confidence === 'HIGH' ? 'bg-emerald-500/20 text-emerald-300' :
+            item.confidence === 'MEDIUM' ? 'bg-amber-500/20 text-amber-300' :
+            'bg-slate-500/20 text-slate-300'
+          )}>
+            {item.confidence}
+          </span>
+          <span className="text-xs text-slate-500">
+            {fmtDateShort(item.detected_at)}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================================
 // MAIN COMPONENT
 // ============================================================================
 export default function AssetDetail() {
@@ -227,6 +270,9 @@ export default function AssetDetail() {
 
   // CVE Modal
   const [selectedCVE, setSelectedCVE] = useState<string | null>(null);
+  
+  // 🆕 Version history panel
+  const [showVersionHistory, setShowVersionHistory] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -293,7 +339,13 @@ export default function AssetDetail() {
       });
       if (!res.ok) throw new Error("Error guardando cambios");
       const updated = await res.json();
-      setAsset(updated);
+      
+      // 🆕 Recargar asset completo para obtener datos actualizados
+      const refreshRes = await fetch(`/api/v1/assets/${ip}`);
+      const refreshedAsset = await refreshRes.json();
+      
+      setAsset(refreshedAsset);
+      setEditForm(refreshedAsset);
       setEditMode(false);
     } catch (e: any) {
       alert(e?.message || "Error guardando");
@@ -449,9 +501,20 @@ export default function AssetDetail() {
                     {asset.criticality}
                   </span>
                 )}
+                {/* 🆕 Badge de versión si existe */}
+                {asset.version && asset.version !== 'unknown' && (
+                  <span className="px-2 py-1 rounded text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                    v{asset.version}
+                  </span>
+                )}
               </div>
               <p className="text-sm text-[var(--muted)]">
                 {asset.hostname} · {asset.role || "Sin rol definido"}
+                {asset.last_scanned && (
+                  <span className="ml-2 text-xs">
+                    · Último scan: {fmtDateShort(asset.last_scanned)}
+                  </span>
+                )}
               </p>
             </div>
             <div className="flex gap-2">
@@ -545,7 +608,7 @@ export default function AssetDetail() {
                     <div>
                       <Label className="text-xs">Criticidad</Label>
                       <select
-                        className="mt-1 w-full rounded-md border px-2 py-2 text-sm"
+                        className="mt-1 w-full rounded-md border px-2 py-2 text-sm bg-slate-900 border-slate-700"
                         value={editForm.criticality || ""}
                         onChange={(e) => setEditForm({ ...editForm, criticality: e.target.value as any })}
                       >
@@ -596,27 +659,135 @@ export default function AssetDetail() {
             </CardContent>
           </Card>
 
-          {/* 5G Info */}
+          {/* 5G Info + Version */}
           <Card>
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-base">📡 Información 5G</CardTitle>
+              {/* 🆕 Botón para ver historial de versiones */}
+              {asset.version_history && asset.version_history.length > 0 && (
+                <Button 
+                  className="btn-ghost text-xs"
+                  onClick={() => setShowVersionHistory(!showVersionHistory)}
+                >
+                  {showVersionHistory ? '📋 Ocultar historial' : '📋 Ver historial'}
+                </Button>
+              )}
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-[var(--muted)]">Componente 5G:</span>
-                  {asset.component_5g ? (
-                    <span className="ml-2 px-2 py-0.5 rounded text-xs bg-blue-500/20 text-blue-300 border border-blue-500/40">
-                      {asset.component_5g}
-                    </span>
-                  ) : (
-                    <span className="ml-2 text-slate-500">No definido</span>
+              {editMode ? (
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div>
+                    <Label className="text-xs">Componente 5G</Label>
+                    <Input
+                      value={editForm.component_5g || ""}
+                      onChange={(e) => setEditForm({ ...editForm, component_5g: e.target.value })}
+                      className="mt-1"
+                      placeholder="AMF, SMF, UPF..."
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-xs">Tipo</Label>
+                    <Input
+                      value={editForm.component_type || ""}
+                      onChange={(e) => setEditForm({ ...editForm, component_type: e.target.value })}
+                      className="mt-1"
+                    />
+                  </div>
+                  {/* 🆕 Editar software y versión */}
+                  <div>
+                    <Label className="text-xs">Software</Label>
+                    <Input
+                      value={editForm.software || ""}
+                      onChange={(e) => setEditForm({ ...editForm, software: e.target.value })}
+                      className="mt-1"
+                      placeholder="open5gs, free5gc..."
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-xs">Versión</Label>
+                    <Input
+                      value={editForm.version || ""}
+                      onChange={(e) => setEditForm({ ...editForm, version: e.target.value })}
+                      className="mt-1"
+                      placeholder="2.7.0"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <span className="text-[var(--muted)]">Componente 5G:</span>
+                      {asset.component_5g ? (
+                        <span className="ml-2 px-2 py-0.5 rounded text-xs bg-blue-500/20 text-blue-300 border border-blue-500/40">
+                          {asset.component_5g}
+                        </span>
+                      ) : (
+                        <span className="ml-2 text-slate-500">No definido</span>
+                      )}
+                    </div>
+                    <div><span className="text-[var(--muted)]">Tipo:</span> <span className="font-medium ml-2">{asset.component_type || "—"}</span></div>
+                  </div>
+
+                  {/* 🆕 Sección de versión mejorada */}
+                  <div className="pt-3 border-t border-[var(--panel-border)]">
+                    <h4 className="text-xs text-[var(--muted)] mb-2">Software y Versión:</h4>
+                    
+                    {asset.software || asset.version ? (
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          {asset.software && (
+                            <code className="text-emerald-400 font-medium text-sm">
+                              {asset.software}
+                            </code>
+                          )}
+                          {asset.version && asset.version !== 'unknown' && (
+                            <code className="text-blue-400 text-sm">
+                              v{asset.version}
+                            </code>
+                          )}
+                          {asset.version === 'unknown' && (
+                            <span className="text-slate-500 text-xs italic">
+                              (versión desconocida)
+                            </span>
+                          )}
+                        </div>
+                        
+                        {/* Confidence y método */}
+                        {asset.version_confidence && asset.version !== 'unknown' && (
+                          <div className="flex items-center gap-2 text-xs">
+                            <span className={cn(
+                              "px-2 py-0.5 rounded",
+                              asset.version_confidence === 'HIGH' ? 'bg-emerald-500/20 text-emerald-300' :
+                              asset.version_confidence === 'MEDIUM' ? 'bg-amber-500/20 text-amber-300' :
+                              'bg-slate-500/20 text-slate-300'
+                            )}>
+                              {asset.version_confidence === 'HIGH' ? '✓' :
+                               asset.version_confidence === 'MEDIUM' ? '~' : '?'} 
+                              {asset.version_confidence}
+                            </span>
+                            {asset.version_method && (
+                              <span className="text-slate-500">
+                                detectado via {asset.version_method.replace('_', ' ')}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-slate-500">No definido</p>
+                    )}
+                  </div>
+
+                  {/* 🆕 Historial de versiones expandible */}
+                  {showVersionHistory && (
+                    <div className="pt-3 border-t border-[var(--panel-border)]">
+                      <h4 className="text-xs text-[var(--muted)] mb-3">Historial de Versiones:</h4>
+                      <VersionHistory history={asset.version_history} />
+                    </div>
                   )}
                 </div>
-                <div><span className="text-[var(--muted)]">Tipo:</span> <span className="font-medium ml-2">{asset.component_type || "—"}</span></div>
-                <div><span className="text-[var(--muted)]">Software:</span> <span className="font-medium ml-2">{asset.software || "—"}</span></div>
-                <div><span className="text-[var(--muted)]">Versión:</span> <span className="font-medium ml-2">{asset.version || "—"}</span></div>
-              </div>
+              )}
 
               {/* Services */}
               <div className="mt-4 pt-4 border-t border-[var(--panel-border)]">

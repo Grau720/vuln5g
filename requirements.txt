@@ -13,11 +13,11 @@ joblib
 numpy
 pandas
 scikit-learn
-xgboost
+xgboost==2.0.3
 lightgbm
 matplotlib
 seaborn
 tabulate
-python-dateutil
 docker>=7.0.0
 psutil>=5.9.0
+aiohttp>=3.9.0

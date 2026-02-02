@@ -1,9 +1,5 @@
 // components/AttackGroupsDashboard.tsx
-// Dashboard de grupos de ataque con la nueva arquitectura:
-// - cve_suggestions en lugar de cve_info (sugerencias, no correlaciones automáticas)
-// - enrichment_status para mostrar si el asset es conocido
-// - target_asset para información del asset
-// - confirmed_cves para CVEs vinculados manualmente
+// Dashboard de grupos de ataque con selección múltiple y acciones en lote
 
 import React, { useEffect, useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 
 // ============================================================================
-// TYPES - Nueva arquitectura
+// TYPES
 // ============================================================================
 type CVESuggestion = {
   cve_id: string;
@@ -33,7 +29,7 @@ type TargetAsset = {
   component_5g?: string;
   software?: string;
   version?: string;
-  known?: boolean;  // Hacer opcional
+  known?: boolean;
   tags?: string[];
 };
 
@@ -80,13 +76,6 @@ type PaginatedResponse = {
 // ============================================================================
 // CONSTANTS
 // ============================================================================
-const SEVERITY_LABELS: Record<number, string> = {
-  1: "Critical",
-  2: "High",
-  3: "Medium",
-  4: "Low",
-};
-
 const SEVERITY_COLORS: Record<number, string> = {
   1: "bg-red-600 text-white",
   2: "bg-orange-500 text-white",
@@ -136,13 +125,6 @@ const fmtDateShort = (dateObj: { $date: string } | string) => {
   return new Date(dateStr).toLocaleDateString("es-ES");
 };
 
-const formatDuration = (seconds: number) => {
-  if (!seconds || seconds < 0) return "—";
-  if (seconds < 60) return `${seconds}s`;
-  if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
-  return `${Math.floor(seconds / 3600)}h ${Math.floor((seconds % 3600) / 60)}m`;
-};
-
 const getTimeAgo = (dateObj: { $date: string } | string) => {
   const dateStr = typeof dateObj === "string" ? dateObj : dateObj?.$date;
   if (!dateStr) return "";
@@ -165,13 +147,18 @@ export default function AttackGroupsDashboard() {
   // Filtros
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(15);
-  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [statusFilter, setStatusFilter] = useState<string>("active");
   const [severityFilter, setSeverityFilter] = useState<string>("all");
   const [enrichmentFilter, setEnrichmentFilter] = useState<string>("all");
   const [patternFilter, setPatternFilter] = useState<string>("all");
   const [vulnTypeFilter, setVulnTypeFilter] = useState<string>("all");
   const [srcIpFilter, setSrcIpFilter] = useState("");
   const [destIpFilter, setDestIpFilter] = useState("");
+
+  // Selección múltiple
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [isSelectionMode, setIsSelectionMode] = useState(false);
+  const [actionInProgress, setActionInProgress] = useState(false);
 
   const navigate = useNavigate();
 
@@ -225,14 +212,204 @@ export default function AttackGroupsDashboard() {
     setPage(1);
   };
 
+  // Helpers de selección
+  const toggleSelection = (id: string) => {
+    const newSelection = new Set(selectedIds);
+    if (newSelection.has(id)) {
+      newSelection.delete(id);
+    } else {
+      newSelection.add(id);
+    }
+    setSelectedIds(newSelection);
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedIds.size === groups.length) {
+      setSelectedIds(new Set());
+    } else {
+      setSelectedIds(new Set(groups.map(g => g._id)));
+    }
+  };
+
+  const clearSelection = () => {
+    setSelectedIds(new Set());
+    setIsSelectionMode(false);
+  };
+
+  const selectedCount = selectedIds.size;
+  const groups = data?.groups || [];
+  const allSelected = groups.length > 0 && selectedIds.size === groups.length;
+
+  // Acciones en lote
+  const bulkResolve = async () => {
+    if (!confirm(`¿Resolver ${selectedCount} incidente(s)?`)) return;
+    
+    setActionInProgress(true);
+    try {
+      const ids = Array.from(selectedIds);
+      let success = 0;
+      let failed = 0;
+
+      for (const id of ids) {
+        try {
+          const res = await fetch(`/api/v1/alerts/groups/${id}/resolve`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              confirmed: true,
+              reason: 'Resuelto en lote desde dashboard',
+              resolution_type: 'mitigated'
+            })
+          });
+          
+          if (res.ok) {
+            success++;
+          } else {
+            failed++;
+          }
+        } catch (e) {
+          failed++;
+        }
+      }
+
+      alert(`✅ ${success} resueltos, ❌ ${failed} fallidos`);
+      clearSelection();
+      fetchGroups();
+    } catch (e: any) {
+      alert(`Error: ${e.message}`);
+    } finally {
+      setActionInProgress(false);
+    }
+  };
+
+  const bulkReopen = async () => {
+    if (!confirm(`¿Reabrir ${selectedCount} incidente(s)?`)) return;
+    
+    setActionInProgress(true);
+    try {
+      const ids = Array.from(selectedIds);
+      let success = 0;
+      let failed = 0;
+
+      for (const id of ids) {
+        try {
+          const res = await fetch(`/api/v1/alerts/groups/${id}/reopen`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              reason: 'Reabierto en lote desde dashboard'
+            })
+          });
+          
+          if (res.ok) {
+            success++;
+          } else {
+            failed++;
+          }
+        } catch (e) {
+          failed++;
+        }
+      }
+
+      alert(`✅ ${success} reabiertos, ❌ ${failed} fallidos`);
+      clearSelection();
+      fetchGroups();
+    } catch (e: any) {
+      alert(`Error: ${e.message}`);
+    } finally {
+      setActionInProgress(false);
+    }
+  };
+
+  const bulkActivate = async () => {
+    if (!confirm(`¿Marcar como activos ${selectedCount} incidente(s)?`)) return;
+    
+    setActionInProgress(true);
+    try {
+      const ids = Array.from(selectedIds);
+      let success = 0;
+      let failed = 0;
+
+      for (const id of ids) {
+        try {
+          const res = await fetch(`/api/v1/alerts/groups/${id}/status`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: 'active' })
+          });
+          
+          if (res.ok) {
+            success++;
+          } else {
+            failed++;
+          }
+        } catch (e) {
+          failed++;
+        }
+      }
+
+      alert(`✅ ${success} activados, ❌ ${failed} fallidos`);
+      clearSelection();
+      fetchGroups();
+    } catch (e: any) {
+      alert(`Error: ${e.message}`);
+    } finally {
+      setActionInProgress(false);
+    }
+  };
+
+  const bulkExport = () => {
+    try {
+      const ids = Array.from(selectedIds);
+      const selectedGroups = groups.filter(g => ids.includes(g._id));
+      
+      const csv = [
+        'ID,Grupo,Origen,Destino,Tipo,Severidad,Estado,Alertas,Primera,Última',
+        ...selectedGroups.map(g => 
+          `${g._id},${g.group_id},${g.src_ip},${g.dest_ip},${g.vuln_type || g.attack_type || g.category},${g.severity},${g.status},${g.alert_count},${fmtDate(g.first_alert)},${fmtDate(g.last_alert)}`
+        )
+      ].join('\n');
+      
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `incidentes_${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      window.URL.revokeObjectURL(url);
+      
+      alert(`✅ ${selectedCount} incidentes exportados`);
+      clearSelection();
+    } catch (e: any) {
+      alert(`Error al exportar: ${e.message}`);
+    }
+  };
+
   // Estadísticas
   const stats = data?.stats;
-  const groups = data?.groups || [];
   const pagination = data?.pagination;
   const totalPages = pagination?.pages || 1;
 
-  // Derivados locales si no vienen del backend
   const localStats = useMemo(() => {
+    // Usar stats del backend si están disponibles
+    const totalAll = stats?.total_all_groups || pagination?.total || groups.length;
+    const totalFiltered = stats?.total_filtered_groups || pagination?.total || groups.length;
+    
+    // Si el backend devuelve stats completos, usarlos
+    if (stats?.total_groups !== undefined || stats?.total_all_groups !== undefined) {
+      return {
+        total: totalAll,  // Total SIN filtros
+        activeCount: stats.active_count || 0,
+        totalAlerts: stats.total_alerts || 0,
+        criticalCount: stats.critical_count || 0,
+        enrichedCount: stats.by_enrichment?.enriched || 0,
+        unknownCount: stats.by_enrichment?.unknown || 0,
+        withConfirmedCVE: 0, // El backend no lo devuelve aún
+        withSuggestions: 0,  // El backend no lo devuelve aún
+      };
+    }
+    
+    // Fallback: calcular localmente (solo página actual)
     const activeCount = groups.filter((g) => g.status === "active").length;
     const totalAlerts = groups.reduce((sum, g) => sum + g.alert_count, 0);
     const criticalCount = groups.filter((g) => g.severity === 1).length;
@@ -240,20 +417,19 @@ export default function AttackGroupsDashboard() {
     const unknownCount = groups.filter((g) => g.enrichment_status === "unknown" || !g.enrichment_status).length;
     const withConfirmedCVE = groups.filter((g) => (g.confirmed_cves?.length || 0) > 0).length;
     const withSuggestions = groups.filter((g) => (g.cve_suggestions?.length || 0) > 0).length;
-
+    
     return {
-      total: stats?.total_groups || groups.length,
-      activeCount: stats?.active_count || activeCount,
-      totalAlerts: stats?.total_alerts || totalAlerts,
-      criticalCount: stats?.critical_count || criticalCount,
+      total: totalAll,  // Total SIN filtros
+      activeCount,
+      totalAlerts,
+      criticalCount,
       enrichedCount,
       unknownCount,
       withConfirmedCVE,
       withSuggestions,
     };
-  }, [groups, stats]);
-
-  // Tipos de vulnerabilidad únicos
+  }, [groups, stats, pagination]);
+  
   const vulnTypes = useMemo(() => {
     const types = new Set<string>();
     groups.forEach((g) => {
@@ -265,6 +441,35 @@ export default function AttackGroupsDashboard() {
 
   // Columnas de tabla
   const columns: ColumnDef<AttackGroup>[] = [
+    // Columna de selección
+    {
+      id: "select",
+      header: () => (
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            checked={allSelected}
+            onChange={toggleSelectAll}
+            className="w-4 h-4 rounded border-slate-600 bg-slate-800 text-blue-600 focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          />
+        </div>
+      ),
+      size: 40,
+      cell: ({ row }) => (
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            checked={selectedIds.has(row.original._id)}
+            onChange={(e) => {
+              e.stopPropagation();
+              toggleSelection(row.original._id);
+            }}
+            onClick={(e) => e.stopPropagation()}
+            className="w-4 h-4 rounded border-slate-600 bg-slate-800 text-blue-600 focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          />
+        </div>
+      ),
+    },
     {
       accessorKey: "severity",
       header: () => <span className="sr-only">Sev</span>,
@@ -297,7 +502,10 @@ export default function AttackGroupsDashboard() {
             <div className="flex items-center gap-2">
               <span className="text-lg">{PATTERN_ICONS[g.pattern] || "❓"}</span>
               <button
-                onClick={() => navigate(`/alerts/groups/${g._id}`)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(`/alerts/groups/${g._id}`);
+                }}
                 className="font-mono text-sm text-blue-400 hover:text-blue-300 hover:underline transition-colors"
               >
                 {g.group_id}
@@ -346,7 +554,6 @@ export default function AttackGroupsDashboard() {
         const g = row.original;
         const asset = g.target_asset;
         
-        // Determinar el estado real basándose en la información disponible
         let status = "unknown";
         if (g.enrichment_status === "enriched" || asset?.hostname || asset?.component_5g) {
           status = "enriched";
@@ -432,6 +639,14 @@ export default function AttackGroupsDashboard() {
               </p>
             </div>
             <div className="flex items-center gap-2">
+              {selectedCount === 0 && (
+                <Button
+                  className={cn("btn-outline", isSelectionMode && "btn-solid")}
+                  onClick={() => setIsSelectionMode(!isSelectionMode)}
+                >
+                  {isSelectionMode ? "✓ Modo selección" : "☑ Selección múltiple"}
+                </Button>
+              )}
               <Button className="btn-ghost" onClick={() => navigate("/alerts")}>
                 📡 Alertas individuales
               </Button>
@@ -441,6 +656,74 @@ export default function AttackGroupsDashboard() {
             </div>
           </div>
         </header>
+
+        {/* Barra de acciones para selección múltiple */}
+        {selectedCount > 0 && (
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-in slide-in-from-bottom-5">
+            <div className="panel px-6 py-4 shadow-2xl border-2 border-blue-500/50 bg-slate-900/95 backdrop-blur-sm">
+              <div className="flex items-center gap-6">
+                {/* Contador */}
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">
+                    {selectedCount}
+                  </div>
+                  <span className="text-sm font-medium">
+                    {selectedCount === 1 ? 'incidente seleccionado' : 'incidentes seleccionados'}
+                  </span>
+                </div>
+
+                {/* Separador */}
+                <div className="h-8 w-px bg-slate-700" />
+
+                {/* Acciones */}
+                <div className="flex items-center gap-2">
+                  <Button
+                    className="btn-outline text-sm"
+                    onClick={bulkResolve}
+                    disabled={actionInProgress}
+                  >
+                    {actionInProgress ? "⏳ Procesando..." : "✅ Resolver"}
+                  </Button>
+
+                  <Button
+                    className="btn-outline text-sm"
+                    onClick={bulkReopen}
+                    disabled={actionInProgress}
+                  >
+                    {actionInProgress ? "⏳ Procesando..." : "🔄 Reabrir"}
+                  </Button>
+
+                  <Button
+                    className="btn-outline text-sm"
+                    onClick={bulkActivate}
+                    disabled={actionInProgress}
+                  >
+                    {actionInProgress ? "⏳ Procesando..." : "🟡 Activar"}
+                  </Button>
+
+                  <Button
+                    className="btn-outline text-sm"
+                    onClick={bulkExport}
+                    disabled={actionInProgress}
+                  >
+                    📥 Exportar
+                  </Button>
+                </div>
+
+                {/* Separador */}
+                <div className="h-8 w-px bg-slate-700" />
+
+                {/* Cancelar */}
+                <Button
+                  className="btn-ghost text-sm"
+                  onClick={clearSelection}
+                >
+                  ✕ Cancelar
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* KPIs */}
         <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-8">
@@ -636,7 +919,13 @@ export default function AttackGroupsDashboard() {
                 <DataTable
                   columns={columns}
                   data={groups}
-                  onRowClick={(row) => navigate(`/alerts/groups/${row._id}`)}
+                  onRowClick={(row) => {
+                    if (selectedCount > 0) {
+                      toggleSelection(row._id);
+                    } else {
+                      navigate(`/alerts/groups/${row._id}`);
+                    }
+                  }}
                 />
 
                 {/* Paginador */}
