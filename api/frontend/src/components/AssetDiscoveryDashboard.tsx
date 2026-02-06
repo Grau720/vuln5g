@@ -55,7 +55,24 @@ type DiscoveredAsset = {
 ============================ */
 function ChangesDiff({ changes }: { changes: DiscoveredAsset['changes'] }) {
   if (!changes) {
-    console.log("ChangesDiff: No changes to display");
+    console.log("ChangesDiff: No changes object");
+    return null;
+  }
+  
+  // ✅ VERIFICAR SI HAY CAMBIOS CON CONTENIDO REAL
+  const hasRealChanges = (
+    changes.hostname ||
+    changes.role ||
+    changes.software ||
+    changes.version ||
+    (changes.services_added && changes.services_added.length > 0) ||
+    (changes.services_removed && changes.services_removed.length > 0) ||
+    (changes.tags_added && changes.tags_added.length > 0) ||
+    (changes.tags_removed && changes.tags_removed.length > 0)
+  );
+  
+  if (!hasRealChanges) {
+    console.log("ChangesDiff: No real changes to display (empty changes object)");
     return null;
   }
   
@@ -122,6 +139,30 @@ function ChangesDiff({ changes }: { changes: DiscoveredAsset['changes'] }) {
             <code key={i} className="text-red-400">
               {i > 0 && ', '}
               {s.name}:{s.port}
+            </code>
+          ))}
+        </div>
+      )}
+      
+      {changes.tags_added && changes.tags_added.length > 0 && (
+        <div className="text-xs">
+          <span className="text-slate-400">Tags añadidos:</span>{' '}
+          {changes.tags_added.map((t, i) => (
+            <code key={i} className="text-green-400">
+              {i > 0 && ', '}
+              {t}
+            </code>
+          ))}
+        </div>
+      )}
+      
+      {changes.tags_removed && changes.tags_removed.length > 0 && (
+        <div className="text-xs">
+          <span className="text-slate-400">Tags eliminados:</span>{' '}
+          {changes.tags_removed.map((t, i) => (
+            <code key={i} className="text-red-400">
+              {i > 0 && ', '}
+              {t}
             </code>
           ))}
         </div>

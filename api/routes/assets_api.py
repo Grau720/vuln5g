@@ -33,14 +33,19 @@ from api.assets.inference import (
     calculate_confidence,
     infer_role,
     infer_services,
-    infer_category
+    infer_category,
+    infer_component_5g
 )
+
+from api.assets.port_scanner import scan_common_5g_ports
 
 from config.network_config import (
     get_local_networks, 
     is_target_in_local_networks,
     get_discovery_config
 )
+
+from api.assets.cve_matcher import CVEMatcher, match_asset_cves_simple
 
 logger = logging.getLogger(__name__)
 
@@ -615,12 +620,11 @@ def list_pending_assets():
                     
                     # Tags - detectar añadidos/removidos
                     if registered.get('tags') and asset.get('tags'):
-                        reg_tags = set(registered['tags'])
-                        new_tags = set(asset['tags'])
-                        
-                        # Filtrar tags automáticos
+                        # ✅ Filtrar tags automáticos en AMBOS lados
                         exclude = {'auto-discovered', 'docker', 'network-scan'}
-                        new_tags = new_tags - exclude
+                        
+                        reg_tags = set(registered['tags']) - exclude
+                        new_tags = set(asset['tags']) - exclude
                         
                         added = list(new_tags - reg_tags)
                         removed = list(reg_tags - new_tags)
@@ -1034,12 +1038,107 @@ def run_discovery_to_queue():
                 if not ip:
                     continue
                 
-                # Inferir metadatos
-                role = infer_role(name)
-                services = infer_services(name)
-                confidence = calculate_confidence(name, [s.get('port') for s in services if s.get('port')])
+                # ============================================================
+                # 🆕 DISCOVERY INTELIGENTE V2 (Heurística mejorada)
+                # ============================================================
+                from api.assets.port_scanner import scan_common_5g_ports
+                import os
+
+                DISCOVERY_MODE = os.getenv('DISCOVERY_MODE', 'auto')
+                logger.debug(f"🔍 Discovery en {ip} ({name}) - Modo: {DISCOVERY_MODE}")
+
+                services = []
+                open_ports = []
+                detection_method = 'unknown'
+
+                if DISCOVERY_MODE == 'expected':
+                    services = infer_services(name)
+                    open_ports = [s.get('port') for s in services if s.get('port')]
+                    detection_method = 'expected_services'
+                    logger.info(f"📋 {ip} ({name}): Usando servicios esperados (modo forzado)")
+
+                elif DISCOVERY_MODE == 'portscan':
+                    try:
+                        scan_result = scan_common_5g_ports(ip, timeout=0.5)
+                        services = scan_result['services']
+                        open_ports = scan_result['open_ports']
+                        detection_method = 'port_scan'
+                        logger.info(f"🔍 {ip} ({name}): {len(open_ports)} puertos detectados → {open_ports}")
+                    except Exception as e:
+                        logger.error(f"❌ Error en port scan {ip}: {e}")
+                        services = infer_services(name)
+                        open_ports = [s.get('port') for s in services if s.get('port')]
+                        detection_method = 'expected_services_fallback'
+
+                else:  # auto
+                    try:
+                        scan_result = scan_common_5g_ports(ip, timeout=0.5)
+                        detected_ports = scan_result['open_ports']
+                        
+                        # ============================================================
+                        # HEURÍSTICA MEJORADA: Detectar red compartida
+                        # ============================================================
+                        shared_network_detected = False
+                        reason = ""
+                        
+                        # 1. Detectar puertos UDP que NO deberían estar
+                        #    (2152 y 8805 son SOLO para UPF/SMF, no para otros componentes)
+                        name_lower = name.lower()
+                        suspicious_ports = []
+                        
+                        # Si NO es UPF/SMF pero tiene 2152 o 8805 → Red compartida
+                        if not any(x in name_lower for x in ['upf', 'smf']):
+                            if 2152 in detected_ports:
+                                suspicious_ports.append('2152/GTP-U')
+                            if 8805 in detected_ports:
+                                suspicious_ports.append('8805/PFCP')
+                        
+                        if suspicious_ports:
+                            shared_network_detected = True
+                            reason = f"Puertos sospechosos detectados: {', '.join(suspicious_ports)}"
+                        
+                        # 2. Umbral de puertos (backup heuristic)
+                        elif len(detected_ports) > 5:
+                            shared_network_detected = True
+                            reason = f"Demasiados puertos ({len(detected_ports)} > 5)"
+                        
+                        # ============================================================
+                        # DECISIÓN
+                        # ============================================================
+                        if shared_network_detected:
+                            logger.warning(
+                                f"⚠️ {ip} ({name}): Red compartida detectada. "
+                                f"Razón: {reason}. Usando servicios esperados."
+                            )
+                            services = infer_services(name)
+                            open_ports = [s.get('port') for s in services if s.get('port')]
+                            detection_method = 'expected_services_auto'
+                        else:
+                            # Port scan confiable
+                            services = scan_result['services']
+                            open_ports = detected_ports
+                            detection_method = 'port_scan_auto'
+                            logger.info(f"✅ {ip} ({name}): {len(open_ports)} puertos detectados → {open_ports}")
+                    
+                    except Exception as scan_error:
+                        logger.warning(f"⚠️ Error en port scan {ip}: {scan_error}. Usando servicios esperados.")
+                        services = infer_services(name)
+                        open_ports = [s.get('port') for s in services if s.get('port')]
+                        detection_method = 'expected_services_error'
+
+                # ============================================================
+                # INFERIR METADATOS
+                # ============================================================
+                role = infer_role_from_ports(open_ports) if open_ports else infer_role(name)
+                confidence = calculate_confidence(name, open_ports)
                 category = infer_category(name)
 
+                component_5g_info = infer_component_5g(name=name, ports=open_ports)
+                component_5g_info['services_detection_method'] = detection_method
+
+                # ============================================================
+                # DETECTAR VERSIÓN
+                # ============================================================
                 image_name = None
                 try:
                     container_obj = client.containers.get(container_id)
@@ -1070,10 +1169,11 @@ def run_discovery_to_queue():
                     logger.info(f"✅ Versión desde Docker image: {software_from_image} {version_from_image}")
                 else:
                     # Método 2: Detectar por red (fallback)
-                    ports = [s.get('port') for s in services if s.get('port')]
-                    version_info = asyncio.run(detect_version_simple(ip, ports, name))
+                    version_info = asyncio.run(detect_version_simple(ip, open_ports, name))
                 
-                # Guardar en cola de pending
+                # ============================================================
+                # GUARDAR EN COLA DE PENDING
+                # ============================================================
                 db['discovered_assets'].update_one(
                     {'ip': ip},
                     {
@@ -1093,12 +1193,13 @@ def run_discovery_to_queue():
                             'version': version_info.get('version'),
                             'version_confidence': version_info.get('confidence'),
                             'version_method': version_info.get('method'),
+                            **component_5g_info,  # component_5g, component_5g_confidence, component_5g_detection_method
                         }
                     },
                     upsert=True
                 )
                 discovered_count += 1
-            
+                
             method_used = 'docker'
             logger.info(f"✅ Docker discovery: {discovered_count} contenedores encontrados")
         
@@ -1228,6 +1329,333 @@ def run_discovery_to_queue():
     
     except Exception as e:
         logger.error(f"Error en discovery: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+# ============================================================================
+# CVE MATCHING ENDPOINTS
+# ============================================================================
+
+@bp_assets.route('/<ip>/cves', methods=['GET'])
+def get_asset_cves(ip):
+    """
+    GET /api/v1/assets/{ip}/cves
+    
+    Retorna CVEs que afectan a un asset específico.
+    
+    Args:
+        ip: Dirección IP del asset
+    
+    Query params:
+        - limit: Máximo de CVEs (default: 50)
+        - min_score: Score CVSS mínimo (default: 0)
+    
+    Returns:
+        200: Lista de CVEs con match_method y confidence
+        404: Asset no encontrado
+        500: Error del servidor
+    
+    Example:
+        GET /api/v1/assets/172.22.0.10/cves?limit=20&min_score=7.0
+    """
+    try:
+        db = current_app.mongo.db
+        
+        # Verificar que el asset existe
+        asset = db['network_assets'].find_one({'ip': ip})
+        if not asset:
+            return jsonify({
+                'error': f'Asset {ip} no encontrado'
+            }), 404
+        
+        # Parámetros
+        limit = int(request.args.get('limit', 50))
+        min_score = float(request.args.get('min_score', 0))
+        
+        # Buscar CVEs
+        matcher = CVEMatcher(db)
+        cves = matcher.match_asset_cves(asset, limit=limit)
+        
+        # Filtrar por score si se especifica
+        if min_score > 0:
+            cves = [
+                cve for cve in cves
+                if cve.get('cvssv3', {}).get('score', 0) >= min_score
+            ]
+        
+        # Convertir ObjectId a string
+        for cve in cves:
+            cve['_id'] = str(cve['_id'])
+        
+        # Summary stats
+        summary = {
+            'total': len(cves),
+            'critical': len([c for c in cves if c.get('cvssv3', {}).get('score', 0) >= 9.0]),
+            'high': len([c for c in cves if 7.0 <= c.get('cvssv3', {}).get('score', 0) < 9.0]),
+            'medium': len([c for c in cves if 4.0 <= c.get('cvssv3', {}).get('score', 0) < 7.0]),
+            'by_confidence': {
+                'HIGH': len([c for c in cves if c.get('confidence') == 'HIGH']),
+                'MEDIUM': len([c for c in cves if c.get('confidence') == 'MEDIUM']),
+                'LOW': len([c for c in cves if c.get('confidence') == 'LOW']),
+            }
+        }
+        
+        return jsonify({
+            'asset': {
+                'ip': asset['ip'],
+                'hostname': asset.get('hostname'),
+                'software': asset.get('software'),
+                'version': asset.get('version'),
+                'component_5g': asset.get('component_5g')
+            },
+            'cves': cves,
+            'summary': summary
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error obteniendo CVEs para asset: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+
+@bp_assets.route('/<ip>/report', methods=['GET'])
+def get_asset_vulnerability_report(ip):
+    """
+    GET /api/v1/assets/{ip}/report
+    
+    Genera reporte completo de vulnerabilidades para un asset.
+    
+    Incluye:
+    - Información del asset
+    - CVEs críticos/altos
+    - Estadísticas de exposición
+    - Recomendaciones de remediación
+    
+    Args:
+        ip: Dirección IP del asset
+    
+    Returns:
+        200: Reporte completo
+        404: Asset no encontrado
+        500: Error del servidor
+    """
+    try:
+        db = current_app.mongo.db
+        matcher = CVEMatcher(db)
+        
+        report = matcher.generate_asset_report(ip)
+        
+        # Convertir ObjectIds
+        report['asset']['_id'] = str(report['asset']['_id'])
+        for cve in report['cves']:
+            cve['_id'] = str(cve['_id'])
+        
+        return jsonify(report), 200
+    
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
+    
+    except Exception as e:
+        logger.error(f"Error generando reporte: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+
+@bp_assets.route('/match-all', methods=['POST'])
+def match_all_assets_with_cves():
+    """
+    POST /api/v1/assets/match-all
+    
+    Correlaciona TODOS los assets del inventario con CVEs.
+    
+    Body (opcional):
+    {
+        "limit_per_asset": 20,
+        "min_score": 7.0
+    }
+    
+    Returns:
+        200: Resultados del matching
+        500: Error del servidor
+    
+    NOTA: Puede tardar varios segundos con muchos assets.
+    """
+    try:
+        data = request.get_json() or {}
+        limit_per_asset = data.get('limit_per_asset', 20)
+        min_score = data.get('min_score', 0)
+        
+        db = current_app.mongo.db
+        matcher = CVEMatcher(db)
+        
+        logger.info(f"🔄 Iniciando matching completo de assets con CVEs...")
+        
+        results = matcher.match_all_assets(limit_per_asset=limit_per_asset)
+        
+        # Filtrar por score si se especifica
+        if min_score > 0:
+            for ip in results:
+                results[ip] = [
+                    cve for cve in results[ip]
+                    if cve.get('cvssv3', {}).get('score', 0) >= min_score
+                ]
+        
+        # Convertir ObjectIds
+        for ip in results:
+            for cve in results[ip]:
+                cve['_id'] = str(cve['_id'])
+        
+        # Summary global
+        total_cves = sum(len(cves) for cves in results.values())
+        assets_with_cves = len([ip for ip, cves in results.items() if cves])
+        
+        summary = {
+            'total_assets': len(results),
+            'assets_with_cves': assets_with_cves,
+            'total_cves_found': total_cves,
+            'avg_cves_per_asset': round(total_cves / len(results), 2) if results else 0
+        }
+        
+        logger.info(f"✅ Matching completo: {assets_with_cves}/{len(results)} assets con CVEs")
+        
+        return jsonify({
+            'status': 'ok',
+            'results': results,
+            'summary': summary
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error en match-all: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+
+@bp_assets.route('/critical-exposure', methods=['GET'])
+def get_critical_exposure():
+    """
+    GET /api/v1/assets/critical-exposure
+    
+    Retorna assets con CVEs críticos (CVSS >= 9.0).
+    
+    Query params:
+        - min_score: Score mínimo (default: 9.0)
+        - limit: Máximo de assets (default: 50)
+    
+    Returns:
+        200: Lista de assets con exposición crítica
+        500: Error del servidor
+    """
+    try:
+        min_score = float(request.args.get('min_score', 9.0))
+        limit = int(request.args.get('limit', 50))
+        
+        db = current_app.mongo.db
+        matcher = CVEMatcher(db)
+        
+        # Obtener todos los assets
+        assets = list(db['network_assets'].find({}).limit(limit))
+        
+        exposure = []
+        
+        for asset in assets:
+            critical_cves = matcher.get_critical_cves_for_asset(asset, min_score=min_score)
+            
+            if critical_cves:
+                # Convertir ObjectIds
+                asset['_id'] = str(asset['_id'])
+                for cve in critical_cves:
+                    cve['_id'] = str(cve['_id'])
+                
+                exposure.append({
+                    'asset': {
+                        'ip': asset['ip'],
+                        'hostname': asset.get('hostname'),
+                        'component_5g': asset.get('component_5g'),
+                        'software': asset.get('software'),
+                        'version': asset.get('version'),
+                        'criticality': asset.get('criticality')
+                    },
+                    'critical_cves': critical_cves,
+                    'count': len(critical_cves),
+                    'max_score': max(
+                        cve.get('cvssv3', {}).get('score', 0)
+                        for cve in critical_cves
+                    )
+                })
+        
+        # Ordenar por cantidad de CVEs críticos
+        exposure.sort(key=lambda x: x['count'], reverse=True)
+        
+        return jsonify({
+            'total_assets_at_risk': len(exposure),
+            'exposure': exposure
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error obteniendo exposición crítica: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+
+@bp_assets.route('/<ip>/remediation', methods=['GET'])
+def get_remediation_plan(ip):
+    """
+    GET /api/v1/assets/{ip}/remediation
+    
+    Genera plan de remediación priorizado para un asset.
+    
+    Returns:
+        200: Plan de remediación
+        404: Asset no encontrado
+    """
+    try:
+        db = current_app.mongo.db
+        matcher = CVEMatcher(db)
+        
+        asset = db['network_assets'].find_one({'ip': ip})
+        if not asset:
+            return jsonify({'error': f'Asset {ip} no encontrado'}), 404
+        
+        # Obtener CVEs críticos/altos
+        cves = matcher.get_critical_cves_for_asset(asset, min_score=7.0)
+        
+        # Priorizar por:
+        # 1. Exploit probability (IA)
+        # 2. CVSS Score
+        # 3. CISA KEV
+        
+        remediation_tasks = []
+        
+        for cve in cves:
+            score = cve.get('cvssv3', {}).get('score', 0)
+            exploit_prob = cve.get('ia_analysis', {}).get('exploit_probability', 0)
+            
+            # Calcular prioridad
+            priority = score * 10 + (exploit_prob * 100)
+            
+            task = {
+                'cve_id': cve['cve_id'],
+                'priority': round(priority, 2),
+                'cvss_score': score,
+                'exploit_probability': round(exploit_prob, 3),
+                'summary': cve.get('nombre', 'N/A')[:100],
+                'remediation': cve.get('recomendaciones_remediacion', 'No disponible')
+            }
+            
+            remediation_tasks.append(task)
+        
+        # Ordenar por prioridad
+        remediation_tasks.sort(key=lambda x: x['priority'], reverse=True)
+        
+        return jsonify({
+            'asset': {
+                'ip': ip,
+                'hostname': asset.get('hostname'),
+                'software': asset.get('software'),
+                'version': asset.get('version')
+            },
+            'tasks': remediation_tasks,
+            'total_tasks': len(remediation_tasks),
+            'estimated_effort': 'TBD'  # Puedes agregar lógica de estimación
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error generando plan de remediación: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
         
 # ============================================================================

@@ -1,6 +1,6 @@
 // components/AssetDetail.tsx
 // Vista detallada de un asset con información 5G y CVEs asociados
-// 🆕 Mejorado con soporte para versiones detectadas y cambios
+// 🆕 Mejorado con CVEs correlacionados automáticamente
 
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -34,7 +34,6 @@ type Asset = {
   created_at?: string;
   updated_at?: string;
   last_scanned?: string;
-  // 🆕 Historial de versiones
   version_history?: Array<{
     version: string;
     detected_at: string;
@@ -74,6 +73,13 @@ type CVEDetail = {
   tipo?: string;
   cvssv3?: { score: number; vector?: string };
   infraestructura_5g_afectada?: string[];
+  match_method?: string;
+  confidence?: "HIGH" | "MEDIUM" | "LOW";
+  match_reason?: string;
+  ia_analysis?: {
+    exploit_probability?: number;
+    weaponization_score?: number;
+  };
 };
 
 // ============================================================================
@@ -141,6 +147,12 @@ const getTimeAgo = (d: any) => {
 };
 
 const cvssSeverity = (s: number) => (s >= 9 ? "crit" : s >= 7 ? "high" : s >= 4 ? "med" : "low");
+const getCVSSSeverity = (score: number): string => {
+  if (score >= 9.0) return "CRITICAL";
+  if (score >= 7.0) return "HIGH";
+  if (score >= 4.0) return "MEDIUM";
+  return "LOW";
+};
 
 // ============================================================================
 // CVE DETAIL MODAL
@@ -216,7 +228,7 @@ function CVEDetailModal({ cveId, onClose }: { cveId: string; onClose: () => void
 }
 
 // ============================================================================
-// 🆕 VERSION HISTORY COMPONENT
+// VERSION HISTORY COMPONENT
 // ============================================================================
 function VersionHistory({ history }: { history?: Array<any> }) {
   if (!history || history.length === 0) {
@@ -271,8 +283,13 @@ export default function AssetDetail() {
   // CVE Modal
   const [selectedCVE, setSelectedCVE] = useState<string | null>(null);
   
-  // 🆕 Version history panel
+  // Version history panel
   const [showVersionHistory, setShowVersionHistory] = useState(false);
+
+  // 🆕 Correlated CVEs
+  const [correlatedCVEs, setCorrelatedCVEs] = useState<CVEDetail[]>([]);
+  const [loadingCVEs, setLoadingCVEs] = useState(false);
+  const [selectedSeverity, setSelectedSeverity] = useState<string>("all");
 
   useEffect(() => {
     const load = async () => {
@@ -302,6 +319,46 @@ export default function AssetDetail() {
     if (ip) load();
   }, [ip]);
 
+  // 🆕 Fetch correlated CVEs
+  useEffect(() => {
+    if (!ip) return;
+
+    const fetchCorrelatedCVEs = async () => {
+      try {
+        setLoadingCVEs(true);
+        const response = await fetch(`/api/v1/assets/${ip}/cves`);
+        if (response.ok) {
+          const data = await response.json();
+          setCorrelatedCVEs(data.cves || []);
+        }
+      } catch (err) {
+        console.error("Error fetching correlated CVEs:", err);
+      } finally {
+        setLoadingCVEs(false);
+      }
+    };
+
+    fetchCorrelatedCVEs();
+  }, [ip]);
+
+  // 🆕 Refresh CVEs manually
+  const refreshCVEs = async () => {
+    if (!ip) return;
+    
+    try {
+      setLoadingCVEs(true);
+      const response = await fetch(`/api/v1/assets/${ip}/cves`);
+      if (response.ok) {
+        const data = await response.json();
+        setCorrelatedCVEs(data.cves || []);
+      }
+    } catch (err) {
+      console.error("Error refreshing CVEs:", err);
+    } finally {
+      setLoadingCVEs(false);
+    }
+  };
+
   // Stats
   const stats = useMemo(() => {
     const activeIncidents = groups.filter((g) => g.status === "active").length;
@@ -327,6 +384,47 @@ export default function AssetDetail() {
     };
   }, [groups]);
 
+  // 🆕 Filter correlated CVEs by severity
+  const filteredCVEs = useMemo(() => {
+    if (selectedSeverity === "all") return correlatedCVEs;
+
+    const minScores: Record<string, number> = {
+      critical: 9.0,
+      high: 7.0,
+      medium: 4.0,
+    };
+
+    const minScore = minScores[selectedSeverity] || 0;
+    const maxScore = selectedSeverity === "critical" ? 10.0 : 
+                     selectedSeverity === "high" ? 8.9 : 
+                     selectedSeverity === "medium" ? 6.9 : 10.0;
+
+    return correlatedCVEs.filter((cve) => {
+      const score = cve.cvssv3?.score || 0;
+      return score >= minScore && score <= maxScore;
+    });
+  }, [correlatedCVEs, selectedSeverity]);
+
+  // 🆕 Count CVEs by severity
+  const cveSeverityStats = useMemo(() => {
+    const stats = {
+      critical: 0,
+      high: 0,
+      medium: 0,
+      low: 0,
+    };
+
+    correlatedCVEs.forEach((cve) => {
+      const score = cve.cvssv3?.score || 0;
+      if (score >= 9.0) stats.critical++;
+      else if (score >= 7.0) stats.high++;
+      else if (score >= 4.0) stats.medium++;
+      else stats.low++;
+    });
+
+    return stats;
+  }, [correlatedCVEs]);
+
   // Save edits
   const saveChanges = async () => {
     if (!asset) return;
@@ -338,9 +436,7 @@ export default function AssetDetail() {
         body: JSON.stringify(editForm),
       });
       if (!res.ok) throw new Error("Error guardando cambios");
-      const updated = await res.json();
       
-      // 🆕 Recargar asset completo para obtener datos actualizados
       const refreshRes = await fetch(`/api/v1/assets/${ip}`);
       const refreshedAsset = await refreshRes.json();
       
@@ -501,7 +597,6 @@ export default function AssetDetail() {
                     {asset.criticality}
                   </span>
                 )}
-                {/* 🆕 Badge de versión si existe */}
                 {asset.version && asset.version !== 'unknown' && (
                   <span className="px-2 py-1 rounded text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                     v{asset.version}
@@ -663,7 +758,6 @@ export default function AssetDetail() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-base">📡 Información 5G</CardTitle>
-              {/* 🆕 Botón para ver historial de versiones */}
               {asset.version_history && asset.version_history.length > 0 && (
                 <Button 
                   className="btn-ghost text-xs"
@@ -693,7 +787,6 @@ export default function AssetDetail() {
                       className="mt-1"
                     />
                   </div>
-                  {/* 🆕 Editar software y versión */}
                   <div>
                     <Label className="text-xs">Software</Label>
                     <Input
@@ -729,7 +822,6 @@ export default function AssetDetail() {
                     <div><span className="text-[var(--muted)]">Tipo:</span> <span className="font-medium ml-2">{asset.component_type || "—"}</span></div>
                   </div>
 
-                  {/* 🆕 Sección de versión mejorada */}
                   <div className="pt-3 border-t border-[var(--panel-border)]">
                     <h4 className="text-xs text-[var(--muted)] mb-2">Software y Versión:</h4>
                     
@@ -753,7 +845,6 @@ export default function AssetDetail() {
                           )}
                         </div>
                         
-                        {/* Confidence y método */}
                         {asset.version_confidence && asset.version !== 'unknown' && (
                           <div className="flex items-center gap-2 text-xs">
                             <span className={cn(
@@ -779,7 +870,6 @@ export default function AssetDetail() {
                     )}
                   </div>
 
-                  {/* 🆕 Historial de versiones expandible */}
                   {showVersionHistory && (
                     <div className="pt-3 border-t border-[var(--panel-border)]">
                       <h4 className="text-xs text-[var(--muted)] mb-3">Historial de Versiones:</h4>
@@ -789,7 +879,6 @@ export default function AssetDetail() {
                 </div>
               )}
 
-              {/* Services */}
               <div className="mt-4 pt-4 border-t border-[var(--panel-border)]">
                 <h4 className="text-xs text-[var(--muted)] mb-2">Servicios Expuestos:</h4>
                 {asset.services?.length ? (
@@ -808,57 +897,218 @@ export default function AssetDetail() {
           </Card>
         </div>
 
-        {/* CVEs Section */}
-        {(stats.confirmedCves > 0 || stats.suggestedCves > 0) && (
-          <Card className="mb-6">
-            <CardHeader>
-              <CardTitle className="text-base">🔗 CVEs Asociados</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Confirmed */}
-                <div>
-                  <h4 className="text-xs text-emerald-300 mb-2 font-semibold">✓ Confirmados ({stats.confirmedCves})</h4>
-                  {stats.confirmedCvesList.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
-                      {stats.confirmedCvesList.map((cve) => (
-                        <button
-                          key={cve}
-                          onClick={() => setSelectedCVE(cve)}
-                          className="px-2 py-1 bg-emerald-900/30 border border-emerald-500/40 rounded text-xs text-emerald-300 hover:bg-emerald-900/50 font-mono"
-                        >
-                          {cve}
-                        </button>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-sm text-slate-500">Ninguno</p>
-                  )}
-                </div>
+        {/* 🆕 CVEs Section - MEJORADO CON CORRELACIÓN */}
+        <Card className="mb-6">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle className="text-base">🔗 Vulnerabilidades Detectadas</CardTitle>
+            <Button 
+              className="btn-ghost text-xs" 
+              onClick={refreshCVEs}
+              disabled={loadingCVEs}
+            >
+              {loadingCVEs ? '🔄 Actualizando...' : '🔄 Actualizar'}
+            </Button>
+          </CardHeader>
+          <CardContent>
+            {/* 🆕 Tabs: Correlacionados vs Alertas */}
+            <div className="mb-4 flex gap-2 border-b border-slate-700 pb-2">
+              <button
+                onClick={() => setSelectedSeverity("all")}
+                className={cn(
+                  "px-3 py-1.5 rounded-t text-sm font-medium transition-colors",
+                  selectedSeverity === "all" 
+                    ? "bg-slate-700 text-white" 
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                )}
+              >
+                Todos ({correlatedCVEs.length})
+              </button>
+              <button
+                onClick={() => setSelectedSeverity("critical")}
+                className={cn(
+                  "px-3 py-1.5 rounded-t text-sm font-medium transition-colors",
+                  selectedSeverity === "critical" 
+                    ? "bg-red-600 text-white" 
+                    : "text-red-400 hover:text-white hover:bg-red-900/30"
+                )}
+              >
+                Critical ({cveSeverityStats.critical})
+              </button>
+              <button
+                onClick={() => setSelectedSeverity("high")}
+                className={cn(
+                  "px-3 py-1.5 rounded-t text-sm font-medium transition-colors",
+                  selectedSeverity === "high" 
+                    ? "bg-orange-600 text-white" 
+                    : "text-orange-400 hover:text-white hover:bg-orange-900/30"
+                )}
+              >
+                High ({cveSeverityStats.high})
+              </button>
+              <button
+                onClick={() => setSelectedSeverity("medium")}
+                className={cn(
+                  "px-3 py-1.5 rounded-t text-sm font-medium transition-colors",
+                  selectedSeverity === "medium" 
+                    ? "bg-yellow-600 text-white" 
+                    : "text-yellow-400 hover:text-white hover:bg-yellow-900/30"
+                )}
+              >
+                Medium ({cveSeverityStats.medium})
+              </button>
+            </div>
 
-                {/* Suggested */}
-                <div>
-                  <h4 className="text-xs text-amber-300 mb-2 font-semibold">💡 Sugeridos ({stats.suggestedCves})</h4>
-                  {stats.suggestedCvesList.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
-                      {stats.suggestedCvesList.map((cve) => (
+            {/* 🆕 CVEs Correlacionados */}
+            {loadingCVEs ? (
+              <div className="text-center py-8">
+                <div className="text-3xl animate-pulse mb-2">🔍</div>
+                <p className="text-slate-400">Correlacionando vulnerabilidades...</p>
+              </div>
+            ) : filteredCVEs.length === 0 ? (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-2">✅</div>
+                <p className="text-[var(--muted)]">
+                  {selectedSeverity === "all" 
+                    ? "No se detectaron vulnerabilidades para este asset" 
+                    : `No hay vulnerabilidades con severidad ${selectedSeverity.toUpperCase()}`
+                  }
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-3 max-h-[500px] overflow-y-auto">
+                {filteredCVEs.map((cve, idx) => (
+                  <div
+                    key={idx}
+                    className="border border-slate-700 rounded-lg p-3 hover:bg-slate-800/50 transition-colors"
+                  >
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-center gap-2">
                         <button
-                          key={cve}
-                          onClick={() => setSelectedCVE(cve)}
-                          className="px-2 py-1 bg-amber-900/30 border border-amber-500/40 rounded text-xs text-amber-300 hover:bg-amber-900/50 font-mono"
+                          onClick={() => setSelectedCVE(cve.cve_id)}
+                          className="font-mono text-sm text-blue-400 hover:underline font-semibold"
                         >
-                          {cve}
+                          {cve.cve_id}
                         </button>
-                      ))}
+                        
+                        {cve.confidence && (
+                          <span className={cn("px-2 py-0.5 rounded text-xs", CONFIDENCE_COLORS[cve.confidence])}>
+                            {cve.confidence === 'HIGH' ? '✓' : cve.confidence === 'MEDIUM' ? '~' : '?'} {cve.confidence}
+                          </span>
+                        )}
+                        
+                        {cve.match_method && (
+                          <span className="px-2 py-0.5 rounded text-xs bg-slate-700 text-slate-300 border border-slate-600">
+                            {cve.match_method.replace('_', ' ')}
+                          </span>
+                        )}
+                      </div>
+
+                      {cve.cvssv3?.score && (
+                        <span className={`badge badge-${cvssSeverity(cve.cvssv3.score)} text-sm px-2 py-0.5`}>
+                          {cve.cvssv3.score.toFixed(1)} {getCVSSSeverity(cve.cvssv3.score)}
+                        </span>
+                      )}
                     </div>
-                  ) : (
-                    <p className="text-sm text-slate-500">Ninguno</p>
-                  )}
+
+                    <p className="text-sm text-slate-300 mb-2">
+                      {cve.descripcion_general || cve.nombre || "Sin descripción"}
+                    </p>
+
+                    {cve.match_reason && (
+                      <div className="flex items-start gap-2 text-xs text-slate-400 bg-blue-900/20 border border-blue-500/30 p-2 rounded mb-2">
+                        <span>🎯</span>
+                        <span>{cve.match_reason}</span>
+                      </div>
+                    )}
+
+                    {cve.ia_analysis?.exploit_probability !== undefined && (
+                      <div className="flex items-center gap-2 text-xs mb-2">
+                        <span>⚡</span>
+                        <span className="text-slate-400">Probabilidad de exploit:</span>
+                        <span className={cn(
+                          "px-2 py-0.5 rounded",
+                          cve.ia_analysis.exploit_probability > 0.7 ? "bg-red-500/20 text-red-300" :
+                          cve.ia_analysis.exploit_probability > 0.4 ? "bg-yellow-500/20 text-yellow-300" :
+                          "bg-emerald-500/20 text-emerald-300"
+                        )}>
+                          {(cve.ia_analysis.exploit_probability * 100).toFixed(0)}%
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="flex gap-2 mt-2">
+                      <a
+                        href={`https://nvd.nist.gov/vuln/detail/${cve.cve_id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-blue-400 hover:underline"
+                      >
+                        Ver en NVD →
+                      </a>
+                      <button
+                        onClick={() => setSelectedCVE(cve.cve_id)}
+                        className="text-xs text-blue-400 hover:underline"
+                      >
+                        Ver detalles →
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Divider */}
+            {(stats.confirmedCves > 0 || stats.suggestedCves > 0) && correlatedCVEs.length > 0 && (
+              <div className="my-6 border-t border-slate-700/50" />
+            )}
+
+            {/* Original CVEs de Alertas */}
+            {(stats.confirmedCves > 0 || stats.suggestedCves > 0) && (
+              <div>
+                <h4 className="text-sm font-semibold mb-3 text-slate-300">CVEs de Alertas Suricata:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="text-xs text-emerald-300 mb-2 font-semibold">✓ Confirmados ({stats.confirmedCves})</h5>
+                    {stats.confirmedCvesList.length > 0 ? (
+                      <div className="flex flex-wrap gap-2">
+                        {stats.confirmedCvesList.map((cve) => (
+                          <button
+                            key={cve}
+                            onClick={() => setSelectedCVE(cve)}
+                            className="px-2 py-1 bg-emerald-900/30 border border-emerald-500/40 rounded text-xs text-emerald-300 hover:bg-emerald-900/50 font-mono"
+                          >
+                            {cve}
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-slate-500">Ninguno</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <h5 className="text-xs text-amber-300 mb-2 font-semibold">💡 Sugeridos ({stats.suggestedCves})</h5>
+                    {stats.suggestedCvesList.length > 0 ? (
+                      <div className="flex flex-wrap gap-2">
+                        {stats.suggestedCvesList.map((cve) => (
+                          <button
+                            key={cve}
+                            onClick={() => setSelectedCVE(cve)}
+                            className="px-2 py-1 bg-amber-900/30 border border-amber-500/40 rounded text-xs text-amber-300 hover:bg-amber-900/50 font-mono"
+                          >
+                            {cve}
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-slate-500">Ninguno</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        )}
+            )}
+          </CardContent>
+        </Card>
 
         {/* Incidents */}
         <Card>
